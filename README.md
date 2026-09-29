@@ -1,307 +1,191 @@
-# DIMSONSGFX — Портфолио цифрового художника
+# DIMSONSGFX — Digital Creative Assets Portfolio
 
-🌐 **Сайт:** [https://dimsonsgfx.github.io](https://dimsonsgfx.github.io)  
-📦 **Репозиторий:** [https://github.com/dimsonsgfx/dimsonsgfx.github.io](https://github.com/dimsonsgfx/dimsonsgfx.github.io)
+🌐 **Live Website:** [https://dimsonsgfx.github.io](https://dimsonsgfx.github.io)  
+📦 **GitHub Repository:** [https://github.com/dimsonsgfx/dimsonsgfx.github.io](https://github.com/dimsonsgfx/dimsonsgfx.github.io)
 
-Статический адаптивный сайт-портфолио на **GitHub Pages**, оформленный на основе шаблона **Simple Blog v2 (avaxgfxgreen)**:
-- 3 колонки сетки работ (посты в 3 ряда)
-- Левая боковая колонка (навигация, выбор редакции, топ работ)
-- Правая колонка убрана для максимального фокуса на галерее
-- Текстовый логотип-заглушка `DIMSONSGFX`
-- Переключатель тёмной / светлой темы (с сохранением в `localStorage`)
-- Клиентский быстрый поиск по работам
-- Полная SEO-оптимизация (JSON-LD, Open Graph, Twitter Cards, Sitemap с картинками, robots.txt)
-- Подготовленная архитектура для автопостинга из Telegram
+Modern, fast, fully responsive static portfolio hosted on **GitHub Pages**, styled after the **Simple Blog v2 (avaxgfxgreen)** design system:
+- **English UI and Content:** English navigation, titles, descriptions, and metadata
+- **Clean 3-Column Grid:** Post cards rendered in 3 columns for optimal desktop viewing
+- **Simplified Sidebar:** Only the Categories block in the left sidebar (extra blocks removed)
+- **Brand Emblem & Logo:** Custom circular glowing emblem (`logo-icon.png`) + `DIMSONSGFX` typography
+- **New Favicon:** High-resolution multi-format favicon (`favicon.png`, `favicon.ico`, `apple-touch-icon`)
+- **No Views Counter:** Views count icon removed from all short cards and single item pages
+- **5 Focused Categories:**
+  1. 🖨️ **3D Print Models** (`/category/3d-print-models/`)
+  2. 📊 **PowerPoint Templates** (`/category/powerpoint-templates/`)
+  3. 📄 **InDesign Templates** (`/category/indesign-templates/`)
+  4. 💻 **Mockup Templates** (`/category/mockup-templates/`)
+  5. 🎨 **UI Design Kits** (`/category/ui-design-kits/`)
+- **Dark & Light Mode:** Toggleable theme with zero-flash initial loading and `localStorage` persistence
+- **Full SEO Suite:** Schema.org JSON-LD (`WebSite`, `Person`, `BreadcrumbList`, `ImageObject`, `CreativeWork`), Open Graph, Twitter Cards, XML Image Sitemap, and `robots.txt`
 
 ---
 
-## Быстрый старт (сборка и деплой)
+## Quick Start (Build & Deploy)
 
-Сайт генерируется локальным скриптом на Python без сторонних зависимостей.
+The site is built with a self-contained Python generator with zero external pip dependencies.
 
-1. Пересобрать сайт:
+1. Rebuild all HTML, category archives, work pages, and sitemaps:
 ```bash
 python scripts/build.py
 ```
-2. Отправить изменения на GitHub (деплой произойдёт автоматически за 1-2 минуты):
+2. Deploy to GitHub Pages:
 ```bash
 git add -A
-git commit -m "Update portfolio"
+git commit -m "Update portfolio items"
 git push
 ```
+GitHub Pages automatically deploys the updated `main` branch in ~1-2 minutes.
 
 ---
 
-## Структура проекта
+## File Structure
 
 ```text
 dimsonsgfx.github.io/
-├── index.html              ← Главная страница (последние и все работы)
-├── 404.html                ← Страница ошибки 404
-├── sitemap.xml             ← Карта сайта с разметкой image:image
-├── robots.txt              ← Инструкции для поисковых роботов
-├── .nojekyll               ← Отключение Jekyll на GitHub Pages
-├── category/               ← Страницы категорий с пагинацией
-│   ├── arts/index.html
-│   ├── logos/index.html
-│   ├── banners/index.html
-│   ├── illustrations/index.html
-│   └── other/index.html
-├── works/                  ← Отдельные страницы для каждой работы
-│   ├── urban-dreams/index.html
-│   ├── logo-minimalist/index.html
+├── index.html              ← Homepage (Latest Works + All Works)
+├── 404.html                ← 404 Error page (noindex)
+├── sitemap.xml             ← XML Sitemap with image:image metadata
+├── robots.txt              ← Search engine crawler rules
+├── .nojekyll               ← Prevents GitHub Pages Jekyll processing
+├── category/               ← Category archive pages with pagination
+│   ├── 3d-print-models/
+│   ├── powerpoint-templates/
+│   ├── indesign-templates/
+│   ├── mockup-templates/
+│   └── ui-design-kits/
+├── works/                  ← Single item detail pages
+│   ├── cyberpunk-helmet-mk4/
+│   ├── pitch-deck-pro-presentation/
 │   └── ...
-├── search/                 ← Страница живого поиска
+├── search/                 ← Fast client-side search
 │   └── index.html
 ├── assets/
 │   ├── css/
-│   │   ├── styles.css      ← Базовые стили шаблона avaxgfxgreen
-│   │   ├── patch.css       ← 3 ряда постов, тёмная тема, логотип, скрытие правой колонки
-│   │   └── fonts.css       ← Декларации Font Awesome
+│   │   ├── styles.css      ← Base template stylesheet
+│   │   ├── patch.css       ← 3-column grid, dark theme, logo styles
+│   │   └── fonts.css       ← Font Awesome declarations
 │   ├── js/
-│   │   ├── libs.js         ← Вспомогательные библиотеки
-│   │   └── site.js         ← Управление темой, поиск, ленивая загрузка, сайдбар
-│   ├── images/             ← Изображения работ (SVG/PNG/JPG/WebP), логотип, og-default.svg
-│   ├── dleimages/          ← Иконки элементов интерфейса
-│   └── webfonts/           ← Шрифты Font Awesome 5 Pro
+│   │   ├── libs.js         ← Core template scripts
+│   │   └── site.js         ← Theme switcher, mobile drawer, search
+│   ├── images/             ← Work preview cards, favicon.png, logo-icon.png
+│   ├── dleimages/          ← UI icons
+│   └── webfonts/           ← Font Awesome 5 Pro fonts
 ├── data/
-│   ├── works.json          ← Единая база всех работ (источник данных)
-│   └── categories.json     ← Список категорий и их метаданные
+│   ├── works.json          ← Complete database of portfolio items
+│   └── categories.json     ← Category metadata and icons
 └── scripts/
-    └── build.py            ← Генератор статичных страниц и SEO
+    └── build.py            ← Static site generation script
 ```
 
 ---
 
-## Как добавить новую работу
+## How to Add a New Item
 
-Все работы хранятся в файле [`data/works.json`](data/works.json).
+All items are stored in [`data/works.json`](data/works.json).
 
-### 1. Подготовка файла изображения
-- Имя файла **только латиницей в kebab-case** (например, `logo-dark-fox.webp` или `cyber-samurai-art.jpg`, но **НЕ** `IMG_0123.jpg`).
-- Положите файл в папку `assets/images/`.
-- Рекомендуемые форматы: WebP или JPG (ширина 800–1920px, качественное сжатие).
+### 1. Prepare your preview image
+- Save file using **Latin letters and hyphens** (e.g. `cyber-helmet-3d.webp` or `pitch-deck-preview.jpg`, NOT `IMG_1234.jpg`).
+- Place the image in `assets/images/`.
 
-### 2. Добавление записи в `data/works.json`
-Добавьте в массив новый JSON-объект:
-
+### 2. Add an entry to `data/works.json`:
 ```json
 {
-  "slug": "logo-dark-fox",
-  "title": "Dark Fox Studio",
-  "description": "Фирменный знак и айдентика для игровой инди-студии. Минималистичный силуэт лисы с акцентом на геометрию и динамику. Разработано в векторе для адаптации под любые носители.",
-  "category": "logos",
-  "categoryLabel": "Логотипы",
-  "date": "2026-10-01",
-  "image": "/assets/images/logo-dark-fox.webp",
-  "thumb": "/assets/images/logo-dark-fox.webp",
-  "emoji": "🦊",
-  "tags": ["логотип", "студия", "минимализм", "вектор"],
+  "slug": "futuristic-mech-drone",
+  "title": "Futuristic Mech Drone 3D Print",
+  "description": "Articulated mechanical drone designed for FDM and SLA 3D printing. Features movable ball joints, high-resolution panel lining, and pre-supported STL files. Perfect for tabletop wargaming and collectors.",
+  "category": "3d-print-models",
+  "categoryLabel": "3D Print Models",
+  "date": "2026-10-05",
+  "image": "/assets/images/futuristic-mech-drone.webp",
+  "thumb": "/assets/images/futuristic-mech-drone.webp",
+  "emoji": "🤖",
+  "tags": ["3D Print", "Mecha", "STL", "Miniature"],
   "views": 0,
   "source": "manual"
 }
 ```
 
-> **Важно по SEO:**
-> - `description` должен содержать не менее 2–3 предложений с понятным описанием стиля и контекста работы.
-> - `alt` для изображения формируется автоматически по формуле: `"{title} — {categoryLabel}"`.
-
-### 3. Пересборка:
+### 3. Rebuild and publish:
 ```bash
 python scripts/build.py
-git add -A && git commit -m "Add work: Dark Fox Studio" && git push
+git add -A && git commit -m "Add Futuristic Mech Drone" && git push
 ```
 
 ---
 
-## Как добавить или изменить категорию
+## Search Console & Webmaster Verification
 
-Категории настраиваются в файле [`data/categories.json`](data/categories.json):
-
-```json
-{
-  "slug": "3d-models",
-  "label": "3D Модели",
-  "icon": "🧊",
-  "description": "Низкополигональные и высокополигональные 3D модели, рендеры и текстуры"
-}
-```
-
-После редактирования запустите `python scripts/build.py`. Скрипт создаст папку `/category/3d-models/index.html`, добавит её в меню, навигацию, sitemap.xml и карту сайта.
-
----
-
-## Как заменить логотип-заглушку на реальный логотип
-
-Сейчас в шапке отображается аккуратная текстовая заглушка `DIMSONSGFX`.
-
-Когда будет готов графический логотип:
-1. Сохраните изображение размером `280x60` px как `assets/images/logo.png`.
-2. В файле [`assets/css/patch.css`](assets/css/patch.css) найдите блок:
-```css
-/* Скрываем битый img логотипа, показываем текст */
-.logo img { display: none; }
-.logo-text { display: block !important; }
-```
-3. Замените на:
-```css
-.logo img { display: block !important; max-height: 50px; }
-.logo-text { display: none !important; }
-```
-4. Запустите `git add -A && git commit -m "Update logo" && git push`.
-
----
-
-## Как изменить оформление и цвета
-
-1. **Акцентный цвет сайта (`#36c537` — зелёный):**
-   - Замените hex-код `#36c537` в `assets/css/styles.css` и `assets/css/patch.css` на желаемый (например, золотой `#c8a96e`, бирюзовый `#00ccaa` или индиго `#6366f1`).
-2. **Тёмная тема:**
-   - Все параметры тёмной темы находятся в секции `[data-theme="dark"]` файла `assets/css/patch.css`.
-   - Можно менять фон карточек, шапки, футера и текста.
-
----
-
-## Подтверждение прав: Google Search Console и Яндекс Вебмастер
-
-В скрипте [`scripts/build.py`](scripts/build.py) предусмотрены переменные для добавления кодов верификации:
+In [`scripts/build.py`](scripts/build.py), verification code variables are ready:
 
 ```python
-GOOGLE_VERIFICATION = ""   # Вставьте код подтверждения Google сюда
-YANDEX_VERIFICATION = ""   # Вставьте код подтверждения Яндекс сюда
+GOOGLE_VERIFICATION = ""   # Paste Google Search Console verification code here
+YANDEX_VERIFICATION = ""   # Paste Yandex Webmaster verification code here
 ```
 
-### Пошаговая инструкция: Google Search Console
-1. Перейдите в [Google Search Console](https://search.google.com/search-console/).
-2. Нажмите **Добавить ресурс** (Add Property).
-3. Выберите вариант **Префикс URL** (URL prefix) и введите:  
-   `https://dimsonsgfx.github.io`
-4. В способах подтверждения раскройте **Тег HTML** (HTML tag).
-5. Скопируйте значение атрибута `content`:
-   `<meta name="google-site-verification" content="ВАШ_КОД_ЗДЕСЬ" />`
-6. Откройте `scripts/build.py`, укажите:
+### Google Search Console Setup
+1. Go to [Google Search Console](https://search.google.com/search-console/).
+2. Select **URL prefix** and enter: `https://dimsonsgfx.github.io`
+3. Choose the **HTML tag** verification method.
+4. Copy the `content` code string.
+5. In `scripts/build.py`, set:
    ```python
-   GOOGLE_VERIFICATION = "ВАШ_КОД_ЗДЕСЬ"
+   GOOGLE_VERIFICATION = "YOUR_CODE_HERE"
    ```
-7. Запустите сборку и отправьте изменения на GitHub:
-   ```bash
-   python scripts/build.py
-   git add -A && git commit -m "Add Google verification" && git push
-   ```
-8. В Search Console нажмите кнопку **Подтвердить** (Verify).
-9. В левом меню перейдите в **Файлы Sitemap** (Sitemaps) и отправьте URL:  
-   `https://dimsonsgfx.github.io/sitemap.xml`
+6. Run `python scripts/build.py`, commit and push to GitHub.
+7. Click **Verify** in Google Search Console.
+8. Go to **Sitemaps** and submit: `https://dimsonsgfx.github.io/sitemap.xml`
 
-### Пошаговая инструкция: Яндекс Вебмастер
-1. Перейдите в [Яндекс Вебмастер](https://webmaster.yandex.ru/).
-2. Нажмите **Добавить сайт** и введите:  
-   `https://dimsonsgfx.github.io`
-3. Выберите метод подтверждения **Метатег**.
-4. Скопируйте значение из `content`:
-   `<meta name="yandex-verification" content="ВАШ_КОД_ЗДЕСЬ" />`
-5. В `scripts/build.py` укажите:
+### Yandex Webmaster Setup
+1. Go to [Yandex Webmaster](https://webmaster.yandex.com/).
+2. Add site: `https://dimsonsgfx.github.io`
+3. Select **Meta tag** verification.
+4. Copy the code from `content` attribute.
+5. In `scripts/build.py`, set:
    ```python
-   YANDEX_VERIFICATION = "ВАШ_КОД_ЗДЕСЬ"
+   YANDEX_VERIFICATION = "YOUR_CODE_HERE"
    ```
-6. Соберите и запушьте:
-   ```bash
-   python scripts/build.py
-   git add -A && git commit -m "Add Yandex verification" && git push
-   ```
-7. В Яндекс Вебмастере нажмите **Проверить**.
-8. Перейдите в раздел **Индексирование** → **Файлы Sitemap** и укажите:  
-   `https://dimsonsgfx.github.io/sitemap.xml`
+6. Run `python scripts/build.py`, commit and push.
+7. Click **Check** in Yandex Webmaster.
+8. Submit Sitemap URL: `https://dimsonsgfx.github.io/sitemap.xml`
 
 ---
 
-## Архитектура автопостинга из Telegram
+## Telegram Autoposting Architecture
 
-Полная реализация будет развёрнута отдельным шагом, но вся структура данных и разметка уже готовы:
+The project is structured to easily integrate an automated poster from a Telegram channel via GitHub Actions:
 
-### 1. Формат поста в Telegram-канале
-При публикации в Telegram подпись к фотографии оформляется по шаблону:
-
+### 1. Channel Post Format
 ```text
-Название работы
+Item Name
 
-Подробное описание работы: в какой программе создано, в чём идея, ключевые особенности дизайна. Не менее двух-трёх законченных предложений.
+Full description of the item in 2-3 detailed sentences. Specify software used, key features, and file formats included.
 
-#арты #иллюстрация #photoshop
+#3dprint #stl #design
 ```
 
-### 2. Сопоставление хэштегов с категориями сайта
-Бот парсит хэштеги в конце поста:
-- `#арты` или `#арт` → `arts` (Арты)
-- `#логотипы` или `#лого` → `logos` (Логотипы)
-- `#баннеры` или `#баннер` → `banners` (Баннеры)
-- `#иллюстрации` или `#иллюстрация` → `illustrations` (Иллюстрации)
-- По умолчанию / другие хэштеги → `other` (Прочее)
+### 2. Hashtag Category Mapping
+- `#3dprint`, `#3dmodels`, `#stl` → `3d-print-models`
+- `#powerpoint`, `#presentation`, `#pitchdeck` → `powerpoint-templates`
+- `#indesign`, `#editorial`, `#magazine` → `indesign-templates`
+- `#mockup`, `#psd`, `#branding` → `mockup-templates`
+- `#uikit`, `#figma`, `#ui` → `ui-design-kits`
 
-### 3. Шаблон записи, которую формирует автопостинг:
-Бот сохраняет сжатое фото в `assets/images/tg-{id}.webp` и добавляет объект в `data/works.json`:
-
-```json
-{
-  "slug": "cyber-samurai-20261015",
-  "title": "Cyber Samurai",
-  "description": "Кибер-самурай — Арты. Концепт персонажа для футуристической новеллы. Световые мечи и неоновые пластины брони на фоне ночного неонового Токио.",
-  "category": "arts",
-  "categoryLabel": "Арты",
-  "date": "2026-10-15",
-  "image": "/assets/images/tg-12345.webp",
-  "thumb": "/assets/images/tg-12345.webp",
-  "emoji": "🎨",
-  "tags": ["самурай", "киберпанк", "неон"],
-  "views": 0,
-  "source": "telegram",
-  "telegram_post_id": 12345
-}
-```
-
-### 4. Автоматизация через GitHub Actions
-Будет создан `.github/workflows/telegram-sync.yml`, который:
-1. Запускается по cron (например, раз в 30 минут) или по вебхуку.
-2. Скачивает новые фото из канала через Bot API.
-3. Оптимизирует изображения (WebP, 85% качество, max width 1600px).
-4. Заполняет `title`, `description`, `alt`, `tags`.
-5. Запускает `python scripts/build.py`.
-6. Коммитит и пушит в ветку `main`.
-7. Сайт автоматически обновляется на GitHub Pages.
+### 3. Automated GitHub Action Workflow
+`.github/workflows/telegram-sync.yml` can poll new Telegram channel media via Telegram Bot API, compress images to WebP (85%), append new objects to `data/works.json`, run `python scripts/build.py`, and push directly to `main`.
 
 ---
 
-## Реализованное SEO
+## Implemented Features
 
-- [x] **Уникальные Title и Meta Description** для каждой страницы
-- [x] **Единственный тег H1** на каждой странице (семантически правильная иерархия)
-- [x] **Теги Canonical** со строгими абсолютными URL
-- [x] **Open Graph и Twitter Card** на всех страницах (корректные превью при шеринге)
-- [x] **Карта сайта `sitemap.xml`** с расширением `xmlns:image` и тегами `<image:image>`
-- [x] **Файл `robots.txt`** с запретом индексации поисковой страницы и ссылкой на sitemap
-- [x] **Микроразметка Schema.org (JSON-LD)**:
-  - `WebSite` с поисковым действием `SearchAction` (на главной)
-  - `Person` — информация об авторе
-  - `CreativeWork` и `ImageObject` — детальная информация об иллюстрациях
-  - `BreadcrumbList` — цепочка хлебных крошек
-  - `CollectionPage` — страницы категорий
-- [x] **Оптимизация загрузки**: `loading="lazy"`, явные размеры `width`/`height` для защиты от сдвигов верстки (CLS)
-- [x] **Защита от 404 индексации**: директива `noindex, follow` на странице 404
-
----
-
-## Чеклист готовности
-
-- [x] Репозиторий и хостинг на GitHub Pages
-- [x] Вёрстка по шаблону avaxgfxgreen
-- [x] Посты в 3 ряда без правой колонки
-- [x] Текстовый логотип-заглушка `DIMSONSGFX`
-- [x] Тёмная и светлая тема
-- [x] 17 тестовых работ в 5 категориях
-- [x] Сайдбар с выбором редакции и топом работ
-- [x] Живой поиск
-- [x] Полный пакет SEO (JSON-LD, Sitemap, OG)
-- [x] Места под коды Google Search Console и Яндекс Вебмастер
-- [x] Документация и спецификация автопостинга
-- [ ] *В будущем:* привязать реальный логотип и фотографии работ
-- [ ] *В будущем:* настроить скрипт автопостинга из Telegram через GitHub Actions
-- [ ] *В будущем:* вставить коды верификации вебмастеров после их получения
+- [x] Full English localization
+- [x] Custom favicon & circular brand emblem
+- [x] Removed views counter from short cards and single item pages
+- [x] Simplified sidebar: removed "Editor's Pick" and "Top Works", keeping ONLY Categories
+- [x] Responsive 3-column layout (avaxgfxgreen style)
+- [x] Dark / Light theme toggle with `localStorage`
+- [x] Instant client-side search over JSON database
+- [x] Schema.org JSON-LD (`WebSite`, `Person`, `BreadcrumbList`, `ImageObject`, `CreativeWork`)
+- [x] XML Sitemap with `<image:image>` extension
+- [x] `robots.txt` configuration
+- [x] GitHub Pages hosting at `https://dimsonsgfx.github.io`

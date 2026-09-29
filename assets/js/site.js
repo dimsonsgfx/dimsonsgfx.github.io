@@ -1,8 +1,7 @@
 // ================================================
 // DIMSONSGFX — site.js
-// Статический аналог libs.js из шаблона DLE
-// Тема, мобильное меню, поиск, ленивая загрузка,
-// кнопка наверх, загрузка данных из JSON
+// Theme, mobile navigation, search, lazy loading,
+// go-to-top button, dynamic JSON loader
 // ================================================
 
 'use strict';
@@ -59,7 +58,6 @@ function initMobileMenu() {
 
 // ── Submenu hover ──────────────────────────────
 function initSubmenus() {
-  // Already handled by CSS :hover, but add mobile tap
   document.querySelectorAll('.submenu > a').forEach(a => {
     a.addEventListener('click', function(e) {
       if (window.innerWidth <= 1220) {
@@ -97,12 +95,11 @@ function initSearch() {
     if (e.key === 'Escape') searchWrap.classList.remove('visible');
   });
 
-  // JS search (client-side, searches works.json)
   const form = document.getElementById('quicksearch');
   if (form) {
-    form.addEventListener('submit', async e => {
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      const query = (searchInput?.value || '').trim().toLowerCase();
+      const query = (searchInput?.value || '').trim();
       if (!query) return;
       window.location.href = `/search/?q=${encodeURIComponent(query)}`;
     });
@@ -138,7 +135,6 @@ function initLazyLoad() {
       obs.observe(img);
     });
   } else {
-    // Fallback
     document.querySelectorAll('img[loading="lazy"]').forEach(img => {
       img.classList.add('loaded');
     });
@@ -187,7 +183,7 @@ async function loadCategories() {
   }
 }
 
-// ── Render short card (like shortstory.tpl) ────
+// ── Render short card (no views icon, in English) ──
 function renderShortItem(work) {
   const dateStr = formatDate(work.date);
   const imgHtml = work.thumb
@@ -195,56 +191,30 @@ function renderShortItem(work) {
     : `<div class="no-image-placeholder"><span class="emoji">${work.emoji||'🎨'}</span></div>`;
 
   return `
-<div class="short-item">
+<article class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
   <a class="short-link" href="/works/${esc(work.slug)}/">
     <div class="short-img img-resp img-fit">
       ${imgHtml}
       <div class="short-category">${esc(work.categoryLabel||work.category)}</div>
     </div>
-    <div class="short-title title anim">${esc(work.title)}</div>
+    <div class="short-title title anim" itemprop="name">${esc(work.title)}</div>
   </a>
   <div class="short-meta fx-row fx-middle icon-left">
-    <div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt"></span>${dateStr}</div>
-    <div class="short-meta-item"><span class="far fa-eye"></span>${work.views||0}</div>
+    <div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="${esc(work.date||'')}">${dateStr}</time></div>
   </div>
-  <div class="short-text">${esc((work.description||'').substring(0,140))}${work.description&&work.description.length>140?'…':''}</div>
-  <div class="short-bottom fx-row fx-middle icon-left">
+  <div class="short-text" itemprop="description">${esc((work.description||'').substring(0,140))}${work.description&&work.description.length>140?'…':''}</div>
+  <div class="short-bottom fx-row fx-middle">
     <div class="fx-1"></div>
-    <a class="short-btn btn" href="/works/${esc(work.slug)}/">Подробнее</a>
+    <a class="short-btn btn" href="/works/${esc(work.slug)}/">View Details</a>
   </div>
-</div>`;
-}
-
-// ── Render top-item (sidebar) ──────────────────
-function renderTopItem(work) {
-  const imgHtml = work.thumb
-    ? `<img src="${esc(work.thumb)}" alt="${esc(work.title)}" loading="lazy" width="60" height="60">`
-    : `<div style="width:60px;height:60px;background:#e8eaed;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">${work.emoji||'🎨'}</div>`;
-  return `
-<a class="top-item fx-row" href="/works/${esc(work.slug)}/">
-  <div class="top-item-img img-box">${imgHtml}</div>
-  <div class="top-item-text fx-1">${esc(work.title)}</div>
-</a>`;
-}
-
-// ── Render thumb item (related/editor's pick) ──
-function renderThumbItem(work) {
-  const imgHtml = work.thumb
-    ? `<img src="${esc(work.thumb)}" alt="${esc(work.title)}" loading="lazy" width="200" height="120">`
-    : `<div style="height:120px;background:#e8eaed;display:flex;align-items:center;justify-content:center;font-size:2rem;">${work.emoji||'🎨'}</div>`;
-  return `
-<a class="thumb-item" href="/works/${esc(work.slug)}/">
-  <div class="thumb-item-img img-wide">${imgHtml}</div>
-  <div class="thumb-item-cat">${esc(work.categoryLabel||work.category)}</div>
-  <div class="thumb-item-title">${esc(work.title)}</div>
-</a>`;
+</article>`;
 }
 
 // ── Helpers ────────────────────────────────────
 function formatDate(d) {
   if (!d) return '';
   try {
-    return new Date(d).toLocaleDateString('ru-RU', {
+    return new Date(d).toLocaleDateString('en-US', {
       day: 'numeric', month: 'long', year: 'numeric'
     });
   } catch { return d; }
@@ -256,47 +226,6 @@ function esc(s) {
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function pluralRu(n, f1, f2, f5) {
-  n = Math.abs(n) % 100;
-  const n1 = n % 10;
-  if (n > 10 && n < 20) return f5;
-  if (n1 > 1 && n1 < 5) return f2;
-  if (n1 === 1) return f1;
-  return f5;
-}
-
-// ── Populate sidebars ─────────────────────────
-async function populateSidebars(opts = {}) {
-  const works = await loadWorks();
-  if (!works.length) return;
-
-  const sorted = [...works].sort((a, b) => new Date(b.date) - new Date(a.date));
-  const catFilter = opts.category || null;
-
-  // Editor's pick (Выбор редакции) — первые 3
-  const editorPick = document.getElementById('sidebar-editor-pick');
-  if (editorPick) {
-    editorPick.innerHTML = sorted.slice(0, 3).map(renderThumbItem).join('');
-  }
-
-  // Top week (Топ за неделю / Популярное) — первые 5-6
-  document.querySelectorAll('[data-sidebar="top"]').forEach(el => {
-    const limit = parseInt(el.dataset.limit || '6');
-    el.innerHTML = sorted.slice(0, limit).map(renderTopItem).join('');
-  });
-
-  // Recommend (Рекомендуем)
-  const recommend = document.getElementById('sidebar-recommend');
-  if (recommend) {
-    const recs = catFilter
-      ? works.filter(w => w.category === catFilter).slice(0, 5)
-      : sorted.slice(3, 8);
-    recommend.innerHTML = recs.map(renderThumbItem).join('');
-  }
-
-  initLazyLoad();
-}
-
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   applyTheme(getTheme());
@@ -306,8 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initGoTop();
   initLazyLoad();
   markActiveNav();
-
-  populateSidebars();
 
   const themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {

@@ -38,15 +38,25 @@
 .fas { font-family: 'Font Awesome 5 Pro'; font-weight: 900; font-style: normal; display: inline-block; }
 .fab { font-family: 'Font Awesome 5 Brands'; font-weight: 400; font-style: normal; display: inline-block; }
 
-/* ── LOGO — заглушка текстом, пока нет logo.png ── */
+/* ── LOGO with user emblem ── */
 .logo {
   display: flex;
   align-items: center;
+  gap: 12px;
   width: auto !important;
   height: 60px;
   text-decoration: none;
 }
+.logo img.logo-icon {
+  display: inline-block !important;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(54, 197, 55, 0.4);
+}
 .logo-text {
+  display: block !important;
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   font-weight: 800;
@@ -56,10 +66,6 @@
 }
 .logo-text .accent { color: #36c537; }
 [data-theme="dark"] .logo-text { color: #f0f0f0; }
-
-/* Скрываем битый img логотипа, показываем текст */
-.logo img { display: none; }
-.logo-text { display: block !important; }
 
 /* ── LAYOUT: убираем правую колонку ── */
 .col-right { display: none !important; }

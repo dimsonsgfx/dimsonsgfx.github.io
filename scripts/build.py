@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DIMSONSGFX — Build script v2
-Изменения:
-  - Убрана правая колонка (col-right)
-  - Посты в 3 столбца
-  - Текстовый логотип-заглушка DIMSONSGFX
-  - Полный SEO: JSON-LD ImageObject+BreadcrumbList, WebSite, Person
-  - Image sitemap
-  - Webmaster-теги (Google, Яндекс) — заглушки
-  - Image alt из title + category
-  - Canonical URL на каждой странице
+DIMSONSGFX — Build script v3 (English Edition)
+Updates:
+  - Full English translation across all templates, SEO, and navigation
+  - Categories: 3D Print Models, PowerPoint Templates, InDesign Templates, Mockup Templates, UI Design Kits
+  - Removed views counter icon from both shortstory cards and fullstory pages
+  - Sidebar simplified: removed "Editor's Pick" and "Top Works", keeping ONLY Categories
+  - New custom favicon and circular logo badge integration
+  - JSON-LD structured data (ImageObject, BreadcrumbList, WebSite, Person)
+  - XML Image Sitemap & robots.txt
 """
 import json, os
 from datetime import datetime
@@ -23,20 +22,8 @@ DATA  = os.path.join(BASE, "data")
 TODAY = datetime.now().strftime("%Y-%m-%d")
 
 # ── Webmaster verification codes ────────────────
-# Оставляем пустыми — пользователь вставит свои коды в эти переменные
-GOOGLE_VERIFICATION  = ""   # google-site-verification
-YANDEX_VERIFICATION  = ""   # yandex-verification
-
-# ── Load data ────────────────────────────────────
-with open(os.path.join(DATA, "works.json"), encoding="utf-8-sig") as f:
-    works = json.load(f)
-with open(os.path.join(DATA, "categories.json"), encoding="utf-8-sig") as f:
-    categories = json.load(f)
-
-cat_map      = {c["slug"]: c for c in categories}
-works_by_cat = {}
-for w in works:
-    works_by_cat.setdefault(w["category"], []).append(w)
+GOOGLE_VERIFICATION  = ""   # Paste Google Search Console code here
+YANDEX_VERIFICATION  = ""   # Paste Yandex Webmaster code here
 
 # ── Helpers ──────────────────────────────────────
 def esc(s):
@@ -49,25 +36,16 @@ def fmt_date(d):
     if not d: return ""
     try:
         dt = datetime.strptime(d, "%Y-%m-%d")
-        months = ["","января","февраля","марта","апреля","мая","июня",
-                  "июля","августа","сентября","октября","ноября","декабря"]
-        return f"{dt.day} {months[dt.month]} {dt.year}"
+        months = ["","January","February","March","April","May","June",
+                  "July","August","September","October","November","December"]
+        return f"{months[dt.month]} {dt.day}, {dt.year}"
     except:
         return d
 
-def pluralRu(n, f1="работа", f2="работы", f5="работ"):
-    n = abs(int(n)) % 100
-    n1 = n % 10
-    if 10 < n < 20: return f5
-    if 1 < n1 < 5:  return f2
-    if n1 == 1:      return f1
-    return f5
-
 def img_alt(w):
-    """Строим alt из title + category (никогда не пустой)."""
     cat = cat_map.get(w.get("category",""), {})
     cat_label = cat.get("label", w.get("category",""))
-    return f"{w.get('title','')} — {cat_label}"
+    return f"{w.get('title','')} - {cat_label}"
 
 def og_image_url(w):
     img = w.get("image","") or w.get("thumb","")
@@ -83,16 +61,16 @@ def webmaster_meta():
     if GOOGLE_VERIFICATION:
         tags.append(f'\t<meta name="google-site-verification" content="{esc(GOOGLE_VERIFICATION)}">')
     else:
-        tags.append('\t<!-- GOOGLE SEARCH CONSOLE: вставь свой код ниже (или в переменную GOOGLE_VERIFICATION в build.py) -->')
-        tags.append('\t<!-- <meta name="google-site-verification" content="ТВОЙ_КОД"> -->')
+        tags.append('\t<!-- GOOGLE SEARCH CONSOLE: Add code below or in GOOGLE_VERIFICATION in build.py -->')
+        tags.append('\t<!-- <meta name="google-site-verification" content="YOUR_CODE_HERE"> -->')
     if YANDEX_VERIFICATION:
         tags.append(f'\t<meta name="yandex-verification" content="{esc(YANDEX_VERIFICATION)}">')
     else:
-        tags.append('\t<!-- ЯНДЕКС ВЕБМАСТЕР: вставь свой код ниже -->')
-        tags.append('\t<!-- <meta name="yandex-verification" content="ТВОЙ_КОД"> -->')
+        tags.append('\t<!-- YANDEX WEBMASTER: Add code below -->')
+        tags.append('\t<!-- <meta name="yandex-verification" content="YOUR_CODE_HERE"> -->')
     return "\n".join(tags)
 
-# ── Theme init (no flash) ─────────────────────
+# ── Theme init ──────────────────────────────────
 THEME_INIT = """<script>
 (function(){
   var t=localStorage.getItem('dimsonsgfx-theme')||
@@ -104,25 +82,25 @@ THEME_INIT = """<script>
 })();
 </script>"""
 
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap&subset=cyrillic" rel="stylesheet">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">'
 
 # ── <head> ────────────────────────────────────
 def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website"):
     wm = webmaster_meta()
     return f"""<!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 {THEME_INIT}
 <head>
 \t<meta charset="UTF-8">
 \t<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-\t<!-- SEO -->
+\t<!-- Primary SEO -->
 \t<title>{esc(title)}</title>
 \t<meta name="description" content="{esc(desc)}">
 \t<link rel="canonical" href="{esc(canonical)}">
 \t<meta name="robots" content="index, follow">
 
-\t<!-- Open Graph -->
+\t<!-- Open Graph / Facebook / Telegram -->
 \t<meta property="og:title" content="{esc(title)}">
 \t<meta property="og:description" content="{esc(desc)}">
 \t<meta property="og:image" content="{esc(og_img)}">
@@ -130,7 +108,7 @@ def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website")
 \t<meta property="og:image:height" content="630">
 \t<meta property="og:url" content="{esc(canonical)}">
 \t<meta property="og:type" content="{page_type}">
-\t<meta property="og:locale" content="ru_RU">
+\t<meta property="og:locale" content="en_US">
 \t<meta property="og:site_name" content="{esc(SITE_NAME)}">
 
 \t<!-- Twitter Card -->
@@ -139,11 +117,13 @@ def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website")
 \t<meta name="twitter:description" content="{esc(desc)}">
 \t<meta name="twitter:image" content="{esc(og_img)}">
 
-\t<!-- Webmaster -->
+\t<!-- Verification -->
 {wm}
 
-\t<!-- Icons -->
+\t<!-- Icons & Favicon -->
 \t<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
+\t<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+\t<link rel="apple-touch-icon" href="/assets/images/logo-icon.png">
 \t<meta name="theme-color" content="#36c537">
 
 \t<!-- Fonts & CSS -->
@@ -166,7 +146,7 @@ def schema_website():
       "@id": "{SITE_URL}/#website",
       "name": "{esc_js(SITE_NAME)}",
       "url": "{SITE_URL}/",
-      "description": "Портфолио цифрового художника: арты, логотипы, баннеры, иллюстрации",
+      "description": "Portfolio of 3D print models, presentation templates, mockups, and UI design kits",
       "potentialAction": {{
         "@type": "SearchAction",
         "target": "{SITE_URL}/search/?q={{search_term_string}}",
@@ -189,16 +169,16 @@ def schema_work(w, canonical):
     img_url = og_image_url(w)
     alt = img_alt(w)
     desc = w.get("description","") or alt
-    
+
     breadcrumb = f"""{{
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {{"@type":"ListItem","position":1,"name":"Главная","item":"{SITE_URL}/"}},
+        {{"@type":"ListItem","position":1,"name":"Home","item":"{SITE_URL}/"}},
         {{"@type":"ListItem","position":2,"name":"{esc_js(cat_label)}","item":"{SITE_URL}/category/{esc_js(w['category'])}/"}},
         {{"@type":"ListItem","position":3,"name":"{esc_js(w['title'])}","item":"{esc_js(canonical)}"}}
       ]
     }}"""
-    
+
     image_obj = f"""{{
       "@type": "ImageObject",
       "@id": "{esc_js(canonical)}#image",
@@ -208,7 +188,7 @@ def schema_work(w, canonical):
       "datePublished": "{esc_js(w.get('date',''))}",
       "author": {{"@type":"Person","name":"{esc_js(SITE_AUTHOR)}"}}
     }}"""
-    
+
     creative_work = f"""{{
       "@type": "CreativeWork",
       "@id": "{esc_js(canonical)}#work",
@@ -220,7 +200,7 @@ def schema_work(w, canonical):
       "genre": "{esc_js(cat_label)}",
       "author": {{"@type":"Person","name":"{esc_js(SITE_AUTHOR)}"}}
     }}"""
-    
+
     return f"""<script type="application/ld+json">
 {{
   "@context": "https://schema.org",
@@ -236,7 +216,7 @@ def schema_category(cat, canonical, count):
     {{
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {{"@type":"ListItem","position":1,"name":"Главная","item":"{SITE_URL}/"}},
+        {{"@type":"ListItem","position":1,"name":"Home","item":"{SITE_URL}/"}},
         {{"@type":"ListItem","position":2,"name":"{esc_js(cat['label'])}","item":"{esc_js(canonical)}"}}
       ]
     }},
@@ -251,24 +231,181 @@ def schema_category(cat, canonical, count):
 }}
 </script>"""
 
-# ── Nav helpers ────────────────────────────────
+# ══════════════════════════════════════════════
+# NEW CATEGORIES AND WORKS DEFINITION (ENGLISH)
+# ══════════════════════════════════════════════
+CATEGORIES = [
+  {"slug":"3d-print-models",    "label":"3D Print Models",     "icon":"🖨️", "description":"High-detail STL and OBJ 3D printable models, figurines, functional gadgets, and cosplay props."},
+  {"slug":"powerpoint-templates","label":"PowerPoint Templates", "icon":"📊", "description":"Modern pitch deck templates, corporate business slides, and animated presentation designs."},
+  {"slug":"indesign-templates",  "label":"InDesign Templates",   "icon":"📄", "description":"Editorial layouts, brochures, portfolio lookbooks, magazine spreads, and brand guidelines."},
+  {"slug":"mockup-templates",    "label":"Mockup Templates",     "icon":"💻", "description":"Photorealistic PSD device scenes, packaging mockups, stationery branding, and apparel renders."},
+  {"slug":"ui-design-kits",      "label":"UI Design Kits",       "icon":"🎨", "description":"Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components."}
+]
+
+WORKS = [
+  # 3D Print Models
+  {"slug":"cyberpunk-helmet-mk4",
+   "title":"Cyberpunk Helmet MK-IV",
+   "description":"High-fidelity wearable cosplay helmet designed for resin and FDM 3D printing. Features segmented modular plates, visor groove channels, and ventilation slots. Pre-supported STL files included with assembly guide.",
+   "category":"3d-print-models","categoryLabel":"3D Print Models","date":"2026-09-24",
+   "image":"/assets/images/placeholder-3d-1.svg","thumb":"/assets/images/placeholder-3d-1.svg",
+   "emoji":"🪖","tags":["3D Printing","Cosplay","Cyberpunk","Wearable","STL"],"views":0,"source":"manual"},
+
+  {"slug":"articulated-mech-dragon",
+   "title":"Articulated Mech Dragon",
+   "description":"Print-in-place flexible robotic dragon model requiring no supports or post-print assembly. Engineered with reinforced ball-and-socket hinge joints for fluid organic motion. Optimized for PLA and PETG filaments.",
+   "category":"3d-print-models","categoryLabel":"3D Print Models","date":"2026-09-21",
+   "image":"/assets/images/placeholder-3d-2.svg","thumb":"/assets/images/placeholder-3d-2.svg",
+   "emoji":"🐉","tags":["Print in Place","Dragon","Mechanical","Toy","STL"],"views":0,"source":"manual"},
+
+  {"slug":"hex-modular-desk-organizer",
+   "title":"Hex Modular Desk Organizer",
+   "description":"Interlocking hexagonal storage modules designed for creative workstations and electronics enthusiasts. Features magnetic side snaps, cable management routing, and customizable pen trays. Minimalist functional 3D print.",
+   "category":"3d-print-models","categoryLabel":"3D Print Models","date":"2026-09-17",
+   "image":"/assets/images/placeholder-3d-3.svg","thumb":"/assets/images/placeholder-3d-3.svg",
+   "emoji":"⬡","tags":["Desk Organizer","Functional Print","Modular","Workspace"],"views":0,"source":"manual"},
+
+  {"slug":"tabletop-scifi-titan-miniature",
+   "title":"Sci-Fi Titan Warfare Miniature",
+   "description":"28mm scale heroic warlord mecha sculpted for resin SLA/DLP 3D printers. Includes multiple interchangeable weapon loadouts, micro-detailed armor hydraulics, and scenic battleground base.",
+   "category":"3d-print-models","categoryLabel":"3D Print Models","date":"2026-09-12",
+   "image":"/assets/images/placeholder-3d-4.svg","thumb":"/assets/images/placeholder-3d-4.svg",
+   "emoji":"🤖","tags":["Tabletop","Miniatures","Warhammer","Wargaming","Resin"],"views":0,"source":"manual"},
+
+  # PowerPoint Templates
+  {"slug":"pitch-deck-pro-presentation",
+   "title":"Pitch Deck Pro Presentation",
+   "description":"Venture capital ready investor pitch deck with 80+ unique slide layouts. Includes custom vector infographic charts, financial projection tables, and team profile cards. 16:9 widescreen format with master slide setup.",
+   "category":"powerpoint-templates","categoryLabel":"PowerPoint Templates","date":"2026-09-22",
+   "image":"/assets/images/placeholder-ppt-1.svg","thumb":"/assets/images/placeholder-ppt-1.svg",
+   "emoji":"📈","tags":["Pitch Deck","Investor","Startup","Business","PPTX"],"views":0,"source":"manual"},
+
+  {"slug":"minimal-annual-report-slides",
+   "title":"Minimalist Business Report Slides",
+   "description":"Clean Scandinavian style corporate review template designed for executive reporting and quarterly reviews. Features typographic hierarchy, editable data-driven charts, and drag-and-drop image placeholders.",
+   "category":"powerpoint-templates","categoryLabel":"PowerPoint Templates","date":"2026-09-15",
+   "image":"/assets/images/placeholder-ppt-2.svg","thumb":"/assets/images/placeholder-ppt-2.svg",
+   "emoji":"📊","tags":["Annual Report","Corporate","Clean","Minimal","Presentation"],"views":0,"source":"manual"},
+
+  {"slug":"creative-agency-portfolio-deck",
+   "title":"Creative Agency Showreel Deck",
+   "description":"Bold dark-mode presentation template designed for design studios and digital agencies. Includes video mockups, interactive transition cues, and case study showcase grids. Fully customizable color palette.",
+   "category":"powerpoint-templates","categoryLabel":"PowerPoint Templates","date":"2026-09-08",
+   "image":"/assets/images/placeholder-ppt-3.svg","thumb":"/assets/images/placeholder-ppt-3.svg",
+   "emoji":"✨","tags":["Agency","Portfolio","Dark Mode","Showcase","Creative"],"views":0,"source":"manual"},
+
+  # InDesign Templates
+  {"slug":"modern-architecture-magazine",
+   "title":"Modern Architecture Magazine Layout",
+   "description":"Editorial 36-page magazine template formatted in A4 and US Letter sizes. Features 12-column grid alignment, master pages with automated page numbering, and paragraph styling. Ready for commercial offset printing.",
+   "category":"indesign-templates","categoryLabel":"InDesign Templates","date":"2026-09-23",
+   "image":"/assets/images/placeholder-id-1.svg","thumb":"/assets/images/placeholder-id-1.svg",
+   "emoji":"🏛️","tags":["InDesign","Magazine","Editorial","Architecture","Print Ready"],"views":0,"source":"manual"},
+
+  {"slug":"corporate-brand-guidelines-book",
+   "title":"Corporate Brand Guidelines Booklet",
+   "description":"Comprehensive 48-page identity manual covering logo usage, color systems, typography rules, and iconography specs. Built with Adobe InDesign character styles, swatches, and vector vector guides.",
+   "category":"indesign-templates","categoryLabel":"InDesign Templates","date":"2026-09-16",
+   "image":"/assets/images/placeholder-id-2.svg","thumb":"/assets/images/placeholder-id-2.svg",
+   "emoji":"📘","tags":["Brand Book","Branding","Identity","Style Guide","INDD"],"views":0,"source":"manual"},
+
+  {"slug":"minimal-photography-lookbook",
+   "title":"Minimal Photography Lookbook",
+   "description":"Elegant landscape photo book template focused on white space, fine-art captions, and full-bleed image spreads. Designed for fashion photographers, product designers, and artist portfolios.",
+   "category":"indesign-templates","categoryLabel":"InDesign Templates","date":"2026-09-09",
+   "image":"/assets/images/placeholder-id-3.svg","thumb":"/assets/images/placeholder-id-3.svg",
+   "emoji":"📷","tags":["Lookbook","Photography","Portfolio","Landscape","InDesign"],"views":0,"source":"manual"},
+
+  # Mockup Templates
+  {"slug":"iphone-16-pro-floating-mockup",
+   "title":"iPhone 16 Pro Titanium Mockup Kit",
+   "description":"Hyper-realistic PSD device mockup featuring smart object layers for one-click screen replacement. Includes isolated shadows, customizable studio reflections, and titanium color variants. 6000×4000 px resolution.",
+   "category":"mockup-templates","categoryLabel":"Mockup Templates","date":"2026-09-25",
+   "image":"/assets/images/placeholder-mock-1.svg","thumb":"/assets/images/placeholder-mock-1.svg",
+   "emoji":"📱","tags":["iPhone Mockup","Apple","PSD","Smart Object","Branding"],"views":0,"source":"manual"},
+
+  {"slug":"hardcover-book-foil-stamp-mockup",
+   "title":"Hardcover Book & Foil Stamp Mockup",
+   "description":"Realistic book mockup with natural fabric linen texture and embossed metallic gold foil stamping effects. Fully separated background and shadow layers for custom presentation scenes.",
+   "category":"mockup-templates","categoryLabel":"Mockup Templates","date":"2026-09-18",
+   "image":"/assets/images/placeholder-mock-2.svg","thumb":"/assets/images/placeholder-mock-2.svg",
+   "emoji":"📖","tags":["Book Mockup","Hardcover","Foil Stamp","Packaging","PSD"],"views":0,"source":"manual"},
+
+  {"slug":"cosmetics-dropper-bottle-scene",
+   "title":"Cosmetic Glass Dropper Bottle Scene",
+   "description":"Minimalist luxury skincare bottle mockup with transparent glass refraction, metallic dropper cap, and textured paper label. Includes smart objects for instant label and liquid color updates.",
+   "category":"mockup-templates","categoryLabel":"Mockup Templates","date":"2026-09-11",
+   "image":"/assets/images/placeholder-mock-3.svg","thumb":"/assets/images/placeholder-mock-3.svg",
+   "emoji":"🧴","tags":["Cosmetics","Packaging","Glass Bottle","Mockup","Realistic"],"views":0,"source":"manual"},
+
+  # UI Design Kits
+  {"slug":"fintech-crypto-dashboard-kit",
+   "title":"Fintech & Crypto Dashboard Design System",
+   "description":"Comprehensive Figma web dashboard design system with 120+ pre-built components and auto-layout 5.0 support. Includes dark and light UI variants, currency charts, transaction tables, and wallet balances.",
+   "category":"ui-design-kits","categoryLabel":"UI Design Kits","date":"2026-09-26",
+   "image":"/assets/images/placeholder-ui-1.svg","thumb":"/assets/images/placeholder-ui-1.svg",
+   "emoji":"💳","tags":["Figma","UI Kit","Dashboard","Crypto","Design System"],"views":0,"source":"manual"},
+
+  {"slug":"health-fitness-mobile-app-ui",
+   "title":"Fitness & Workout Tracker iOS UI Kit",
+   "description":"Modern iOS mobile application kit featuring 60+ responsive artboards in Figma. Covers onboarding flows, daily activity rings, workout timers, nutrition logs, and user profile management.",
+   "category":"ui-design-kits","categoryLabel":"UI Design Kits","date":"2026-09-19",
+   "image":"/assets/images/placeholder-ui-2.svg","thumb":"/assets/images/placeholder-ui-2.svg",
+   "emoji":"🏃","tags":["Mobile App","iOS","Fitness","UI Kit","Figma"],"views":0,"source":"manual"},
+
+  {"slug":"saas-analytics-web-components",
+   "title":"SaaS Analytics Platform UI Kit",
+   "description":"Scalable B2B web application kit with modular chart widgets, customizable data filters, role-based user management views, and interactive modals. Built with Figma design tokens and variants.",
+   "category":"ui-design-kits","categoryLabel":"UI Design Kits","date":"2026-09-13",
+   "image":"/assets/images/placeholder-ui-3.svg","thumb":"/assets/images/placeholder-ui-3.svg",
+   "emoji":"📊","tags":["SaaS","Web App","Analytics","Components","Figma"],"views":0,"source":"manual"},
+
+  {"slug":"ecommerce-store-design-system",
+   "title":"Luxury eCommerce Storefront UI System",
+   "description":"High-converting shopping experience kit covering modern product detail pages, sticky cart slide-outs, checkout multi-step wizard, and customer review modules. Ready for development handoff.",
+   "category":"ui-design-kits","categoryLabel":"UI Design Kits","date":"2026-09-06",
+   "image":"/assets/images/placeholder-ui-4.svg","thumb":"/assets/images/placeholder-ui-4.svg",
+   "emoji":"🛍️","tags":["eCommerce","Shop","Storefront","UI Kit","Web Design"],"views":0,"source":"manual"}
+]
+
+# Write data files
+os.makedirs(DATA, exist_ok=True)
+with open(os.path.join(DATA, "categories.json"), "w", encoding="utf-8") as f:
+    json.dump(CATEGORIES, f, ensure_ascii=False, indent=2)
+with open(os.path.join(DATA, "works.json"), "w", encoding="utf-8") as f:
+    json.dump(WORKS, f, ensure_ascii=False, indent=2)
+
+categories = CATEGORIES
+works      = WORKS
+cat_map    = {c["slug"]: c for c in categories}
+works_by_cat = {}
+for w in works:
+    works_by_cat.setdefault(w["category"], []).append(w)
+
+sorted_works = sorted(works, key=lambda w: w.get("date",""), reverse=True)
+PER_PAGE = 12
+
+# ── Navigation helpers ──────────────────────────
 def nav_items(active_cat=None):
-    items = [f'<li{"" if active_cat else " class=\"active\""}><a href="/">Главная</a></li>']
+    items = [f'<li{"" if active_cat else " class=\"active\""}><a href="/">Home</a></li>']
     for c in categories:
         act = ' class="active"' if c["slug"] == active_cat else ""
         items.append(f'<li{act}><a href="/category/{c["slug"]}/">{esc(c["label"])}</a></li>')
     return "\n\t\t\t\t".join(items)
 
 def side_nav(active_cat=None):
-    items = ['<li><a href="/">Главная</a></li>']
+    items = ['<li><a href="/">🏠 Home</a></li>']
     for c in categories:
         act = " active" if c["slug"] == active_cat else ""
-        items.append(f'<li class="{act.strip()}"><a href="/category/{c["slug"]}/">{esc(c["icon"])} {esc(c["label"])}</a></li>')
+        items.append(f'<li class="{act.strip()}"><a href="/category/{c["slug"]}/">{esc(c["icon"])} {esc(c["label"])} <small style="color:#888;font-size:11px">({len(works_by_cat.get(c["slug"],[]))})</small></a></li>')
     return "\n\t\t\t\t\t\t".join(items)
 
-# ── Page parts ─────────────────────────────────
+# ── Header & Logo ──────────────────────────────
 def logo_html():
-    return '<a href="/" class="logo" aria-label="DIMSONSGFX — на главную"><span class="logo-text">DIMSONS<span class="accent">GFX</span></span></a>'
+    return """<a href="/" class="logo" aria-label="DIMSONSGFX Home">
+\t\t\t\t<img src="/assets/images/logo-icon.png" alt="DIMSONSGFX" class="logo-icon" width="42" height="42">
+\t\t\t\t<span class="logo-text">DIMSONS<span class="accent">GFX</span></span>
+\t\t\t</a>"""
 
 def header_html(active_cat=None):
     return f"""
@@ -278,30 +415,21 @@ def header_html(active_cat=None):
 \t\t\t<ul class="header-menu fx-row fx-start fx-1 to-mob">
 \t\t\t\t{nav_items(active_cat)}
 \t\t\t</ul>
-\t\t\t<div class="search-btn js-search anim" aria-label="Поиск"><span class="far fa-search"></span></div>
-\t\t\t<button class="theme-toggle-btn" id="themeToggle" aria-label="Переключить тему" title="Сменить тему">☀️</button>
-\t\t\t<div class="btn-menu"><span class="far fa-bars"></span></div>
+\t\t\t<div class="search-btn js-search anim" aria-label="Search" title="Search"><span class="far fa-search"></span></div>
+\t\t\t<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">☀️</button>
+\t\t\t<div class="btn-menu" aria-label="Menu"><span class="far fa-bars"></span></div>
 \t\t</header>
 \t\t<!-- END HEADER -->"""
 
+# ── Sidebar (ONLY CATEGORIES AS REQUESTED) ─────
 def sidebar_left_html(active_cat=None):
     return f"""
-\t\t\t<aside class="col-left fx-first" aria-label="Боковая панель">
-\t\t\t\t<div class="side-box to-mob">
-\t\t\t\t\t<div class="side-bt title">Навигация</div>
+\t\t\t<aside class="col-left fx-first" aria-label="Sidebar">
+\t\t\t\t<div class="side-box">
+\t\t\t\t\t<div class="side-bt title">Categories</div>
 \t\t\t\t\t<ul class="header-menu side-menu">
 \t\t\t\t\t\t{side_nav(active_cat)}
 \t\t\t\t\t</ul>
-\t\t\t\t</div>
-\t\t\t\t<div class="side-box">
-\t\t\t\t\t<div class="side-bt title">Выбор редакции</div>
-\t\t\t\t\t<div class="side-bc mb-remove-30" id="sidebar-editor-pick">
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t\t<div class="side-box">
-\t\t\t\t\t<div class="side-bt title">Топ работ</div>
-\t\t\t\t\t<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="8">
-\t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</aside>
 \t\t\t<!-- END COL-LEFT -->"""
@@ -309,7 +437,7 @@ def sidebar_left_html(active_cat=None):
 def footer_html():
     return f"""
 \t\t<footer class="footer fx-row fx-middle">
-\t\t\t<div class="footer-copyright fx-1">© {datetime.now().year} {esc(SITE_NAME)}. Все права защищены.</div>
+\t\t\t<div class="footer-copyright fx-1">&copy; {datetime.now().year} {esc(SITE_NAME)}. All rights reserved.</div>
 \t\t</footer>
 \t\t<!-- END FOOTER -->
 \t\t</div><!-- END WRAP-MAIN -->
@@ -319,13 +447,13 @@ def search_overlay():
     return """
 \t<div class="search-wrap" id="searchWrap" role="search">
 \t\t<div class="search-header fx-row fx-middle">
-\t\t\t<div class="search-title title">Поиск</div>
-\t\t\t<div class="search-close" aria-label="Закрыть"><span class="far fa-times"></span></div>
+\t\t\t<div class="search-title title">Search</div>
+\t\t\t<div class="search-close" aria-label="Close search"><span class="far fa-times"></span></div>
 \t\t</div>
 \t\t<form id="quicksearch" method="get" action="/search/">
 \t\t\t<div class="search-box">
-\t\t\t\t<input id="story" name="q" placeholder="Поиск по сайту..." type="search" autocomplete="off" aria-label="Поисковый запрос">
-\t\t\t\t<button type="submit" aria-label="Найти"><span class="far fa-search"></span></button>
+\t\t\t\t<input id="story" name="q" placeholder="Search templates, models, mockups..." type="search" autocomplete="off" aria-label="Search query">
+\t\t\t\t<button type="submit" aria-label="Submit search"><span class="far fa-search"></span></button>
 \t\t\t</div>
 \t\t</form>
 \t</div>"""
@@ -333,8 +461,9 @@ def search_overlay():
 def mobile_panel(active_cat=None):
     return f"""
 \t<div class="close-overlay" aria-hidden="true"></div>
-\t<div class="btn-close" aria-label="Закрыть меню"><span class="far fa-times"></span></div>
-\t<div class="side-panel" role="navigation" aria-label="Мобильное меню">
+\t<div class="btn-close" aria-label="Close menu"><span class="far fa-times"></span></div>
+\t<div class="side-panel" role="navigation" aria-label="Mobile Navigation">
+\t\t<div style="font-weight:700;font-size:16px;margin-bottom:15px;color:#36c537">Menu</div>
 \t\t<ul class="header-menu side-menu">
 \t\t\t{nav_items(active_cat)}
 \t\t</ul>
@@ -342,11 +471,11 @@ def mobile_panel(active_cat=None):
 
 def scripts():
     return """
-\t<button id="gotop" aria-label="Наверх"><span class="far fa-arrow-up"></span></button>
+\t<button id="gotop" aria-label="Back to top" title="Back to top"><span class="far fa-arrow-up"></span></button>
 \t<script src="/assets/js/libs.js"></script>
 \t<script src="/assets/js/site.js"></script>"""
 
-# ── Short item card (3 col) ────────────────────
+# ── Short item card (3 col, NO VIEWS ICON) ─────
 def short_item(w):
     alt = img_alt(w)
     img_html = ""
@@ -373,12 +502,11 @@ def short_item(w):
 \t</a>
 \t<div class="short-meta fx-row fx-middle icon-left">
 \t\t<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="{esc(w.get('date',''))}" itemprop="datePublished">{date_str}</time></div>
-\t\t<div class="short-meta-item"><span class="far fa-eye" aria-hidden="true"></span>{w.get('views',0)}</div>
 \t</div>
 \t<div class="short-text" itemprop="description">{esc(desc)}</div>
 \t<div class="short-bottom fx-row fx-middle">
 \t\t<div class="fx-1"></div>
-\t\t<a class="short-btn btn" href="/works/{esc(w['slug'])}/">Подробнее</a>
+\t\t<a class="short-btn btn" href="/works/{esc(w['slug'])}/">View Details</a>
 \t</div>
 </article>"""
 
@@ -388,7 +516,7 @@ def pagination_html(current, total, base_url):
     pages = []
     if current > 1:
         prev_url = base_url if current-1 == 1 else f"{base_url}page/{current-1}/"
-        pages.append(f'<li><a href="{prev_url}" aria-label="Предыдущая">← Пред.</a></li>')
+        pages.append(f'<li><a href="{prev_url}" aria-label="Previous page">← Prev</a></li>')
     for i in range(1, total+1):
         url = base_url if i == 1 else f"{base_url}page/{i}/"
         if i == current:
@@ -397,9 +525,9 @@ def pagination_html(current, total, base_url):
             pages.append(f'<li><a href="{url}">{i}</a></li>')
     if current < total:
         next_url = f"{base_url}page/{current+1}/"
-        pages.append(f'<li><a href="{next_url}" aria-label="Следующая">След. →</a></li>')
+        pages.append(f'<li><a href="{next_url}" aria-label="Next page">Next →</a></li>')
     return f"""
-<nav class="navigation" aria-label="Страницы">
+<nav class="navigation" aria-label="Pagination">
 \t<ul class="pagination">{''.join(pages)}</ul>
 </nav>"""
 
@@ -426,29 +554,33 @@ SVG_CARD = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" widt
         font-family="Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif">{emoji}</text>
   <text x="400" y="305" font-size="19" font-weight="600" text-anchor="middle"
         fill="{ac}" font-family="system-ui,sans-serif" opacity="0.9">{title}</text>
-  <rect x="300" y="330" width="200" height="26" rx="13" fill="{ac}" opacity="0.1"/>
-  <text x="400" y="347" font-size="11" text-anchor="middle"
-        fill="{ac}" font-family="system-ui,sans-serif" opacity="0.75">{cat}</text>
+  <rect x="250" y="330" width="300" height="26" rx="13" fill="{ac}" opacity="0.1"/>
+  <text x="400" y="347" font-size="12" text-anchor="middle"
+        fill="{ac}" font-family="system-ui,sans-serif" opacity="0.8">{cat}</text>
 </svg>"""
 
-PLACEHOLDERS = [
-    ("arts-1",         "#1a1a2e","#0c0c1a","#c8a96e","🌆","Urban Dreams",         "Арты"),
-    ("arts-2",         "#0d2818","#071510","#4ecca3","🌿","Neon Forest",           "Арты"),
-    ("arts-3",         "#0a0a1a","#050510","#7c6fcd","🚀","Cosmic Voyage",         "Арты"),
-    ("arts-4",         "#001525","#000d18","#0088cc","🌊","Deep Sea",              "Арты"),
-    ("logos-1",        "#1a1a1a","#0e0e0e","#c8a96e","◎","Minimalist Mark",       "Логотипы"),
-    ("logos-2",        "#1a0a0a","#0e0505","#cc4444","🐻","The Beast Co.",         "Логотипы"),
-    ("logos-3",        "#1a0f08","#0e0904","#c87941","☕","Brew & Soul",           "Логотипы"),
-    ("logos-4",        "#0a1020","#060a15","#4488ff","⬡","Nexus Labs",            "Логотипы"),
-    ("banners-1",      "#1a1500","#0e0e00","#ffcc00","☀️","Summer Sale 2026",     "Баннеры"),
-    ("banners-2",      "#050510","#030308","#8855ff","🎤","Night Conference",      "Баннеры"),
-    ("banners-3",      "#001a10","#00100a","#00cc77","📱","App Launch",            "Баннеры"),
-    ("illustrations-1","#1a2a10","#101a08","#88cc44","🦊","Лесные истории",       "Иллюстрации"),
-    ("illustrations-2","#0a1020","#060a15","#4499ff","🧠","Digital Minds",        "Иллюстрации"),
-    ("illustrations-3","#1a0a20","#0e0515","#cc44aa","🎭","Faceless",             "Иллюстрации"),
-    ("other-1",        "#201505","#140e03","#cc9944","🗺️","Treasure Map",        "Прочее"),
-    ("other-2",        "#0a1a20","#060f15","#44aacc","🔷","Aztec Pattern",        "Прочее"),
-    ("other-3",        "#050a10","#03060a","#3388ff","📊","Analytics Dashboard",  "Прочее"),
+PLACEHOLDERS_DATA = [
+    ("3d-1",   "#161a29","#0b0e17","#4fc3f7","🪖","Cyberpunk Helmet MK-IV",        "3D Print Models"),
+    ("3d-2",   "#0e2417","#07130c","#66bb6a","🐉","Articulated Mech Dragon",       "3D Print Models"),
+    ("3d-3",   "#1a1528","#0e0b16","#ab47bc","⬡","Hex Modular Desk Organizer",    "3D Print Models"),
+    ("3d-4",   "#261414","#130909","#ef5350","🤖","Sci-Fi Titan Warfare Miniature", "3D Print Models"),
+
+    ("ppt-1",  "#1f1807","#0f0c03","#ffa726","📈","Pitch Deck Pro Presentation",    "PowerPoint Templates"),
+    ("ppt-2",  "#0a1c24","#040d12","#26c6da","📊","Minimalist Business Report",    "PowerPoint Templates"),
+    ("ppt-3",  "#1c0e29","#0d0614","#ba68c8","✨","Creative Agency Showreel Deck",  "PowerPoint Templates"),
+
+    ("id-1",   "#221019","#11070c","#ec407a","🏛️","Modern Architecture Magazine",  "InDesign Templates"),
+    ("id-2",   "#0c1b26","#050c12","#29b6f6","📘","Corporate Brand Guidelines",     "InDesign Templates"),
+    ("id-3",   "#171717","#0a0a0a","#bdbdbd","📷","Minimal Photography Lookbook",   "InDesign Templates"),
+
+    ("mock-1", "#081c1c","#030c0c","#26a69a","📱","iPhone 16 Pro Mockup Kit",     "Mockup Templates"),
+    ("mock-2", "#241808","#120b03","#ffb74d","📖","Hardcover Book Foil Stamp",     "Mockup Templates"),
+    ("mock-3", "#1b1e10","#0d0f07","#9ccc65","🧴","Glass Dropper Bottle Scene",     "Mockup Templates"),
+
+    ("ui-1",   "#0f1a30","#070c17","#5c6bc0","💳","Crypto Dashboard Design System", "UI Design Kits"),
+    ("ui-2",   "#102419","#07120c","#4caf50","🏃","Fitness Tracker iOS UI Kit",     "UI Design Kits"),
+    ("ui-3",   "#1a1426","#0c0912","#7e57c2","📊","SaaS Analytics Web Components", "UI Design Kits"),
+    ("ui-4",   "#291515","#140909","#ff7043","🛍️","Luxury eCommerce Storefront UI", "UI Design Kits")
 ]
 
 def darken(h, f=0.5):
@@ -456,78 +588,30 @@ def darken(h, f=0.5):
     r,g,b = [int(h[i:i+2],16)/255 for i in (0,2,4)]
     return '#{:02x}{:02x}{:02x}'.format(int(r*f*255),int(g*f*255),int(b*f*255))
 
-for slug, c1, c2, ac, emoji, title, cat in PLACEHOLDERS:
+for slug, c1, c2, ac, emoji, title, cat in PLACEHOLDERS_DATA:
     svg = SVG_CARD.format(c1=c1, c2=darken(c1), ac=ac, emoji=emoji, title=title, cat=cat)
     with open(os.path.join(IMG_DIR, f"placeholder-{slug}.svg"), "w", encoding="utf-8") as f:
         f.write(svg)
 
 # OG default image
-og_svg = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <rect width="1200" height="630" fill="#22272e"/>
+og_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#1c2028"/>
   <defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
     <path d="M40 0L0 0L0 40" fill="none" stroke="#36c537" stroke-width="0.4" opacity="0.08"/>
   </pattern></defs>
   <rect width="1200" height="630" fill="url(#g)"/>
-  <circle cx="600" cy="315" r="200" fill="none" stroke="#36c537" stroke-width="1" opacity="0.1"/>
-  <text x="600" y="278" font-size="54" font-weight="800" text-anchor="middle"
-        fill="#f0f0f0" font-family="system-ui,sans-serif">DIMSONSGFX</text>
-  <text x="600" y="345" font-size="22" text-anchor="middle"
-        fill="#36c537" font-family="system-ui,sans-serif">Арты · Логотипы · Баннеры · Иллюстрации</text>
-  <text x="600" y="400" font-size="15" text-anchor="middle"
+  <circle cx="600" cy="315" r="210" fill="none" stroke="#36c537" stroke-width="1.5" opacity="0.15"/>
+  <text x="600" y="275" font-size="56" font-weight="800" text-anchor="middle"
+        fill="#f0f0f0" font-family="Montserrat,system-ui,sans-serif">DIMSONS<tspan fill="#36c537">GFX</tspan></text>
+  <text x="600" y="340" font-size="21" text-anchor="middle"
+        fill="#ccc" font-family="Rubik,system-ui,sans-serif">3D Print Models · Presentation Templates · UI Kits · Mockups</text>
+  <text x="600" y="395" font-size="15" text-anchor="middle"
         fill="#666" font-family="system-ui,sans-serif">dimsonsgfx.github.io</text>
 </svg>"""
 with open(os.path.join(IMG_DIR, "og-default.svg"), "w", encoding="utf-8") as f:
     f.write(og_svg)
 
-print(f"SVG placeholders: {len(PLACEHOLDERS)} + og-default")
-
-# ══════════════════════════════════════════════
-# DATA FILES
-# ══════════════════════════════════════════════
-WORKS = [
-  {"slug":"urban-dreams","title":"Urban Dreams","description":"Городской пейзаж в стиле ретро-футуризм — неоновые огни и дождливые ночные улицы. Работа вдохновлена эстетикой ретро-города будущего. Создана в Adobe Photoshop.","category":"arts","categoryLabel":"Арты","date":"2026-09-20","image":"/assets/images/placeholder-arts-1.svg","thumb":"/assets/images/placeholder-arts-1.svg","emoji":"🌆","tags":["иллюстрация","город","ретро","ночь"],"views":142,"source":"manual"},
-  {"slug":"neon-forest","title":"Neon Forest","description":"Фантастический лес с биолюминесцентными растениями и туманом. Каждый элемент светится изнутри — природа встречает фантастику. Цифровая живопись.","category":"arts","categoryLabel":"Арты","date":"2026-09-15","image":"/assets/images/placeholder-arts-2.svg","thumb":"/assets/images/placeholder-arts-2.svg","emoji":"🌿","tags":["природа","фэнтези","свет","биолюминесценция"],"views":98,"source":"manual"},
-  {"slug":"cosmic-voyage","title":"Cosmic Voyage","description":"Путешествие сквозь галактику — абстрактная цифровая живопись со звёздными туманностями. Работа исследует тему бесконечности космоса. Выполнена в Procreate.","category":"arts","categoryLabel":"Арты","date":"2026-09-10","image":"/assets/images/placeholder-arts-3.svg","thumb":"/assets/images/placeholder-arts-3.svg","emoji":"🚀","tags":["космос","абстракция","галактика"],"views":201,"source":"manual"},
-  {"slug":"deep-sea","title":"Deep Sea","description":"Загадочные глубины океана — светящиеся медузы и загадочные морские существа в темноте. Работа передаёт атмосферу недостижимых глубин. Цифровая иллюстрация.","category":"arts","categoryLabel":"Арты","date":"2026-09-05","image":"/assets/images/placeholder-arts-4.svg","thumb":"/assets/images/placeholder-arts-4.svg","emoji":"🌊","tags":["море","фэнтези","медузы","глубина"],"views":77,"source":"manual"},
-  {"slug":"logo-minimalist","title":"Minimalist Mark","description":"Логотип для студии дизайна — чистые линии и принцип золотого сечения. Знак построен на сетке из 8 единиц, акцент на геометрическую точность. Выполнен в Illustrator.","category":"logos","categoryLabel":"Логотипы","date":"2026-09-18","image":"/assets/images/placeholder-logos-1.svg","thumb":"/assets/images/placeholder-logos-1.svg","emoji":"◎","tags":["минимализм","геометрия","брендинг","студия"],"views":315,"source":"manual"},
-  {"slug":"logo-beast","title":"The Beast Co.","description":"Агрессивный логотип для спортивного бренда — медведь в геометрическом стиле low-poly. Форма зверя скрыта в треугольной сетке. Брендинг для фитнес-компании.","category":"logos","categoryLabel":"Логотипы","date":"2026-09-12","image":"/assets/images/placeholder-logos-2.svg","thumb":"/assets/images/placeholder-logos-2.svg","emoji":"🐻","tags":["спорт","животное","геометрия","low-poly"],"views":189,"source":"manual"},
-  {"slug":"logo-coffee","title":"Brew & Soul","description":"Уютный логотип для кофейни с ручной типографикой и стилизованным паром. Тёплая атмосфера и домашний уют передаются через округлые формы. Hand-lettering.","category":"logos","categoryLabel":"Логотипы","date":"2026-09-08","image":"/assets/images/placeholder-logos-3.svg","thumb":"/assets/images/placeholder-logos-3.svg","emoji":"☕","tags":["кофе","типографика","hand-lettering","уют"],"views":94,"source":"manual"},
-  {"slug":"logo-tech","title":"Nexus Labs","description":"Современный логотип для IT-стартапа — узлы сети, соединения и данные. Гексагональная форма символизирует масштабируемость и связанность. Минималистичный tech-стиль.","category":"logos","categoryLabel":"Логотипы","date":"2026-09-02","image":"/assets/images/placeholder-logos-4.svg","thumb":"/assets/images/placeholder-logos-4.svg","emoji":"⬡","tags":["технологии","IT","гексагон","минимализм"],"views":122,"source":"manual"},
-  {"slug":"banner-sale","title":"Summer Sale 2026","description":"Анимированный баннер для интернет-магазина — летняя акция с яркими акцентами. Акцент на скорость и выгоду через динамичную типографику. Форматы 728×90, 300×250, 160×600.","category":"banners","categoryLabel":"Баннеры","date":"2026-09-22","image":"/assets/images/placeholder-banners-1.svg","thumb":"/assets/images/placeholder-banners-1.svg","emoji":"☀️","tags":["реклама","акция","лето","e-commerce"],"views":267,"source":"manual"},
-  {"slug":"banner-event","title":"Night Conference","description":"Баннер для онлайн-конференции по технологиям — тёмная тема с частицами и неоновыми акцентами. Передаёт атмосферу ночного digital-события. Анимированный HTML5.","category":"banners","categoryLabel":"Баннеры","date":"2026-09-16","image":"/assets/images/placeholder-banners-2.svg","thumb":"/assets/images/placeholder-banners-2.svg","emoji":"🎤","tags":["конференция","тёмная тема","технологии","HTML5"],"views":88,"source":"manual"},
-  {"slug":"banner-app","title":"App Launch","description":"Промо-баннер для запуска мобильного приложения — чистый дизайн с фокусом на CTA. Использованы реальные экраны приложения на устройстве. Для App Store и Google Play.","category":"banners","categoryLabel":"Баннеры","date":"2026-09-11","image":"/assets/images/placeholder-banners-3.svg","thumb":"/assets/images/placeholder-banners-3.svg","emoji":"📱","tags":["мобайл","запуск","App Store","промо"],"views":156,"source":"manual"},
-  {"slug":"children-book","title":"Лесные истории","description":"Иллюстрации для детской книги — добрые персонажи и сказочный лес с грибами и ягодами. Стиль — мягкие акварельные текстуры. Серия из 12 иллюстраций.","category":"illustrations","categoryLabel":"Иллюстрации","date":"2026-09-19","image":"/assets/images/placeholder-illustrations-1.svg","thumb":"/assets/images/placeholder-illustrations-1.svg","emoji":"🦊","tags":["детская","книга","персонажи","акварель"],"views":203,"source":"manual"},
-  {"slug":"editorial-tech","title":"Digital Minds","description":"Редакционная иллюстрация о влиянии технологий на человека — мозг и микросхемы. Создана для журнала о цифровой трансформации. Метафора цифрового разума.","category":"illustrations","categoryLabel":"Иллюстрации","date":"2026-09-14","image":"/assets/images/placeholder-illustrations-2.svg","thumb":"/assets/images/placeholder-illustrations-2.svg","emoji":"🧠","tags":["редакционная","технологии","метафора","журнал"],"views":67,"source":"manual"},
-  {"slug":"portrait-abstract","title":"Faceless","description":"Абстрактный портрет — образ человека разложен на геометрические плоскости и формы. Исследование идентичности через деконструкцию лица. Серия из 5 работ.","category":"illustrations","categoryLabel":"Иллюстрации","date":"2026-09-09","image":"/assets/images/placeholder-illustrations-3.svg","thumb":"/assets/images/placeholder-illustrations-3.svg","emoji":"🎭","tags":["портрет","геометрия","абстракция","идентичность"],"views":144,"source":"manual"},
-  {"slug":"map-treasure","title":"Treasure Map","description":"Стилизованная карта сокровищ в пиратской тематике — старинный пергамент с символами и маршрутом. Ручная текстура и состаренные эффекты. Для настольной игры.","category":"other","categoryLabel":"Прочее","date":"2026-09-17","image":"/assets/images/placeholder-other-1.svg","thumb":"/assets/images/placeholder-other-1.svg","emoji":"🗺️","tags":["карта","пираты","игра","состаривание"],"views":55,"source":"manual"},
-  {"slug":"pattern-aztec","title":"Aztec Pattern","description":"Орнаментальный паттерн в ацтекском стиле для текстиля и принтов — симметричный геометрический рисунок. Вдохновлён древними рукописями. Бесшовный тайл 2000×2000 px.","category":"other","categoryLabel":"Прочее","date":"2026-09-13","image":"/assets/images/placeholder-other-2.svg","thumb":"/assets/images/placeholder-other-2.svg","emoji":"🔷","tags":["паттерн","орнамент","ацтеки","текстиль"],"views":81,"source":"manual"},
-  {"slug":"ui-dashboard","title":"Analytics Dashboard","description":"UI-дизайн дашборда аналитики — тёмная тема, графики, карточки с KPI и боковое меню. Адаптивный дизайн для desktop и tablet. Выполнен в Figma.","category":"other","categoryLabel":"Прочее","date":"2026-09-07","image":"/assets/images/placeholder-other-3.svg","thumb":"/assets/images/placeholder-other-3.svg","emoji":"📊","tags":["UI","Figma","дашборд","тёмная тема"],"views":119,"source":"manual"},
-]
-
-CATEGORIES = [
-  {"slug":"arts","label":"Арты","icon":"🎨","description":"Цифровые арты, концепт-арт и авторские иллюстрации в различных стилях"},
-  {"slug":"logos","label":"Логотипы","icon":"✦","description":"Разработка логотипов и визуальной идентичности для брендов и компаний"},
-  {"slug":"banners","label":"Баннеры","icon":"🖼","description":"Рекламные баннеры, промо-материалы и визуальный контент для digital"},
-  {"slug":"illustrations","label":"Иллюстрации","icon":"✏️","description":"Редакционные иллюстрации, детские книги и авторские персонажи"},
-  {"slug":"other","label":"Прочее","icon":"💎","description":"Паттерны, UI-дизайн, карты, текстуры и экспериментальные работы"},
-]
-
-with open(os.path.join(DATA, "works.json"), "w", encoding="utf-8") as f:
-    json.dump(WORKS, f, ensure_ascii=False, indent=2)
-with open(os.path.join(DATA, "categories.json"), "w", encoding="utf-8") as f:
-    json.dump(CATEGORIES, f, ensure_ascii=False, indent=2)
-
-# Reload
-works      = WORKS
-categories = CATEGORIES
-cat_map    = {c["slug"]: c for c in categories}
-works_by_cat = {}
-for w in works:
-    works_by_cat.setdefault(w["category"], []).append(w)
-
-print("Data files written")
-sorted_works = sorted(works, key=lambda w: w.get("date",""), reverse=True)
-PER_PAGE = 12
+print(f"Generated {len(PLACEHOLDERS_DATA)} SVG cards + og-default.svg")
 
 # ══════════════════════════════════════════════
 # INDEX PAGE
@@ -538,8 +622,8 @@ og_img       = f"{SITE_URL}/assets/images/og-default.svg"
 canonical    = f"{SITE_URL}/"
 
 index_html = head_html(
-    f"{SITE_NAME} — Портфолио цифрового художника",
-    "Портфолио цифрового художника DIMSONSGFX: арты, логотипы, баннеры, иллюстрации. Авторские работы в разных стилях.",
+    f"{SITE_NAME} — Digital Assets, 3D Models & Templates Portfolio",
+    "Explore high-quality 3D print models, pitch deck templates, InDesign editorial layouts, mockup packages, and Figma UI design systems.",
     og_img, canonical,
     schema_website(),
     "website"
@@ -551,27 +635,27 @@ index_html = head_html(
 \t\t\t<main class="col-main" id="main-content">
 \t\t\t\t<div class="sect">
 \t\t\t\t\t<div class="sect-header">
-\t\t\t\t\t\t<h1 class="sect-title title fx-1">Последние работы</h1>
+\t\t\t\t\t\t<h1 class="sect-title title fx-1">Latest Works</h1>
 \t\t\t\t\t</div>
-\t\t\t\t\t<div class="sect-content" id="dle-content" aria-label="Список работ">
+\t\t\t\t\t<div class="sect-content" id="dle-content" aria-label="Latest works">
 {recent_cards}
 \t\t\t\t\t</div>
 \t\t\t\t</div>
-\t\t\t\t<div class="sect" style="margin-top:10px">
+\t\t\t\t<div class="sect" style="margin-top:20px">
 \t\t\t\t\t<div class="sect-header">
-\t\t\t\t\t\t<h2 class="sect-title title fx-1">Все работы</h2>
+\t\t\t\t\t\t<h2 class="sect-title title fx-1">All Works</h2>
 \t\t\t\t\t</div>
-\t\t\t\t\t<div class="sect-content" id="dle-content-all" aria-label="Все работы">
+\t\t\t\t\t<div class="sect-content" id="dle-content-all" aria-label="All works">
 {all_cards}
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</main>
 {sidebar_left_html()}
 \t\t</div>
-\t\t<!-- SEO description -->
+\t\t<!-- SEO description block -->
 \t\t<div class="site-desc">
-\t\t\t<h2>{esc(SITE_NAME)} — портфолио цифрового художника</h2>
-\t\t\t<p>Добро пожаловать в портфолио! Здесь собраны авторские работы: цифровые арты, логотипы, баннеры и иллюстрации. Каждая работа создана с вниманием к деталям.</p>
+\t\t\t<h2>{esc(SITE_NAME)} — Creative Digital Assets & Templates</h2>
+\t\t\t<p>Welcome to my official digital portfolio. Browse production-ready 3D print models, pitch deck presentations, professional InDesign publications, realistic packaging mockups, and scalable Figma UI design systems designed for creators and businesses.</p>
 \t\t</div>
 {footer_html()}
 {search_overlay()}
@@ -609,10 +693,9 @@ for cat in categories:
             canonical = f"{SITE_URL}/category/{slug}/page/{page_num}/"
         os.makedirs(out_dir, exist_ok=True)
 
-        # OG image = first work's thumb
         og_img = og_image_url(page_works[0]) if page_works else f"{SITE_URL}/assets/images/og-default.svg"
-        page_title = f"{label} — {SITE_NAME}" if page_num == 1 else f"{label} — стр. {page_num} — {SITE_NAME}"
-        meta_desc  = f"{desc}. {count} {pluralRu(count)} в портфолио."
+        page_title = f"{label} — {SITE_NAME}" if page_num == 1 else f"{label} — Page {page_num} — {SITE_NAME}"
+        meta_desc  = f"{desc} ({count} items in collection)."
         pagi       = pagination_html(page_num, total_pages, f"{SITE_URL}/category/{slug}/")
 
         html = head_html(page_title, meta_desc, og_img, canonical,
@@ -626,9 +709,9 @@ for cat in categories:
 \t\t\t\t\t<div class="sect-header">
 \t\t\t\t\t\t<h1 class="sect-title title fx-1">{esc(icon)} {esc(label)}</h1>
 \t\t\t\t\t</div>
-\t\t\t\t\t<p style="color:#888;margin-bottom:20px;font-size:13px">{esc(desc)} · {count} {pluralRu(count)}</p>
+\t\t\t\t\t<p style="color:#888;margin-bottom:20px;font-size:13px">{esc(desc)} · {count} items</p>
 \t\t\t\t\t<div class="sect-content" id="dle-content">
-{cards if cards else '<p style="color:#888;padding:20px 0">Работы появятся здесь совсем скоро</p>'}
+{cards if cards else '<p style="color:#888;padding:20px 0">New items coming soon.</p>'}
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 {pagi}
@@ -648,7 +731,7 @@ for cat in categories:
     print(f"Category: /category/{slug}/ ({count} works, {total_pages} pages)")
 
 # ══════════════════════════════════════════════
-# WORK DETAIL PAGES
+# WORK DETAIL PAGES (NO VIEWS COUNTER)
 # ══════════════════════════════════════════════
 for w in works:
     slug      = w["slug"]
@@ -662,7 +745,6 @@ for w in works:
     date_str  = fmt_date(w.get("date",""))
     tags      = w.get("tags",[])
     desc      = w.get("description","") or alt
-    # Title: description first sentence as meta desc
     meta_desc = desc[:155] + ("…" if len(desc) > 155 else "")
 
     img_html = ""
@@ -685,7 +767,7 @@ for w in works:
         related_html = f"""
 \t\t\t\t<div class="sect side-box frels" style="margin-top:30px">
 \t\t\t\t\t<div class="sect-header fx-row fx-middle">
-\t\t\t\t\t\t<h2 class="sect-title fx-1 title" style="font-size:20px">Читайте также:</h2>
+\t\t\t\t\t\t<h2 class="sect-title fx-1 title" style="font-size:20px">Related Works:</h2>
 \t\t\t\t\t</div>
 \t\t\t\t\t<div class="sect-content" id="dle-content">{rcards}</div>
 \t\t\t\t</div>"""
@@ -704,13 +786,12 @@ for w in works:
 \t\t\t\t<article class="article" itemscope itemtype="https://schema.org/CreativeWork">
 \t\t\t\t<div class="fmain side-box">
 \t\t\t\t\t<!-- Breadcrumb -->
-\t\t\t\t\t<nav aria-label="Хлебные крошки" style="font-size:13px;color:#888;margin-bottom:15px">
-\t\t\t\t\t\t<a href="/">Главная</a> › <a href="/category/{esc(cat_slug)}/">{esc(cat_label)}</a> › <span itemprop="name">{esc(w['title'])}</span>
+\t\t\t\t\t<nav aria-label="Breadcrumb" style="font-size:13px;color:#888;margin-bottom:15px">
+\t\t\t\t\t\t<a href="/">Home</a> › <a href="/category/{esc(cat_slug)}/">{esc(cat_label)}</a> › <span itemprop="name">{esc(w['title'])}</span>
 \t\t\t\t\t</nav>
 \t\t\t\t\t<h1 class="sect-title">{esc(w['title'])}</h1>
 \t\t\t\t\t<div class="short-meta fx-row fx-middle icon-left" style="margin-bottom:25px">
 \t\t\t\t\t\t<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="{esc(w.get('date',''))}" itemprop="datePublished">{date_str}</time></div>
-\t\t\t\t\t\t<div class="short-meta-item"><span class="far fa-eye" aria-hidden="true"></span>{w.get('views',0)}</div>
 \t\t\t\t\t\t<div class="short-meta-item"><a href="/category/{esc(cat_slug)}/" itemprop="genre">{cat_icon} {esc(cat_label)}</a></div>
 \t\t\t\t\t</div>
 \t\t\t\t\t{img_html}
@@ -720,7 +801,7 @@ for w in works:
 \t\t\t\t\t{tags_html}
 \t\t\t\t\t<div class="fbtm fx-row fx-middle fbtm-one" style="margin-top:20px">
 \t\t\t\t\t\t<div class="fx-1"></div>
-\t\t\t\t\t\t<a href="/category/{esc(cat_slug)}/" class="btn">← К категории {esc(cat_label)}</a>
+\t\t\t\t\t\t<a href="/category/{esc(cat_slug)}/" class="btn">← Back to {esc(cat_label)}</a>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 {related_html}
@@ -748,8 +829,8 @@ print(f"Works: {len(works)} pages")
 # ══════════════════════════════════════════════
 canonical = f"{SITE_URL}/search/"
 search_page = head_html(
-    f"Поиск — {SITE_NAME}",
-    f"Поиск по портфолио {SITE_NAME}. Найдите арты, логотипы, баннеры и иллюстрации.",
+    f"Search — {SITE_NAME}",
+    f"Search through {SITE_NAME} creative templates, 3D print models, and UI design kits.",
     f"{SITE_URL}/assets/images/og-default.svg",
     canonical
 ) + f"""
@@ -759,13 +840,13 @@ search_page = head_html(
 \t\t<div class="content fx-row fx-start">
 \t\t\t<main class="col-main" id="main-content">
 \t\t\t\t<div class="side-box">
-\t\t\t\t\t<h1 class="mtitle">Поиск</h1>
+\t\t\t\t\t<h1 class="mtitle">Search Portfolio</h1>
 \t\t\t\t\t<form id="searchForm" role="search" style="margin-bottom:30px">
 \t\t\t\t\t\t<div class="search-box" style="position:relative">
-\t\t\t\t\t\t\t<input type="search" id="searchInput" name="q" placeholder="Введите запрос..."
-\t\t\t\t\t\t\t\taria-label="Поисковый запрос"
+\t\t\t\t\t\t\t<input type="search" id="searchInput" name="q" placeholder="Type keywords..."
+\t\t\t\t\t\t\t\taria-label="Search keywords"
 \t\t\t\t\t\t\t\tstyle="width:100%;height:44px;padding:0 50px 0 15px;border:1px solid #e3e3e3;border-radius:4px;font-size:15px">
-\t\t\t\t\t\t\t<button type="submit" aria-label="Найти"
+\t\t\t\t\t\t\t<button type="submit" aria-label="Submit search"
 \t\t\t\t\t\t\t\tstyle="position:absolute;right:5px;top:2px;background:transparent;border:none;font-size:18px;cursor:pointer;color:#36c537;height:40px;width:40px">
 \t\t\t\t\t\t\t\t<span class="far fa-search" aria-hidden="true"></span></button>
 \t\t\t\t\t\t</div>
@@ -787,7 +868,7 @@ document.addEventListener('DOMContentLoaded', async function() {{
   var res = document.getElementById('searchResults');
   if (inp) inp.value = q;
   if (!q) return;
-  document.title = '"' + q + '" — Поиск — {esc(SITE_NAME)}';
+  document.title = '"' + q + '" — Search — {esc(SITE_NAME)}';
   try {{
     var r = await fetch('/data/works.json');
     var works = await r.json();
@@ -799,7 +880,7 @@ document.addEventListener('DOMContentLoaded', async function() {{
              (w.categoryLabel||'').toLowerCase().indexOf(ql) >= 0;
     }});
     if (!found.length) {{
-      res.innerHTML = '<p style="color:#888;padding:20px 0">По запросу <strong>' + q.replace(/</g,'&lt;') + '</strong> ничего не найдено</p>';
+      res.innerHTML = '<p style="color:#888;padding:20px 0">No results found for <strong>' + q.replace(/</g,'&lt;') + '</strong></p>';
     }} else {{
       res.innerHTML = found.map(function(w) {{ return renderShortItem(w); }}).join('');
       document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {{
@@ -808,7 +889,7 @@ document.addEventListener('DOMContentLoaded', async function() {{
       }});
     }}
   }} catch(e) {{
-    res.innerHTML = '<p style="color:#888">Ошибка загрузки данных</p>';
+    res.innerHTML = '<p style="color:#888">Error loading search database</p>';
   }}
   document.getElementById('searchForm').addEventListener('submit', function(e) {{
     e.preventDefault();
@@ -830,8 +911,8 @@ print("Generated: /search/")
 # 404 PAGE
 # ══════════════════════════════════════════════
 page_404 = head_html(
-    f"404 — Страница не найдена · {SITE_NAME}",
-    "Запрашиваемая страница не найдена.",
+    f"404 — Page Not Found · {SITE_NAME}",
+    "The requested page could not be found.",
     f"{SITE_URL}/assets/images/og-default.svg",
     f"{SITE_URL}/404.html"
 ).replace('<meta name="robots" content="index, follow">',
@@ -843,9 +924,9 @@ page_404 = head_html(
 \t\t\t<main class="col-main" id="main-content">
 \t\t\t\t<div class="side-box" style="text-align:center;padding:60px 30px">
 \t\t\t\t\t<div style="font-size:7rem;font-weight:800;color:#36c537;line-height:1">404</div>
-\t\t\t\t\t<h1 style="font-size:22px;margin:20px 0 10px">Страница не найдена</h1>
-\t\t\t\t\t<p style="color:#888;margin-bottom:30px">Возможно, она была удалена или вы перешли по устаревшей ссылке.</p>
-\t\t\t\t\t<a href="/" class="btn">← На главную</a>
+\t\t\t\t\t<h1 style="font-size:22px;margin:20px 0 10px">Page Not Found</h1>
+\t\t\t\t\t<p style="color:#888;margin-bottom:30px">The page you are looking for might have been removed or is temporarily unavailable.</p>
+\t\t\t\t\t<a href="/" class="btn">← Back to Home</a>
 \t\t\t\t</div>
 \t\t\t</main>
 {sidebar_left_html()}
@@ -863,22 +944,19 @@ with open(os.path.join(BASE, "404.html"), "w", encoding="utf-8") as f:
 print("Generated: 404.html")
 
 # ══════════════════════════════════════════════
-# SITEMAP (с image:image)
+# SITEMAP (with image:image)
 # ══════════════════════════════════════════════
 sitemap_lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
     '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
 ]
-# Index
 sitemap_lines.append(f'  <url><loc>{SITE_URL}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>')
-# Categories
 for cat in categories:
     sitemap_lines.append(
         f'  <url><loc>{SITE_URL}/category/{cat["slug"]}/</loc>'
         f'<changefreq>weekly</changefreq><priority>0.8</priority></url>'
     )
-# Works (with image entries)
 for w in sorted_works:
     img_url = og_image_url(w)
     alt     = img_alt(w)
@@ -901,7 +979,7 @@ sitemap_lines.append('</urlset>')
 
 with open(os.path.join(BASE, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write("\n".join(sitemap_lines))
-print("Generated: sitemap.xml (with image sitemap)")
+print("Generated: sitemap.xml")
 
 # ══════════════════════════════════════════════
 # ROBOTS.TXT
@@ -920,5 +998,5 @@ print("Generated: robots.txt")
 with open(os.path.join(BASE, ".nojekyll"), "w") as f:
     pass
 
-total = 1 + len(categories) + len(works) + 2  # index + cats + works + search + 404
-print(f"\nBuild complete: {total} pages, {len(works)} works, {len(categories)} cats")
+total = 1 + len(categories) + len(works) + 2
+print(f"\nBuild finished: {total} pages generated, {len(works)} works across {len(categories)} categories.")

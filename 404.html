@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <script>
 (function(){
   var t=localStorage.getItem('dimsonsgfx-theme')||
@@ -14,41 +14,43 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- SEO -->
-	<title>404 — Страница не найдена · DIMSONSGFX</title>
-	<meta name="description" content="Запрашиваемая страница не найдена.">
+	<!-- Primary SEO -->
+	<title>404 — Page Not Found · DIMSONSGFX</title>
+	<meta name="description" content="The requested page could not be found.">
 	<link rel="canonical" href="https://dimsonsgfx.github.io/404.html">
 	<meta name="robots" content="noindex, follow">
 
-	<!-- Open Graph -->
-	<meta property="og:title" content="404 — Страница не найдена · DIMSONSGFX">
-	<meta property="og:description" content="Запрашиваемая страница не найдена.">
+	<!-- Open Graph / Facebook / Telegram -->
+	<meta property="og:title" content="404 — Page Not Found · DIMSONSGFX">
+	<meta property="og:description" content="The requested page could not be found.">
 	<meta property="og:image" content="https://dimsonsgfx.github.io/assets/images/og-default.svg">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	<meta property="og:url" content="https://dimsonsgfx.github.io/404.html">
 	<meta property="og:type" content="website">
-	<meta property="og:locale" content="ru_RU">
+	<meta property="og:locale" content="en_US">
 	<meta property="og:site_name" content="DIMSONSGFX">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="404 — Страница не найдена · DIMSONSGFX">
-	<meta name="twitter:description" content="Запрашиваемая страница не найдена.">
+	<meta name="twitter:title" content="404 — Page Not Found · DIMSONSGFX">
+	<meta name="twitter:description" content="The requested page could not be found.">
 	<meta name="twitter:image" content="https://dimsonsgfx.github.io/assets/images/og-default.svg">
 
-	<!-- Webmaster -->
-	<!-- GOOGLE SEARCH CONSOLE: вставь свой код ниже (или в переменную GOOGLE_VERIFICATION в build.py) -->
-	<!-- <meta name="google-site-verification" content="ТВОЙ_КОД"> -->
-	<!-- ЯНДЕКС ВЕБМАСТЕР: вставь свой код ниже -->
-	<!-- <meta name="yandex-verification" content="ТВОЙ_КОД"> -->
+	<!-- Verification -->
+	<!-- GOOGLE SEARCH CONSOLE: Add code below or in GOOGLE_VERIFICATION in build.py -->
+	<!-- <meta name="google-site-verification" content="YOUR_CODE_HERE"> -->
+	<!-- YANDEX WEBMASTER: Add code below -->
+	<!-- <meta name="yandex-verification" content="YOUR_CODE_HERE"> -->
 
-	<!-- Icons -->
+	<!-- Icons & Favicon -->
 	<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
+	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/images/logo-icon.png">
 	<meta name="theme-color" content="#36c537">
 
 	<!-- Fonts & CSS -->
-	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap&subset=cyrillic" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
 	<link href="/assets/css/styles.css" type="text/css" rel="stylesheet">
 	<link href="/assets/css/patch.css" type="text/css" rel="stylesheet">
 
@@ -60,58 +62,51 @@
 
 	<div class="wrap-main wrap-center">
 		<header class="header fx-row fx-middle">
-			<a href="/" class="logo" aria-label="DIMSONSGFX — на главную"><span class="logo-text">DIMSONS<span class="accent">GFX</span></span></a>
+			<a href="/" class="logo" aria-label="DIMSONSGFX Home">
+				<img src="/assets/images/logo-icon.png" alt="DIMSONSGFX" class="logo-icon" width="42" height="42">
+				<span class="logo-text">DIMSONS<span class="accent">GFX</span></span>
+			</a>
 			<ul class="header-menu fx-row fx-start fx-1 to-mob">
-				<li class="active"><a href="/">Главная</a></li>
-				<li><a href="/category/arts/">Арты</a></li>
-				<li><a href="/category/logos/">Логотипы</a></li>
-				<li><a href="/category/banners/">Баннеры</a></li>
-				<li><a href="/category/illustrations/">Иллюстрации</a></li>
-				<li><a href="/category/other/">Прочее</a></li>
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/category/3d-print-models/">3D Print Models</a></li>
+				<li><a href="/category/powerpoint-templates/">PowerPoint Templates</a></li>
+				<li><a href="/category/indesign-templates/">InDesign Templates</a></li>
+				<li><a href="/category/mockup-templates/">Mockup Templates</a></li>
+				<li><a href="/category/ui-design-kits/">UI Design Kits</a></li>
 			</ul>
-			<div class="search-btn js-search anim" aria-label="Поиск"><span class="far fa-search"></span></div>
-			<button class="theme-toggle-btn" id="themeToggle" aria-label="Переключить тему" title="Сменить тему">☀️</button>
-			<div class="btn-menu"><span class="far fa-bars"></span></div>
+			<div class="search-btn js-search anim" aria-label="Search" title="Search"><span class="far fa-search"></span></div>
+			<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">☀️</button>
+			<div class="btn-menu" aria-label="Menu"><span class="far fa-bars"></span></div>
 		</header>
 		<!-- END HEADER -->
 		<div class="content fx-row fx-start">
 			<main class="col-main" id="main-content">
 				<div class="side-box" style="text-align:center;padding:60px 30px">
 					<div style="font-size:7rem;font-weight:800;color:#36c537;line-height:1">404</div>
-					<h1 style="font-size:22px;margin:20px 0 10px">Страница не найдена</h1>
-					<p style="color:#888;margin-bottom:30px">Возможно, она была удалена или вы перешли по устаревшей ссылке.</p>
-					<a href="/" class="btn">← На главную</a>
+					<h1 style="font-size:22px;margin:20px 0 10px">Page Not Found</h1>
+					<p style="color:#888;margin-bottom:30px">The page you are looking for might have been removed or is temporarily unavailable.</p>
+					<a href="/" class="btn">← Back to Home</a>
 				</div>
 			</main>
 
-			<aside class="col-left fx-first" aria-label="Боковая панель">
-				<div class="side-box to-mob">
-					<div class="side-bt title">Навигация</div>
+			<aside class="col-left fx-first" aria-label="Sidebar">
+				<div class="side-box">
+					<div class="side-bt title">Categories</div>
 					<ul class="header-menu side-menu">
-						<li><a href="/">Главная</a></li>
-						<li class=""><a href="/category/arts/">🎨 Арты</a></li>
-						<li class=""><a href="/category/logos/">✦ Логотипы</a></li>
-						<li class=""><a href="/category/banners/">🖼 Баннеры</a></li>
-						<li class=""><a href="/category/illustrations/">✏️ Иллюстрации</a></li>
-						<li class=""><a href="/category/other/">💎 Прочее</a></li>
+						<li><a href="/">🏠 Home</a></li>
+						<li class=""><a href="/category/3d-print-models/">🖨️ 3D Print Models <small style="color:#888;font-size:11px">(4)</small></a></li>
+						<li class=""><a href="/category/powerpoint-templates/">📊 PowerPoint Templates <small style="color:#888;font-size:11px">(3)</small></a></li>
+						<li class=""><a href="/category/indesign-templates/">📄 InDesign Templates <small style="color:#888;font-size:11px">(3)</small></a></li>
+						<li class=""><a href="/category/mockup-templates/">💻 Mockup Templates <small style="color:#888;font-size:11px">(3)</small></a></li>
+						<li class=""><a href="/category/ui-design-kits/">🎨 UI Design Kits <small style="color:#888;font-size:11px">(4)</small></a></li>
 					</ul>
-				</div>
-				<div class="side-box">
-					<div class="side-bt title">Выбор редакции</div>
-					<div class="side-bc mb-remove-30" id="sidebar-editor-pick">
-					</div>
-				</div>
-				<div class="side-box">
-					<div class="side-bt title">Топ работ</div>
-					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="8">
-					</div>
 				</div>
 			</aside>
 			<!-- END COL-LEFT -->
 		</div>
 
 		<footer class="footer fx-row fx-middle">
-			<div class="footer-copyright fx-1">© 2026 DIMSONSGFX. Все права защищены.</div>
+			<div class="footer-copyright fx-1">&copy; 2026 DIMSONSGFX. All rights reserved.</div>
 		</footer>
 		<!-- END FOOTER -->
 		</div><!-- END WRAP-MAIN -->
@@ -119,31 +114,32 @@
 
 	<div class="search-wrap" id="searchWrap" role="search">
 		<div class="search-header fx-row fx-middle">
-			<div class="search-title title">Поиск</div>
-			<div class="search-close" aria-label="Закрыть"><span class="far fa-times"></span></div>
+			<div class="search-title title">Search</div>
+			<div class="search-close" aria-label="Close search"><span class="far fa-times"></span></div>
 		</div>
 		<form id="quicksearch" method="get" action="/search/">
 			<div class="search-box">
-				<input id="story" name="q" placeholder="Поиск по сайту..." type="search" autocomplete="off" aria-label="Поисковый запрос">
-				<button type="submit" aria-label="Найти"><span class="far fa-search"></span></button>
+				<input id="story" name="q" placeholder="Search templates, models, mockups..." type="search" autocomplete="off" aria-label="Search query">
+				<button type="submit" aria-label="Submit search"><span class="far fa-search"></span></button>
 			</div>
 		</form>
 	</div>
 
 	<div class="close-overlay" aria-hidden="true"></div>
-	<div class="btn-close" aria-label="Закрыть меню"><span class="far fa-times"></span></div>
-	<div class="side-panel" role="navigation" aria-label="Мобильное меню">
+	<div class="btn-close" aria-label="Close menu"><span class="far fa-times"></span></div>
+	<div class="side-panel" role="navigation" aria-label="Mobile Navigation">
+		<div style="font-weight:700;font-size:16px;margin-bottom:15px;color:#36c537">Menu</div>
 		<ul class="header-menu side-menu">
-			<li class="active"><a href="/">Главная</a></li>
-				<li><a href="/category/arts/">Арты</a></li>
-				<li><a href="/category/logos/">Логотипы</a></li>
-				<li><a href="/category/banners/">Баннеры</a></li>
-				<li><a href="/category/illustrations/">Иллюстрации</a></li>
-				<li><a href="/category/other/">Прочее</a></li>
+			<li class="active"><a href="/">Home</a></li>
+				<li><a href="/category/3d-print-models/">3D Print Models</a></li>
+				<li><a href="/category/powerpoint-templates/">PowerPoint Templates</a></li>
+				<li><a href="/category/indesign-templates/">InDesign Templates</a></li>
+				<li><a href="/category/mockup-templates/">Mockup Templates</a></li>
+				<li><a href="/category/ui-design-kits/">UI Design Kits</a></li>
 		</ul>
 	</div>
 
-	<button id="gotop" aria-label="Наверх"><span class="far fa-arrow-up"></span></button>
+	<button id="gotop" aria-label="Back to top" title="Back to top"><span class="far fa-arrow-up"></span></button>
 	<script src="/assets/js/libs.js"></script>
 	<script src="/assets/js/site.js"></script>
 </div>

@@ -2,196 +2,196 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://dimsonsgfx.github.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://dimsonsgfx.github.io/category/arts/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dimsonsgfx.github.io/category/logos/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dimsonsgfx.github.io/category/banners/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dimsonsgfx.github.io/category/illustrations/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dimsonsgfx.github.io/category/other/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dimsonsgfx.github.io/category/3d-print-models/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dimsonsgfx.github.io/category/powerpoint-templates/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dimsonsgfx.github.io/category/indesign-templates/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dimsonsgfx.github.io/category/mockup-templates/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dimsonsgfx.github.io/category/ui-design-kits/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/banner-sale/</loc>
+    <loc>https://dimsonsgfx.github.io/works/fintech-crypto-dashboard-kit/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-ui-1.svg</image:loc>
+      <image:title>Fintech &amp; Crypto Dashboard Design System</image:title>
+      <image:caption>Fintech &amp; Crypto Dashboard Design System - UI Design Kits</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dimsonsgfx.github.io/works/iphone-16-pro-floating-mockup/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-mock-1.svg</image:loc>
+      <image:title>iPhone 16 Pro Titanium Mockup Kit</image:title>
+      <image:caption>iPhone 16 Pro Titanium Mockup Kit - Mockup Templates</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dimsonsgfx.github.io/works/cyberpunk-helmet-mk4/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-3d-1.svg</image:loc>
+      <image:title>Cyberpunk Helmet MK-IV</image:title>
+      <image:caption>Cyberpunk Helmet MK-IV - 3D Print Models</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dimsonsgfx.github.io/works/modern-architecture-magazine/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-id-1.svg</image:loc>
+      <image:title>Modern Architecture Magazine Layout</image:title>
+      <image:caption>Modern Architecture Magazine Layout - InDesign Templates</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dimsonsgfx.github.io/works/pitch-deck-pro-presentation/</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-banners-1.svg</image:loc>
-      <image:title>Summer Sale 2026</image:title>
-      <image:caption>Summer Sale 2026 — Баннеры</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-ppt-1.svg</image:loc>
+      <image:title>Pitch Deck Pro Presentation</image:title>
+      <image:caption>Pitch Deck Pro Presentation - PowerPoint Templates</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/urban-dreams/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <loc>https://dimsonsgfx.github.io/works/articulated-mech-dragon/</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-arts-1.svg</image:loc>
-      <image:title>Urban Dreams</image:title>
-      <image:caption>Urban Dreams — Арты</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-3d-2.svg</image:loc>
+      <image:title>Articulated Mech Dragon</image:title>
+      <image:caption>Articulated Mech Dragon - 3D Print Models</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/children-book/</loc>
+    <loc>https://dimsonsgfx.github.io/works/health-fitness-mobile-app-ui/</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-illustrations-1.svg</image:loc>
-      <image:title>Лесные истории</image:title>
-      <image:caption>Лесные истории — Иллюстрации</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-ui-2.svg</image:loc>
+      <image:title>Fitness &amp; Workout Tracker iOS UI Kit</image:title>
+      <image:caption>Fitness &amp; Workout Tracker iOS UI Kit - UI Design Kits</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/logo-minimalist/</loc>
+    <loc>https://dimsonsgfx.github.io/works/hardcover-book-foil-stamp-mockup/</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-logos-1.svg</image:loc>
-      <image:title>Minimalist Mark</image:title>
-      <image:caption>Minimalist Mark — Логотипы</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-mock-2.svg</image:loc>
+      <image:title>Hardcover Book &amp; Foil Stamp Mockup</image:title>
+      <image:caption>Hardcover Book &amp; Foil Stamp Mockup - Mockup Templates</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/map-treasure/</loc>
+    <loc>https://dimsonsgfx.github.io/works/hex-modular-desk-organizer/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-other-1.svg</image:loc>
-      <image:title>Treasure Map</image:title>
-      <image:caption>Treasure Map — Прочее</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-3d-3.svg</image:loc>
+      <image:title>Hex Modular Desk Organizer</image:title>
+      <image:caption>Hex Modular Desk Organizer - 3D Print Models</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/banner-event/</loc>
+    <loc>https://dimsonsgfx.github.io/works/corporate-brand-guidelines-book/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-banners-2.svg</image:loc>
-      <image:title>Night Conference</image:title>
-      <image:caption>Night Conference — Баннеры</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-id-2.svg</image:loc>
+      <image:title>Corporate Brand Guidelines Booklet</image:title>
+      <image:caption>Corporate Brand Guidelines Booklet - InDesign Templates</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/neon-forest/</loc>
+    <loc>https://dimsonsgfx.github.io/works/minimal-annual-report-slides/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-arts-2.svg</image:loc>
-      <image:title>Neon Forest</image:title>
-      <image:caption>Neon Forest — Арты</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-ppt-2.svg</image:loc>
+      <image:title>Minimalist Business Report Slides</image:title>
+      <image:caption>Minimalist Business Report Slides - PowerPoint Templates</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/editorial-tech/</loc>
-    <lastmod>2026-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-illustrations-2.svg</image:loc>
-      <image:title>Digital Minds</image:title>
-      <image:caption>Digital Minds — Иллюстрации</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dimsonsgfx.github.io/works/pattern-aztec/</loc>
+    <loc>https://dimsonsgfx.github.io/works/saas-analytics-web-components/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-other-2.svg</image:loc>
-      <image:title>Aztec Pattern</image:title>
-      <image:caption>Aztec Pattern — Прочее</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-ui-3.svg</image:loc>
+      <image:title>SaaS Analytics Platform UI Kit</image:title>
+      <image:caption>SaaS Analytics Platform UI Kit - UI Design Kits</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/logo-beast/</loc>
+    <loc>https://dimsonsgfx.github.io/works/tabletop-scifi-titan-miniature/</loc>
     <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-logos-2.svg</image:loc>
-      <image:title>The Beast Co.</image:title>
-      <image:caption>The Beast Co. — Логотипы</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-3d-4.svg</image:loc>
+      <image:title>Sci-Fi Titan Warfare Miniature</image:title>
+      <image:caption>Sci-Fi Titan Warfare Miniature - 3D Print Models</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/banner-app/</loc>
+    <loc>https://dimsonsgfx.github.io/works/cosmetics-dropper-bottle-scene/</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-banners-3.svg</image:loc>
-      <image:title>App Launch</image:title>
-      <image:caption>App Launch — Баннеры</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-mock-3.svg</image:loc>
+      <image:title>Cosmetic Glass Dropper Bottle Scene</image:title>
+      <image:caption>Cosmetic Glass Dropper Bottle Scene - Mockup Templates</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/cosmic-voyage/</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-arts-3.svg</image:loc>
-      <image:title>Cosmic Voyage</image:title>
-      <image:caption>Cosmic Voyage — Арты</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dimsonsgfx.github.io/works/portrait-abstract/</loc>
+    <loc>https://dimsonsgfx.github.io/works/minimal-photography-lookbook/</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-illustrations-3.svg</image:loc>
-      <image:title>Faceless</image:title>
-      <image:caption>Faceless — Иллюстрации</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-id-3.svg</image:loc>
+      <image:title>Minimal Photography Lookbook</image:title>
+      <image:caption>Minimal Photography Lookbook - InDesign Templates</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/logo-coffee/</loc>
+    <loc>https://dimsonsgfx.github.io/works/creative-agency-portfolio-deck/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-logos-3.svg</image:loc>
-      <image:title>Brew &amp; Soul</image:title>
-      <image:caption>Brew &amp; Soul — Логотипы</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-ppt-3.svg</image:loc>
+      <image:title>Creative Agency Showreel Deck</image:title>
+      <image:caption>Creative Agency Showreel Deck - PowerPoint Templates</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://dimsonsgfx.github.io/works/ui-dashboard/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://dimsonsgfx.github.io/works/ecommerce-store-design-system/</loc>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-other-3.svg</image:loc>
-      <image:title>Analytics Dashboard</image:title>
-      <image:caption>Analytics Dashboard — Прочее</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dimsonsgfx.github.io/works/deep-sea/</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-arts-4.svg</image:loc>
-      <image:title>Deep Sea</image:title>
-      <image:caption>Deep Sea — Арты</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dimsonsgfx.github.io/works/logo-tech/</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-logos-4.svg</image:loc>
-      <image:title>Nexus Labs</image:title>
-      <image:caption>Nexus Labs — Логотипы</image:caption>
+      <image:loc>https://dimsonsgfx.github.io/assets/images/placeholder-ui-4.svg</image:loc>
+      <image:title>Luxury eCommerce Storefront UI System</image:title>
+      <image:caption>Luxury eCommerce Storefront UI System - UI Design Kits</image:caption>
     </image:image>
   </url>
 </urlset>
