@@ -829,8 +829,6 @@ for w in works:
         tg_box_html = ""
 
     source_link_html = ""
-    if w.get("source_url"):
-        source_link_html = f'''<div style="margin-top:14px;font-size:12.5px;color:#888">Original Source: <a href="{esc(w['source_url'])}" target="_blank" rel="noopener nofollow" style="color:var(--accent-color);text-decoration:underline">GFxtra Publication ↗</a></div>'''
 
     specs = w.get("specs", "")
     specs_html = ""
