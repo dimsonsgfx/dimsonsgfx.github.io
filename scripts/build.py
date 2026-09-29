@@ -11,7 +11,7 @@ Updates:
   - JSON-LD structured data (ImageObject, BreadcrumbList, WebSite, Person)
   - XML Image Sitemap & robots.txt
 """
-import json, os
+import json, os, re
 from datetime import datetime
 
 SITE_URL    = "https://dimsonsgfx.github.io"
@@ -402,10 +402,29 @@ def load_markdown_works(works_dir):
                     cover_file = meta.get("cover", "cover.jpg")
                     img_path = f"/works/{slug}/{cover_file}" if not cover_file.startswith("/") and not cover_file.startswith("http") else cover_file
 
+                    specs = meta.get("specs", "")
+                    # Extract specs from body if not in meta
+                    if not specs:
+                        m_spec = re.search(r'\*\*Technical Details:\*\*\s*([^\n\r]+)', body)
+                        if m_spec:
+                            specs = m_spec.group(1).strip()
+
+                    # Extract clean descriptive text without raw markdown tags
+                    clean_lines = []
+                    for line in body.splitlines():
+                        l = line.strip()
+                        if not l or l.startswith("#") or l.startswith("**Technical Details:") or l.startswith("- **") or l.startswith("* **"):
+                            continue
+                        clean_lines.append(l)
+                    clean_desc = " ".join(clean_lines).strip()
+                    if not clean_desc or len(clean_desc) < 15:
+                        clean_desc = f"High-quality digital creative asset bundle: {meta.get('title', entry.name)}. Professional files and materials ready for your creative projects."
+
                     extra.append({
                         "slug": slug,
                         "title": meta.get("title", entry.name),
-                        "description": body[:250].strip() if body else meta.get("title", ""),
+                        "description": clean_desc,
+                        "specs": specs,
                         "category": cat_slug,
                         "categoryLabel": cat_lbl,
                         "date": meta.get("date", TODAY),
@@ -937,6 +956,21 @@ for w in works:
     if w.get("source_url"):
         source_link_html = f'''<div style="margin-top:14px;font-size:12.5px;color:#888">Original Source: <a href="{esc(w['source_url'])}" target="_blank" rel="noopener nofollow" style="color:var(--accent-color);text-decoration:underline">GFxtra Publication ↗</a></div>'''
 
+    specs = w.get("specs", "")
+    specs_html = ""
+    if specs:
+        specs_html = f'''<div class="work-specs" style="display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 15px 0">
+\t\t\t\t\t\t<div style="padding:8px 16px;background:rgba(0,128,255,0.07);border:1px solid rgba(0,128,255,0.2);border-radius:8px;font-size:13.5px;color:var(--text-color);display:inline-flex;align-items:center;gap:8px">
+\t\t\t\t\t\t\t<span style="color:#0080ff;font-weight:600">📦 Format & Specs:</span> <b>{esc(specs)}</b>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<div style="padding:8px 16px;background:rgba(0,128,255,0.07);border:1px solid rgba(0,128,255,0.2);border-radius:8px;font-size:13.5px;color:var(--text-color);display:inline-flex;align-items:center;gap:8px">
+\t\t\t\t\t\t\t<span style="color:#0080ff;font-weight:600">📁 Collection:</span> <b>{esc(cat_label)}</b>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<div style="padding:8px 16px;background:rgba(0,128,255,0.07);border:1px solid rgba(0,128,255,0.2);border-radius:8px;font-size:13.5px;color:var(--text-color);display:inline-flex;align-items:center;gap:8px">
+\t\t\t\t\t\t\t<span style="color:#0080ff;font-weight:600">⚡ Status:</span> <b>Available in Telegram</b>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>'''
+
     html = head_html(
         f"{w['title']} — {SITE_NAME}",
         meta_desc, og_img, canonical,
@@ -961,7 +995,8 @@ for w in works:
 \t\t\t\t\t</div>
 \t\t\t\t\t{img_html}
 \t\t\t\t\t{tg_box_html}
-\t\t\t\t\t<div class="ftext full-text clearfix" itemprop="description">
+\t\t\t\t\t{specs_html}
+\t\t\t\t\t<div class="ftext full-text clearfix" itemprop="description" style="margin:20px 0;font-size:15px;line-height:1.75;color:var(--text-color)">
 \t\t\t\t\t\t<p>{esc(desc)}</p>
 \t\t\t\t\t</div>
 \t\t\t\t\t{tags_html}
