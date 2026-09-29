@@ -129,8 +129,8 @@ def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website",
 
 \t<!-- Fonts & CSS -->
 \t{FONTS}
-\t<link href="/assets/css/styles.css?v=7.0" type="text/css" rel="stylesheet">
-\t<link href="/assets/css/patch.css?v=7.0" type="text/css" rel="stylesheet">
+\t<link href="/assets/css/styles.css?v=7.1" type="text/css" rel="stylesheet">
+\t<link href="/assets/css/patch.css?v=7.1" type="text/css" rel="stylesheet">
 
 \t<!-- JSON-LD -->
 {schema_ld}
@@ -381,7 +381,7 @@ def sidebar_left_html(active_cat=None):
 \t\t\t<aside class="col-left fx-first" aria-label="Sidebar">
 \t\t\t\t<div class="side-box">
 \t\t\t\t\t<div class="side-bt title">Categories</div>
-\t\t\t\t\t<ul class="header-menu side-menu">
+\t\t\t\t\t<ul class="side-menu">
 \t\t\t\t\t\t{side_nav(active_cat)}
 \t\t\t\t\t</ul>
 \t\t\t\t</div>
@@ -418,7 +418,7 @@ def mobile_panel(active_cat=None):
 \t<button type="button" class="btn-close" aria-label="Close menu"><span class="far fa-times" aria-hidden="true"></span></button>
 \t<nav class="side-panel" aria-label="Mobile Navigation">
 \t\t<div style="font-weight:700;font-size:16px;margin-bottom:15px;color:#0080ff">Menu</div>
-\t\t<ul class="header-menu side-menu">
+\t\t<ul class="side-menu">
 \t\t\t{nav_items(active_cat)}
 \t\t</ul>
 \t</div>"""
@@ -427,7 +427,7 @@ def scripts():
     return """
 \t<button id="gotop" aria-label="Back to top" title="Back to top"><span class="far fa-arrow-up"></span></button>
 \t<script src="/assets/js/libs.js"></script>
-\t<script src="/assets/js/site.js?v=7.0"></script>"""
+\t<script src="/assets/js/site.js?v=7.1"></script>"""
 
 # ── Short item card (3 col, NO VIEWS ICON) ─────
 def short_item(w):
