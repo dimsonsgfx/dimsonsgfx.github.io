@@ -2,8 +2,7 @@
 <html lang="en">
 <script>
 (function(){
-  var t=localStorage.getItem('dimsonsgfx-theme')||
-    (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  var t=localStorage.getItem('dimsonsgfx-theme')||'dark';
   document.documentElement.setAttribute('data-theme',t);
   document.addEventListener('DOMContentLoaded',function(){
     document.body.setAttribute('data-theme',t);
@@ -42,6 +41,7 @@
 	<!-- <meta name="google-site-verification" content="YOUR_CODE_HERE"> -->
 	<!-- YANDEX WEBMASTER: Add code below -->
 	<!-- <meta name="yandex-verification" content="YOUR_CODE_HERE"> -->
+	<meta name="p-domain-verify" content="b253f3ae6f2b4b477195e9fd85b8183c">
 
 	<!-- Icons & Favicon -->
 	<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">

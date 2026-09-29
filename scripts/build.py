@@ -24,6 +24,7 @@ TODAY = datetime.now().strftime("%Y-%m-%d")
 # ── Webmaster verification codes ────────────────
 GOOGLE_VERIFICATION  = ""   # Paste Google Search Console code here
 YANDEX_VERIFICATION  = ""   # Paste Yandex Webmaster code here
+PINTEREST_VERIFICATION = "b253f3ae6f2b4b477195e9fd85b8183c"
 
 # ── Helpers ──────────────────────────────────────
 def esc(s):
@@ -68,13 +69,14 @@ def webmaster_meta():
     else:
         tags.append('\t<!-- YANDEX WEBMASTER: Add code below -->')
         tags.append('\t<!-- <meta name="yandex-verification" content="YOUR_CODE_HERE"> -->')
+    if PINTEREST_VERIFICATION:
+        tags.append(f'\t<meta name="p-domain-verify" content="{esc(PINTEREST_VERIFICATION)}">')
     return "\n".join(tags)
 
 # ── Theme init ──────────────────────────────────
 THEME_INIT = """<script>
 (function(){
-  var t=localStorage.getItem('dimsonsgfx-theme')||
-    (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  var t=localStorage.getItem('dimsonsgfx-theme')||'dark';
   document.documentElement.setAttribute('data-theme',t);
   document.addEventListener('DOMContentLoaded',function(){
     document.body.setAttribute('data-theme',t);
