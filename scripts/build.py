@@ -393,7 +393,7 @@ def sidebar_left_html(active_cat=None):
 def footer_html():
     return f"""
 \t\t<footer class="footer fx-row fx-middle">
-\t\t\t<div class="footer-copyright fx-1">&copy; {datetime.now().year} {esc(SITE_NAME)}. All rights reserved.</div>
+\t\t\t<div class="footer-copyright fx-1">&copy; {datetime.now().year} {esc(SITE_NAME)}. All rights reserved. &bull; <a href="/dmca/" style="color:inherit;text-decoration:underline;opacity:0.85;">DMCA &amp; Disclaimer</a></div>
 \t\t</footer>
 \t\t<!-- END FOOTER -->
 \t\t</div><!-- END WRAP-MAIN -->
@@ -1022,6 +1022,66 @@ with open(os.path.join(BASE, "404.html"), "w", encoding="utf-8") as f:
 print("Generated: 404.html")
 
 # ══════════════════════════════════════════════
+# DMCA & COPYRIGHT COMPLIANCE PAGE
+# ══════════════════════════════════════════════
+dmca_page_html = head_html(
+    f"DMCA & Copyright Compliance · {SITE_NAME}",
+    "DMCA notice, copyright compliance and intellectual property takedown procedure for DIMSONSGFX.",
+    f"{SITE_URL}/assets/images/og-default.svg",
+    f"{SITE_URL}/dmca/"
+) + f"""
+<body>
+<div class="wrap">
+{header_html()}
+		<div class="content fx-row fx-start">
+			<main class="col-main" id="main-content">
+				<article class="side-box" style="padding:40px 35px;line-height:1.7;">
+					<h1 style="font-size:26px;font-weight:700;margin-bottom:20px;color:var(--text-title,#fff)">DMCA &amp; Copyright Policy</h1>
+					
+					<p style="margin-bottom:18px;color:var(--text-muted,#aaa)"><strong>{esc(SITE_NAME)}</strong> operates as a digital showcase catalog and creative design portfolio. We respect the intellectual property rights of others and comply with the Digital Millennium Copyright Act (17 U.S.C. § 512) and international copyright standards.</p>
+
+					<h2 style="font-size:18px;font-weight:600;margin:25px 0 12px;color:var(--text-title,#fff)">1. Non-Hosting Disclaimer</h2>
+					<p style="margin-bottom:18px;color:var(--text-muted,#aaa)">All digital previews, graphic layouts, and mockups presented on this website are published strictly for educational, informational, and review purposes. <strong>{esc(SITE_NAME)} does not host, upload, or store digital archive files (such as .ZIP, .RAR, .INDD, .PSD, .STL, or pirated software) on its servers or hosting infrastructure.</strong> All download interactions take place off-site via third-party messaging services (Telegram).</p>
+
+					<h2 style="font-size:18px;font-weight:600;margin:25px 0 12px;color:var(--text-title,#fff)">2. Notice and Takedown Procedure</h2>
+					<p style="margin-bottom:18px;color:var(--text-muted,#aaa)">If you are a copyright owner, author, or an authorized agent representing a copyright owner, and you believe in good faith that any content or thumbnail preview displayed on our website infringes upon your copyright, you may submit a formal notification.</p>
+
+					<p style="margin-bottom:15px;color:var(--text-muted,#aaa)">To expedite your request, please provide our designated copyright agent with the following information:</p>
+					<ul style="margin:0 0 20px 25px;list-style:disc;color:var(--text-muted,#aaa)">
+						<li style="margin-bottom:8px">Identification of the copyrighted work claimed to have been infringed (or a representative list of such works).</li>
+						<li style="margin-bottom:8px">The exact URL link(s) on <code>{SITE_URL}</code> where the claimed infringing material is located.</li>
+						<li style="margin-bottom:8px">Your contact information, including your full legal name, company/organization, physical address, telephone number, and official email address.</li>
+						<li style="margin-bottom:8px">A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.</li>
+						<li style="margin-bottom:8px">A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li>
+					</ul>
+
+					<h2 style="font-size:18px;font-weight:600;margin:25px 0 12px;color:var(--text-title,#fff)">3. Contact Email for Copyright Inquiries</h2>
+					<p style="margin-bottom:20px;color:var(--text-muted,#aaa)">Please submit all formal notices and copyright communications to our direct administrative email:</p>
+					<div style="background:rgba(0,128,255,0.08);border:1px solid rgba(0,128,255,0.25);border-radius:8px;padding:16px 20px;margin-bottom:25px;">
+						<div style="font-weight:600;color:var(--text-title,#fff);margin-bottom:4px;">Designated Copyright Agent:</div>
+						<a href="mailto:apoloman2014@gmail.com" style="color:#0080ff;font-size:17px;font-weight:700;text-decoration:none;">apoloman2014@gmail.com</a>
+					</div>
+
+					<p style="margin-bottom:0;color:var(--text-muted,#aaa)"><strong>Response Time:</strong> We review all legitimate copyright claims promptly. Upon verification, any infringing material or reference will be removed within 24 to 48 hours.</p>
+				</article>
+			</main>
+{sidebar_left_html()}
+		</div>
+{footer_html()}
+{search_overlay()}
+{mobile_panel()}
+{scripts()}
+</div>
+</body>
+</html>"""
+
+os.makedirs(os.path.join(BASE, "dmca"), exist_ok=True)
+with open(os.path.join(BASE, "dmca", "index.html"), "w", encoding="utf-8") as f:
+    f.write(dmca_page_html)
+print("Generated: /dmca/")
+
+
+# ══════════════════════════════════════════════
 # SITEMAP (with image:image)
 # ══════════════════════════════════════════════
 sitemap_lines = [
@@ -1030,6 +1090,7 @@ sitemap_lines = [
     '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
 ]
 sitemap_lines.append(f'  <url><loc>{SITE_URL}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>')
+sitemap_lines.append(f'  <url><loc>{SITE_URL}/dmca/</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>')
 for cat in categories:
     sitemap_lines.append(
         f'  <url><loc>{SITE_URL}/category/{cat["slug"]}/</loc>'
