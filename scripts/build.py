@@ -369,9 +369,9 @@ def header_html(active_cat=None):
 \t\t\t<ul class="header-menu fx-row fx-start fx-1 to-mob">
 \t\t\t\t{nav_items(active_cat)}
 \t\t\t</ul>
-\t\t\t<div class="search-btn js-search anim" aria-label="Search" title="Search"><span class="far fa-search"></span></div>
+\t\t\t<button type="button" class="search-btn js-search anim" aria-label="Search" title="Search"><span class="far fa-search" aria-hidden="true"></span></button>
 \t\t\t<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"><span class="far fa-moon" aria-hidden="true"></span></button>
-\t\t\t<div class="btn-menu" aria-label="Menu"><span class="far fa-bars"></span></div>
+\t\t\t<button type="button" class="btn-menu" aria-label="Open navigation menu"><span class="far fa-bars" aria-hidden="true"></span></button>
 \t\t</header>
 \t\t<!-- END HEADER -->"""
 
@@ -402,7 +402,7 @@ def search_overlay():
 \t<div class="search-wrap" id="searchWrap" role="search">
 \t\t<div class="search-header fx-row fx-middle">
 \t\t\t<div class="search-title title">Search</div>
-\t\t\t<div class="search-close" aria-label="Close search"><span class="far fa-times"></span></div>
+\t\t\t<button type="button" class="search-close" aria-label="Close search"><span class="far fa-times" aria-hidden="true"></span></button>
 \t\t</div>
 \t\t<form id="quicksearch" method="get" action="/search/">
 \t\t\t<div class="search-box">
@@ -415,8 +415,8 @@ def search_overlay():
 def mobile_panel(active_cat=None):
     return f"""
 \t<div class="close-overlay" aria-hidden="true"></div>
-\t<div class="btn-close" aria-label="Close menu"><span class="far fa-times"></span></div>
-\t<div class="side-panel" role="navigation" aria-label="Mobile Navigation">
+\t<button type="button" class="btn-close" aria-label="Close menu"><span class="far fa-times" aria-hidden="true"></span></button>
+\t<nav class="side-panel" aria-label="Mobile Navigation">
 \t\t<div style="font-weight:700;font-size:16px;margin-bottom:15px;color:#0080ff">Menu</div>
 \t\t<ul class="header-menu side-menu">
 \t\t\t{nav_items(active_cat)}
@@ -436,7 +436,7 @@ def short_item(w):
     if w.get("thumb"):
         img_html = f'<img src="{esc(w["thumb"])}" alt="{esc(alt)}" loading="lazy" width="400" height="280">'
     else:
-        img_html = f'<div class="no-image-placeholder" aria-label="{esc(alt)}">{w.get("emoji","🎨")}</div>'
+        img_html = f'<div class="no-image-placeholder" role="img" aria-label="{esc(alt)}">{w.get("emoji","🎨")}</div>'
 
     cat = cat_map.get(w.get("category",""), {})
     cat_label = cat.get("label", w.get("category",""))
@@ -690,7 +690,7 @@ index_html = head_html(
 \t\t\t\t\t<div class="sect-header">
 \t\t\t\t\t\t<h1 class="sect-title title fx-1">Latest Works</h1>
 \t\t\t\t\t</div>
-\t\t\t\t\t<div class="sect-content" id="dle-content" aria-label="Latest works">
+\t\t\t\t\t<div class="sect-content" id="dle-content">
 {all_cards}
 \t\t\t\t\t</div>
 \t\t\t\t</div>

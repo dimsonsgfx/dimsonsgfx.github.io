@@ -74,9 +74,9 @@
 				<li><a href="/category/mockup-templates/">Mockup Templates</a></li>
 				<li><a href="/category/ui-design-kits/">UI Design Kits</a></li>
 			</ul>
-			<div class="search-btn js-search anim" aria-label="Search" title="Search"><span class="far fa-search"></span></div>
+			<button type="button" class="search-btn js-search anim" aria-label="Search" title="Search"><span class="far fa-search" aria-hidden="true"></span></button>
 			<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"><span class="far fa-moon" aria-hidden="true"></span></button>
-			<div class="btn-menu" aria-label="Menu"><span class="far fa-bars"></span></div>
+			<button type="button" class="btn-menu" aria-label="Open navigation menu"><span class="far fa-bars" aria-hidden="true"></span></button>
 		</header>
 		<!-- END HEADER -->
 		<div class="content fx-row fx-start">
@@ -123,7 +123,7 @@
 	<div class="search-wrap" id="searchWrap" role="search">
 		<div class="search-header fx-row fx-middle">
 			<div class="search-title title">Search</div>
-			<div class="search-close" aria-label="Close search"><span class="far fa-times"></span></div>
+			<button type="button" class="search-close" aria-label="Close search"><span class="far fa-times" aria-hidden="true"></span></button>
 		</div>
 		<form id="quicksearch" method="get" action="/search/">
 			<div class="search-box">
@@ -134,8 +134,8 @@
 	</div>
 
 	<div class="close-overlay" aria-hidden="true"></div>
-	<div class="btn-close" aria-label="Close menu"><span class="far fa-times"></span></div>
-	<div class="side-panel" role="navigation" aria-label="Mobile Navigation">
+	<button type="button" class="btn-close" aria-label="Close menu"><span class="far fa-times" aria-hidden="true"></span></button>
+	<nav class="side-panel" aria-label="Mobile Navigation">
 		<div style="font-weight:700;font-size:16px;margin-bottom:15px;color:#0080ff">Menu</div>
 		<ul class="header-menu side-menu">
 			<li class="active"><a href="/">Home</a></li>
