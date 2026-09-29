@@ -18,7 +18,7 @@ function applyTheme(theme) {
   document.body.setAttribute('data-theme', theme);
   document.documentElement.setAttribute('data-theme', theme);
   const btn = document.getElementById('themeToggle');
-  if (btn) {
+  if (btn && !btn.querySelector('.nav-icon-3d')) {
     btn.innerHTML = theme === 'dark' ? '<span class="far fa-sun" aria-hidden="true"></span>' : '<span class="far fa-moon" aria-hidden="true"></span>';
   }
   localStorage.setItem(THEME_KEY, theme);

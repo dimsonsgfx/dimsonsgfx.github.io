@@ -369,9 +369,9 @@ def header_html(active_cat=None):
 \t\t\t<ul class="header-menu fx-row fx-start fx-1 to-mob">
 \t\t\t\t{nav_items(active_cat)}
 \t\t\t</ul>
-\t\t\t<button type="button" class="search-btn js-search anim" aria-label="Search" title="Search"><span class="far fa-search" aria-hidden="true"></span></button>
-\t\t\t<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"><span class="far fa-moon" aria-hidden="true"></span></button>
-\t\t\t<button type="button" class="btn-menu" aria-label="Open navigation menu"><span class="far fa-bars" aria-hidden="true"></span></button>
+			<button type="button" class="search-btn js-search anim" aria-label="Search" title="Search"><img src="/assets/images/icons/icon-search.png" alt="Search" width="34" height="34" class="nav-icon-3d"></button>
+			<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"><img src="/assets/images/icons/icon-theme.png" alt="Toggle theme" width="34" height="34" class="nav-icon-3d"></button>
+			<button type="button" class="btn-menu" aria-label="Open navigation menu" title="Open navigation menu"><img src="/assets/images/icons/icon-menu.png" alt="Menu" width="34" height="34" class="nav-icon-3d"></button>
 \t\t</header>
 \t\t<!-- END HEADER -->"""
 
