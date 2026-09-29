@@ -1,0 +1,43 @@
+name: Sync GFxtra RSS to Telegram & Website
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Запуск каждые 30 минут
+  workflow_dispatch:        # Кнопка ручного запуска в любое время
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Sync Script
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHANNEL: "@dimsonsgfx"
+          RSS_URL: "https://www.gfxtra31.com/user/dimsons/news/rss.xml"
+        run: |
+          python scripts/sync_rss.py
+
+      - name: Commit and Push if changes exist
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No new RSS updates found. Nothing to commit."
+          else
+            git commit -m "chore(sync): publish new RSS items to Telegram and website [skip ci]"
+            git push origin main
+          fi
