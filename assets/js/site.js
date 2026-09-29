@@ -80,21 +80,31 @@ function initSearch() {
 
   if (!searchBtn || !searchWrap) return;
 
-  searchBtn.addEventListener('click', () => {
+  searchBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     searchWrap.classList.toggle('visible');
     if (searchWrap.classList.contains('visible') && searchInput) {
-      searchInput.focus();
+      setTimeout(() => searchInput.focus(), 60);
     }
   });
 
   if (searchClose) {
-    searchClose.addEventListener('click', () => {
+    searchClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       searchWrap.classList.remove('visible');
     });
   }
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') searchWrap.classList.remove('visible');
+  });
+
+  document.addEventListener('click', e => {
+    if (searchWrap.classList.contains('visible') && !searchWrap.contains(e.target) && !searchBtn.contains(e.target)) {
+      searchWrap.classList.remove('visible');
+    }
   });
 
   const form = document.getElementById('quicksearch');
