@@ -85,8 +85,9 @@ THEME_INIT = """<script>
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">'
 
 # ── <head> ────────────────────────────────────
-def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website"):
+def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website", keywords=""):
     wm = webmaster_meta()
+    kw_meta = f'\t<meta name="keywords" content="{esc(keywords)}">\n' if keywords else ''
     return f"""<!DOCTYPE html>
 <html lang="en">
 {THEME_INIT}
@@ -97,7 +98,7 @@ def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website")
 \t<!-- Primary SEO -->
 \t<title>{esc(title)}</title>
 \t<meta name="description" content="{esc(desc)}">
-\t<link rel="canonical" href="{esc(canonical)}">
+{kw_meta}\t<link rel="canonical" href="{esc(canonical)}">
 \t<meta name="robots" content="index, follow">
 
 \t<!-- Open Graph / Facebook / Telegram -->
@@ -614,19 +615,119 @@ with open(os.path.join(IMG_DIR, "og-default.svg"), "w", encoding="utf-8") as f:
 print(f"Generated {len(PLACEHOLDERS_DATA)} SVG cards + og-default.svg")
 
 # ══════════════════════════════════════════════
-# INDEX PAGE
+# EXTERNAL SEO BLOCKS & KEYWORDS
 # ══════════════════════════════════════════════
-recent_cards = "\n".join(short_item(w) for w in sorted_works[:9])
-all_cards    = "\n".join(short_item(w) for w in sorted_works)
-og_img       = f"{SITE_URL}/assets/images/og-default.svg"
-canonical    = f"{SITE_URL}/"
+HOMEPAGE_KEYWORDS = "digital creative assets, 3D print models, STL files, PowerPoint pitch decks, InDesign templates, mockup templates, Figma UI design kits, dimsonsgfx"
+
+HOMEPAGE_SEO = f"""<div class="site-desc">
+\t<h2>{esc(SITE_NAME)} — Digital Creative Assets, 3D Print STL Models &amp; Design Systems</h2>
+\t<p>Welcome to <strong>{esc(SITE_NAME)}</strong>, an independent digital portfolio and creative resource hub dedicated to high-standard design assets, 3D print models, and publication templates. Every digital asset in this collection is crafted with meticulous attention to detail, usability, and technical performance.</p>
+\t<h3>Curated Digital Categories</h3>
+\t<ul>
+\t\t<li><strong>3D Print Models:</strong> Water-tight STL &amp; OBJ meshes engineered for FDM and SLA 3D printers — from wearable cosplay props to print-in-place articulated creatures and wargaming miniatures.</li>
+\t\t<li><strong>PowerPoint Presentation Templates:</strong> Professional, investor-ready pitch decks, corporate slide systems, and infographic decks formatted in 16:9 widescreen.</li>
+\t\t<li><strong>InDesign Publication Layouts:</strong> Commercial print-ready magazine spreads, brand identity guidelines, and brochures with baseline grids and paragraph styling.</li>
+\t\t<li><strong>Photorealistic PSD Mockups:</strong> High-resolution smart object mockups for Apple devices, cosmetics packaging, hardcover books, and branding collateral.</li>
+\t\t<li><strong>Figma UI Design Kits:</strong> Production-grade design systems with Auto-Layout 5.0, responsive components, and dark/light modes for SaaS web apps and mobile interfaces.</li>
+\t</ul>
+\t<h3>Quality Standards &amp; Continuous Updates</h3>
+\t<p>All items undergo rigorous quality checks before publishing to ensure seamless imports, zero slicing errors, and effortless client presentation. Check back frequently or use the search bar above to discover newly released assets.</p>
+</div>"""
+
+CATEGORY_KEYWORDS = {
+  "3d-print-models": "3d print models, stl files, 3d printing, cosplay stl, miniature 3d print, fdm 3d models, sla resin stl, print in place dragon, mechanical 3d models",
+  "powerpoint-templates": "powerpoint templates, pitch deck template, investor presentation, business slides pptx, presentation design, startup pitch deck, corporate presentation",
+  "indesign-templates": "indesign templates, editorial magazine layout, brand guidelines template, indd template, print ready indesign, lookbook indesign, annual report indd",
+  "mockup-templates": "psd mockups, device mockups, iphone 16 mockup, book mockup, packaging mockup, smart object psd, cosmetics packaging mockup, photorealistic mockup",
+  "ui-design-kits": "ui design kits, figma design system, dashboard ui kit, mobile app ui, figma components, web app ui, crypto dashboard figma, saas ui components"
+}
+
+CATEGORY_SEO = {
+  "3d-print-models": """<div class="site-desc">
+\t<h2>High-Precision 3D Printable STL Models, Miniatures &amp; Functional Designs</h2>
+\t<p>Welcome to the <strong>3D Print Models</strong> library by DIMSONSGFX. Here you will find an expanding collection of production-tested, manifold STL and OBJ digital assets tailored for both hobbyist makers and professional fabrication studios.</p>
+\t<h3>Engineered for FDM and Resin SLA/DLP 3D Printers</h3>
+\t<p>Every 3D model is modeled with strict wall-thickness tolerances, manifold geometry, and optimized mesh density to guarantee reliable, high-yield printing without slicing defects. Whether you are running Ender, Prusa, Bambu Lab, Anycubic, or Elegoo printers, these files deliver crisp surface finishes and exact mechanical fits.</p>
+\t<h3>Popular Categories &amp; Use Cases</h3>
+\t<ul>
+\t\t<li><strong>Wearable Cosplay &amp; Helmets:</strong> Ergonomic wearable armor pieces split into interlocking keys for easy bed fitting and post-print sanding.</li>
+\t\t<li><strong>Print-in-Place Articulated Figurines:</strong> Friction-calibrated ball-and-socket joints requiring zero supports or assembly.</li>
+\t\t<li><strong>Tabletop Wargaming Miniatures:</strong> 28mm and 32mm scale resin miniatures featuring dynamic heroic poses and interchangeable weapons.</li>
+\t\t<li><strong>Modular Workshop &amp; Desk Organizers:</strong> Functional geometric organizers with cable passages and magnetic docking channels.</li>
+\t</ul>
+</div>""",
+
+  "powerpoint-templates": """<div class="site-desc">
+\t<h2>Modern PowerPoint Presentation Templates &amp; Investor Pitch Decks</h2>
+\t<p>Stand out in investor meetings, executive boardrooms, and creative agency pitches with the <strong>PowerPoint Templates</strong> collection by DIMSONSGFX. Designed with contemporary typography, strategic visual hierarchy, and widescreen 16:9 aspect ratios.</p>
+\t<h3>Built for Speed, Clarity, and High-Stakes Storytelling</h3>
+\t<p>All slide decks are built upon structured slide masters with standardized color palettes and drag-and-drop image placeholders. You can customize branding, update typography, and recolor vector charts with a single click in Microsoft PowerPoint or Google Slides.</p>
+\t<h3>Key Features &amp; Slide Layouts Included</h3>
+\t<ul>
+\t\t<li><strong>Venture Capital Pitch Decks:</strong> Problem-solution frameworks, market size TAM/SAM/SOM slides, business model projections, and traction timelines.</li>
+\t\t<li><strong>Corporate &amp; Annual Reports:</strong> Data-driven editable tables, KPI scorecard widgets, revenue breakdowns, and leadership organizational charts.</li>
+\t\t<li><strong>Agency &amp; Creative Portfolios:</strong> High-impact dark mode layouts, client case study grids, testimonial blocks, and video showcase cards.</li>
+\t\t<li><strong>Vector Infographics &amp; Timelines:</strong> 100% scalable vector shapes, milestone roadmaps, process workflows, and world comparison maps.</li>
+\t</ul>
+</div>""",
+
+  "indesign-templates": """<div class="site-desc">
+\t<h2>Adobe InDesign Editorial Layouts, Magazines &amp; Brand Guidelines</h2>
+\t<p>Explore the <strong>InDesign Templates</strong> catalog by DIMSONSGFX, crafted for graphic designers, art directors, publishers, and branding studios who demand commercial-grade typography and print precision.</p>
+\t<h3>Commercial Print-Ready Files with Grid Precision</h3>
+\t<p>Formatted in international A4 and standard US Letter standards with 3mm bleed margins, CMYK color swatches, automated master page numbering, and paragraph and character style sheets. Export seamlessly to press-ready PDF/X-1a or interactive digital EPUB.</p>
+\t<h3>Editorial Templates &amp; Publications</h3>
+\t<ul>
+\t\t<li><strong>Architecture &amp; Design Magazines:</strong> Balanced 12-column editorial grids with generous margins, pull-quote callouts, and multi-photo collage spreads.</li>
+\t\t<li><strong>Corporate Brand Identity Manuals:</strong> Comprehensive brand guideline booklets detailing logo safe zones, typography pairings, color systems, and stationery mockups.</li>
+\t\t<li><strong>Fine-Art &amp; Photography Lookbooks:</strong> Minimalist landscape spreads engineered to showcase high-resolution photography with elegant typographic captions.</li>
+\t\t<li><strong>Annual Corporate Reports &amp; Brochures:</strong> Multipage corporate profiles, clean financial balance sheets, and narrative executive summary spreads.</li>
+\t</ul>
+</div>""",
+
+  "mockup-templates": """<div class="site-desc">
+\t<h2>Photorealistic PSD Mockup Scenes &amp; Product Packaging Branding</h2>
+\t<p>Showcase your branding, client projects, and digital artwork in authentic, real-world contexts using the <strong>Mockup Templates</strong> by DIMSONSGFX. Built in high-resolution Adobe Photoshop format with smart object integration.</p>
+\t<h3>Smart Object Workflow with Realistic Lighting &amp; Textures</h3>
+\t<p>Simply double-click the smart object thumbnail, paste your design, and save — the template automatically applies authentic 3D wrapping, realistic specular reflections, natural fabric weaves, and separated ambient drop shadows.</p>
+\t<h3>Mockup Types Available</h3>
+\t<ul>
+\t\t<li><strong>Apple Device Scenes:</strong> High-res iPhone 16 Pro, MacBook Pro, and iPad screens with customizable studio lighting and isolated background planes.</li>
+\t\t<li><strong>Editorial &amp; Book Packaging:</strong> Hardcover cloth-bound books, foil stamping effects (gold, silver, holographic), and textured magazine covers.</li>
+\t\t<li><strong>Luxury Cosmetics &amp; Bottle Packaging:</strong> Glass dropper bottles, cosmetic jars, matte cardboard boxes, and photorealistic liquid refractions.</li>
+\t\t<li><strong>Stationery &amp; Brand Collateral:</strong> Business cards, embossed letterheads, DL envelopes, and creative stationery flat-lays.</li>
+\t</ul>
+</div>""",
+
+  "ui-design-kits": """<div class="site-desc">
+\t<h2>Figma UI Design Kits, Mobile App Systems &amp; Web Dashboards</h2>
+\t<p>Accelerate your product development cycle with the <strong>UI Design Kits</strong> library by DIMSONSGFX. Designed exclusively for Figma, leveraging modern auto-layout, design tokens, component variants, and interactive prototyping features.</p>
+\t<h3>Built with Modern Design Tokens &amp; Auto-Layout</h3>
+\t<p>Every component is architected according to atomic design principles — from base typography scales, 8pt spacing grids, and elevation shadows up to complex data widgets and fully responsive views for desktop, tablet, and mobile screens.</p>
+\t<h3>UI Kits &amp; Design Systems Included</h3>
+\t<ul>
+\t\t<li><strong>Web3 &amp; Crypto Dashboards:</strong> Financial analytics widgets, token portfolio overview cards, transaction history tables, and interactive candlestick charts.</li>
+\t\t<li><strong>iOS Mobile App Kits:</strong> Apple Human Interface compliant screen flows for fitness tracking, onboarding flows, notifications, and profile settings.</li>
+\t\t<li><strong>B2B SaaS Analytics Platforms:</strong> Role-based team management tables, permission matrices, filter drawers, and modal dialog systems.</li>
+\t\t<li><strong>Luxury eCommerce Storefronts:</strong> High-converting product galleries, sticky cart drawers, checkout workflows, and user review modules.</li>
+\t</ul>
+</div>"""
+}
+
+# ══════════════════════════════════════════════
+# INDEX PAGE (CLEAN SINGLE GALLERY, NO DUPLICATE)
+# ══════════════════════════════════════════════
+all_cards = "\n".join(short_item(w) for w in sorted_works)
+og_img    = f"{SITE_URL}/assets/images/og-default.svg"
+canonical = f"{SITE_URL}/"
 
 index_html = head_html(
-    f"{SITE_NAME} — Digital Assets, 3D Models & Templates Portfolio",
+    f"{SITE_NAME} — Digital Assets, 3D Models &amp; Templates Portfolio",
     "Explore high-quality 3D print models, pitch deck templates, InDesign editorial layouts, mockup packages, and Figma UI design systems.",
     og_img, canonical,
     schema_website(),
-    "website"
+    "website",
+    keywords=HOMEPAGE_KEYWORDS
 ) + f"""
 <body>
 <div class="wrap">
@@ -638,24 +739,12 @@ index_html = head_html(
 \t\t\t\t\t\t<h1 class="sect-title title fx-1">Latest Works</h1>
 \t\t\t\t\t</div>
 \t\t\t\t\t<div class="sect-content" id="dle-content" aria-label="Latest works">
-{recent_cards}
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t\t<div class="sect" style="margin-top:20px">
-\t\t\t\t\t<div class="sect-header">
-\t\t\t\t\t\t<h2 class="sect-title title fx-1">All Works</h2>
-\t\t\t\t\t</div>
-\t\t\t\t\t<div class="sect-content" id="dle-content-all" aria-label="All works">
 {all_cards}
 \t\t\t\t\t</div>
 \t\t\t\t</div>
+{HOMEPAGE_SEO}
 \t\t\t</main>
 {sidebar_left_html()}
-\t\t</div>
-\t\t<!-- SEO description block -->
-\t\t<div class="site-desc">
-\t\t\t<h2>{esc(SITE_NAME)} — Creative Digital Assets & Templates</h2>
-\t\t\t<p>Welcome to my official digital portfolio. Browse production-ready 3D print models, pitch deck presentations, professional InDesign publications, realistic packaging mockups, and scalable Figma UI design systems designed for creators and businesses.</p>
 \t\t</div>
 {footer_html()}
 {search_overlay()}
@@ -670,7 +759,7 @@ with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8") as f:
 print("Generated: index.html")
 
 # ══════════════════════════════════════════════
-# CATEGORY PAGES
+# CATEGORY PAGES (WITH EXTERNAL SEO BLOCK)
 # ══════════════════════════════════════════════
 for cat in categories:
     slug  = cat["slug"]
@@ -680,6 +769,8 @@ for cat in categories:
     cat_works = sorted(works_by_cat.get(slug,[]), key=lambda w: w.get("date",""), reverse=True)
     count     = len(cat_works)
     total_pages = max(1, (count + PER_PAGE - 1) // PER_PAGE)
+    seo_block = CATEGORY_SEO.get(slug, "")
+    cat_keywords = CATEGORY_KEYWORDS.get(slug, "")
 
     for page_num in range(1, total_pages + 1):
         page_works = cat_works[(page_num-1)*PER_PAGE : page_num*PER_PAGE]
@@ -699,7 +790,8 @@ for cat in categories:
         pagi       = pagination_html(page_num, total_pages, f"{SITE_URL}/category/{slug}/")
 
         html = head_html(page_title, meta_desc, og_img, canonical,
-                         schema_category(cat, canonical, count)) + f"""
+                         schema_category(cat, canonical, count),
+                         keywords=cat_keywords) + f"""
 <body>
 <div class="wrap">
 {header_html(slug)}
@@ -715,6 +807,7 @@ for cat in categories:
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 {pagi}
+{seo_block}
 \t\t\t</main>
 {sidebar_left_html(slug)}
 \t\t</div>
