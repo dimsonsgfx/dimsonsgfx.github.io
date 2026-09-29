@@ -328,7 +328,7 @@ category: "{cat_info['slug']}"
 tags: [{tags_yaml}]
 cover: "{cover_filename}"
 download_url: "{tg_post_url}"
-source_url: "{link}"
+source_url: ""
 telegram_post_id: {msg_id if msg_id else 0}
 ---
 
@@ -339,7 +339,6 @@ High-quality creative digital asset collection.
 {f'**Technical Details:** {specs}' if specs else ''}
 
 - **Category:** {cat_info['name']}
-- **Source Platform:** [GFxtra Original Post]({link})
 - **Download:** Available via our official Telegram channel [**@{channel_name_clean}**]({tg_post_url})
 """
         post_md_path = os.path.join(work_dir, "post.md")
