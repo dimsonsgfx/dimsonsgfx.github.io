@@ -103,13 +103,18 @@ html, body {
   padding: 30px 40px !important;
   box-sizing: border-box !important;
 }
-.col-right {
-  display: none !important;
+.col-left {
+  width: 300px !important;
+  flex-shrink: 0 !important;
+}
+.side-box {
+  padding: 22px 18px !important;
+  border-radius: 10px !important;
 }
 .col-main {
-  padding: 0 0 0 30px !important;
-  width: calc(100% - 280px) !important;
-  width: -webkit-calc(100% - 280px) !important;
+  padding: 0 0 0 35px !important;
+  width: calc(100% - 300px) !important;
+  width: -webkit-calc(100% - 300px) !important;
 }
 
 /* ── 3-COLUMN RESPONSIVE GRID ── */
@@ -286,30 +291,83 @@ html, body {
   box-shadow: 0 0 25px rgba(0, 140, 255, 0.8) !important;
 }
 
-/* ── SIDEBAR CATEGORIES ANIMATION ── */
+/* ── SIDEBAR CATEGORIES (COMPACT, NO WRAPPING) ── */
+.side-menu {
+  margin: 0 !important;
+  list-style: none !important;
+  padding: 0 !important;
+}
+.side-menu > li {
+  margin-bottom: 5px !important;
+  list-style: none !important;
+}
 .side-menu > li > a {
-  transition: transform 0.25s ease, color 0.25s ease !important;
+  height: 38px !important;
+  line-height: 38px !important;
+  padding: 0 12px 0 14px !important;
   display: flex !important;
-  align-items: center;
-  position: relative;
-}
-.side-menu > li > a:hover {
-  transform: translateX(6px);
-  color: #0080ff !important;
-}
-.side-menu > li.active > a {
-  color: #0080ff !important;
-  font-weight: 700;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-radius: 6px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  color: #374151 !important;
+  transition: all 0.22s ease !important;
+  position: relative !important;
+  border-left: 3px solid transparent !important;
+  text-decoration: none !important;
 }
 .side-menu > li > a:before {
-  color: #0080ff !important;
-  transition: transform 0.25s ease;
+  display: none !important;
 }
-.side-menu > li:hover > a:before {
-  transform: scale(1.4);
+.side-menu > li > a:hover {
+  background-color: rgba(0, 128, 255, 0.08) !important;
+  color: #0080ff !important;
+  transform: translateX(4px) !important;
+}
+.side-menu > li.active > a {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.14) 0%, rgba(0, 100, 220, 0.08) 100%) !important;
+  color: #0080ff !important;
+  font-weight: 700 !important;
+  border-left-color: #0080ff !important;
+}
+.cat-name {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.cat-count {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 22px !important;
+  height: 20px !important;
+  padding: 0 6px !important;
+  border-radius: 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: #64748b !important;
+  margin-left: 8px !important;
+  flex-shrink: 0 !important;
+  transition: all 0.22s ease !important;
+}
+.side-menu > li.active .cat-count,
+.side-menu > li > a:hover .cat-count {
+  background: #0080ff !important;
+  color: #ffffff !important;
 }
 
 /* ── HEADER NAVIGATION & HOVER ── */
+.header-menu > li {
+  margin-left: 18px !important;
+}
+.header-menu > li > a {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+}
 .header-menu > li.active > a,
 .header-menu > li > a:hover {
   color: #0080ff !important;

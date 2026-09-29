@@ -236,11 +236,11 @@ def schema_category(cat, canonical, count):
 # NEW CATEGORIES AND WORKS DEFINITION (ENGLISH)
 # ══════════════════════════════════════════════
 CATEGORIES = [
-  {"slug":"3d-print-models",    "label":"3D Print Models",     "icon":"🖨️", "description":"High-detail STL and OBJ 3D printable models, figurines, functional gadgets, and cosplay props."},
-  {"slug":"powerpoint-templates","label":"PowerPoint Templates", "icon":"📊", "description":"Modern pitch deck templates, corporate business slides, and animated presentation designs."},
-  {"slug":"indesign-templates",  "label":"InDesign Templates",   "icon":"📄", "description":"Editorial layouts, brochures, portfolio lookbooks, magazine spreads, and brand guidelines."},
-  {"slug":"mockup-templates",    "label":"Mockup Templates",     "icon":"💻", "description":"Photorealistic PSD device scenes, packaging mockups, stationery branding, and apparel renders."},
-  {"slug":"ui-design-kits",      "label":"UI Design Kits",       "icon":"🎨", "description":"Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components."}
+  {"slug":"3d-print-models",    "label":"3D Print Models",     "icon":"", "description":"High-detail STL and OBJ 3D printable models, figurines, functional gadgets, and cosplay props."},
+  {"slug":"powerpoint-templates","label":"PowerPoint Templates", "icon":"", "description":"Modern pitch deck templates, corporate business slides, and animated presentation designs."},
+  {"slug":"indesign-templates",  "label":"InDesign Templates",   "icon":"", "description":"Editorial layouts, brochures, portfolio lookbooks, magazine spreads, and brand guidelines."},
+  {"slug":"mockup-templates",    "label":"Mockup Templates",     "icon":"", "description":"Photorealistic PSD device scenes, packaging mockups, stationery branding, and apparel renders."},
+  {"slug":"ui-design-kits",      "label":"UI Design Kits",       "icon":"", "description":"Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components."}
 ]
 
 WORKS = [
@@ -395,10 +395,11 @@ def nav_items(active_cat=None):
     return "\n\t\t\t\t".join(items)
 
 def side_nav(active_cat=None):
-    items = ['<li><a href="/">🏠 Home</a></li>']
+    items = [f'<li{"" if active_cat else " class=\"active\""}><a href="/"><span class="cat-name">Home</span></a></li>']
     for c in categories:
-        act = " active" if c["slug"] == active_cat else ""
-        items.append(f'<li class="{act.strip()}"><a href="/category/{c["slug"]}/">{esc(c["icon"])} {esc(c["label"])} <small style="color:#888;font-size:11px">({len(works_by_cat.get(c["slug"],[]))})</small></a></li>')
+        act = ' class="active"' if c["slug"] == active_cat else ""
+        count = len(works_by_cat.get(c["slug"],[]))
+        items.append(f'<li{act}><a href="/category/{c["slug"]}/"><span class="cat-name">{esc(c["label"])}</span><span class="cat-count">{count}</span></a></li>')
     return "\n\t\t\t\t\t\t".join(items)
 
 # ── Header & Logo ──────────────────────────────
@@ -741,7 +742,6 @@ index_html = head_html(
 {all_cards}
 \t\t\t\t\t</div>
 \t\t\t\t</div>
-{HOMEPAGE_SEO}
 \t\t\t</main>
 {sidebar_left_html()}
 \t\t</div>
@@ -798,7 +798,7 @@ for cat in categories:
 \t\t\t<main class="col-main" id="main-content">
 \t\t\t\t<div class="sect">
 \t\t\t\t\t<div class="sect-header">
-\t\t\t\t\t\t<h1 class="sect-title title fx-1">{esc(icon)} {esc(label)}</h1>
+\t\t\t\t\t\t<h1 class="sect-title title fx-1">{esc(label)}</h1>
 \t\t\t\t\t</div>
 \t\t\t\t\t<p style="color:#888;margin-bottom:20px;font-size:13px">{esc(desc)} · {count} items</p>
 \t\t\t\t\t<div class="sect-content" id="dle-content">
@@ -806,7 +806,6 @@ for cat in categories:
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 {pagi}
-{seo_block}
 \t\t\t</main>
 {sidebar_left_html(slug)}
 \t\t</div>
@@ -884,7 +883,7 @@ for w in works:
 \t\t\t\t\t<h1 class="sect-title">{esc(w['title'])}</h1>
 \t\t\t\t\t<div class="short-meta fx-row fx-middle icon-left" style="margin-bottom:25px">
 \t\t\t\t\t\t<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="{esc(w.get('date',''))}" itemprop="datePublished">{date_str}</time></div>
-\t\t\t\t\t\t<div class="short-meta-item"><a href="/category/{esc(cat_slug)}/" itemprop="genre">{cat_icon} {esc(cat_label)}</a></div>
+\t\t\t\t\t\t<div class="short-meta-item"><a href="/category/{esc(cat_slug)}/" itemprop="genre">{esc(cat_label)}</a></div>
 \t\t\t\t\t</div>
 \t\t\t\t\t{img_html}
 \t\t\t\t\t<div class="ftext full-text clearfix" itemprop="description">
