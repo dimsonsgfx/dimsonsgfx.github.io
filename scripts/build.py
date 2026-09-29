@@ -129,8 +129,8 @@ def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website",
 
 \t<!-- Fonts & CSS -->
 \t{FONTS}
-\t<link href="/assets/css/styles.css?v=7.2" type="text/css" rel="stylesheet">
-\t<link href="/assets/css/patch.css?v=7.2" type="text/css" rel="stylesheet">
+\t<link href="/assets/css/styles.css?v=7.3" type="text/css" rel="stylesheet">
+\t<link href="/assets/css/patch.css?v=7.3" type="text/css" rel="stylesheet">
 
 \t<!-- JSON-LD -->
 {schema_ld}
@@ -427,7 +427,7 @@ def scripts():
     return """
 \t<button id="gotop" aria-label="Back to top" title="Back to top"><span class="far fa-arrow-up"></span></button>
 \t<script src="/assets/js/libs.js"></script>
-\t<script src="/assets/js/site.js?v=7.2"></script>"""
+\t<script src="/assets/js/site.js?v=7.3"></script>"""
 
 # ── Short item card (3 col, NO VIEWS ICON) ─────
 def short_item(w):
