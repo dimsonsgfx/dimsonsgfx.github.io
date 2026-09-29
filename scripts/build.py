@@ -369,6 +369,63 @@ WORKS = [
    "emoji":"🛍️","tags":["eCommerce","Shop","Storefront","UI Kit","Web Design"],"views":0,"source":"manual"}
 ]
 
+def load_markdown_works(works_dir):
+    extra = []
+    if not os.path.exists(works_dir):
+        return extra
+    cat_lookup = {c["slug"]: c.get("name", c["slug"]) for c in CATEGORIES}
+    for entry in os.scandir(works_dir):
+        if entry.is_dir():
+            md_path = os.path.join(entry.path, "post.md")
+            if os.path.isfile(md_path):
+                try:
+                    with open(md_path, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    meta = {}
+                    body = content
+                    if content.startswith("---"):
+                        parts = content.split("---", 2)
+                        if len(parts) >= 3:
+                            fm_text = parts[1]
+                            body = parts[2].strip()
+                            for line in fm_text.splitlines():
+                                if ":" in line:
+                                    k, v = line.split(":", 1)
+                                    k = k.strip()
+                                    v = v.strip().strip('"').strip("'")
+                                    if k == "tags" and v.startswith("[") and v.endswith("]"):
+                                        v = [t.strip().strip('"').strip("'") for t in v[1:-1].split(",") if t.strip()]
+                                    meta[k] = v
+                    slug = meta.get("slug") or entry.name
+                    cat_slug = meta.get("category", "ui-design-kits")
+                    cat_lbl = cat_lookup.get(cat_slug, "UI Design Kits")
+                    cover_file = meta.get("cover", "cover.jpg")
+                    img_path = f"/works/{slug}/{cover_file}" if not cover_file.startswith("/") and not cover_file.startswith("http") else cover_file
+
+                    extra.append({
+                        "slug": slug,
+                        "title": meta.get("title", entry.name),
+                        "description": body[:250].strip() if body else meta.get("title", ""),
+                        "category": cat_slug,
+                        "categoryLabel": cat_lbl,
+                        "date": meta.get("date", TODAY),
+                        "image": img_path,
+                        "thumb": img_path,
+                        "tags": meta.get("tags", []),
+                        "download_url": meta.get("download_url", ""),
+                        "source_url": meta.get("source_url", ""),
+                        "telegram_post_id": meta.get("telegram_post_id", ""),
+                        "views": 0,
+                        "source": "rss_sync"
+                    })
+                except Exception as ex:
+                    print(f"Error loading {md_path}: {ex}")
+    return extra
+
+md_works = load_markdown_works(os.path.join(BASE, "works"))
+seen_slugs = {w["slug"] for w in md_works}
+WORKS = md_works + [w for w in WORKS if w["slug"] not in seen_slugs]
+
 # Write data files
 os.makedirs(DATA, exist_ok=True)
 with open(os.path.join(DATA, "categories.json"), "w", encoding="utf-8") as f:
@@ -863,6 +920,23 @@ for w in works:
 \t\t\t\t\t<div class="sect-content" id="dle-content">{rcards}</div>
 \t\t\t\t</div>"""
 
+    dl_url = w.get("download_url") or w.get("image", "")
+    if "t.me" in dl_url:
+        dl_btn_html = f'''<a href="{esc(dl_url)}" target="_blank" rel="noopener nofollow" class="btn" style="padding:0 26px;background:linear-gradient(135deg, #0088cc, #00a2ff) !important;border:none;box-shadow:0 4px 14px rgba(0,136,204,0.35);display:inline-flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/></svg> Download in Telegram</a>'''
+        tg_box_html = f'''<div style="margin:20px 0;padding:14px 18px;border-radius:10px;background:rgba(0,136,204,0.08);border:1px solid rgba(0,136,204,0.25);display:flex;align-items:center;gap:12px">
+\t\t\t\t\t\t<svg width="24" height="24" viewBox="0 0 24 24" fill="#0088cc" style="flex-shrink:0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/></svg>
+\t\t\t\t\t\t<div style="font-size:13.5px;color:var(--text-color)">
+\t\t\t\t\t\t\t<b>Available on Telegram:</b> Download original files and materials directly on our official channel <a href="{esc(dl_url)}" target="_blank" rel="noopener nofollow" style="color:#0088cc;font-weight:600">@dimsonsgfx ↗</a>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>'''
+    else:
+        dl_btn_html = f'''<a href="{esc(dl_url)}" download class="btn" style="padding:0 35px"><span class="far fa-download" aria-hidden="true"></span> Download</a>'''
+        tg_box_html = ""
+
+    source_link_html = ""
+    if w.get("source_url"):
+        source_link_html = f'''<div style="margin-top:14px;font-size:12.5px;color:#888">Original Source: <a href="{esc(w['source_url'])}" target="_blank" rel="noopener nofollow" style="color:var(--accent-color);text-decoration:underline">GFxtra Publication ↗</a></div>'''
+
     html = head_html(
         f"{w['title']} — {SITE_NAME}",
         meta_desc, og_img, canonical,
@@ -886,13 +960,15 @@ for w in works:
 \t\t\t\t\t\t<div class="short-meta-item"><a href="/category/{esc(cat_slug)}/" itemprop="genre">{esc(cat_label)}</a></div>
 \t\t\t\t\t</div>
 \t\t\t\t\t{img_html}
+\t\t\t\t\t{tg_box_html}
 \t\t\t\t\t<div class="ftext full-text clearfix" itemprop="description">
 \t\t\t\t\t\t<p>{esc(desc)}</p>
 \t\t\t\t\t</div>
 \t\t\t\t\t{tags_html}
+\t\t\t\t\t{source_link_html}
 \t\t\t\t\t<div class="fbtm fx-row fx-middle fbtm-one" style="margin-top:30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px">
 \t\t\t\t\t\t<a href="/category/{esc(cat_slug)}/" class="btn" style="background:#374151 !important">← Back to {esc(cat_label)}</a>
-\t\t\t\t\t\t<a href="{esc(w.get('image',''))}" download class="btn" style="padding:0 35px"><span class="far fa-download" aria-hidden="true"></span> Download</a>
+\t\t\t\t\t\t{dl_btn_html}
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 {related_html}
