@@ -1,0 +1,26 @@
+# DIMSONSGFX
+
+> DIMSONSGFX is an independent digital design portfolio and creative asset studio showcasing high-precision 3D print models (STL/OBJ), presentation templates (PowerPoint), editorial layouts (Adobe InDesign), photorealistic PSD mockups, and modern Figma UI design systems.
+
+Website: https://dimsonsgfx.github.io
+Author: DIMSONSGFX
+Type: Static Portfolio & Creative Asset Repository
+License: Creative digital design assets for personal and commercial usage
+
+## Collections
+
+- [3D Print Models](https://dimsonsgfx.github.io/category/3d-print-models/): High-detail STL and OBJ 3D printable models, figurines, functional gadgets, and cosplay props.
+- [PowerPoint Templates](https://dimsonsgfx.github.io/category/powerpoint-templates/): Modern pitch deck templates, corporate business slides, and animated presentation designs.
+- [InDesign Templates](https://dimsonsgfx.github.io/category/indesign-templates/): Editorial layouts, brochures, portfolio lookbooks, magazine spreads, and brand guidelines.
+- [Mockup Templates](https://dimsonsgfx.github.io/category/mockup-templates/): Photorealistic PSD device scenes, packaging mockups, stationery branding, and apparel renders.
+- [UI Design Kits](https://dimsonsgfx.github.io/category/ui-design-kits/): Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components.
+
+## Machine-Readable Data
+
+- [Complete Works Catalog (JSON)](https://dimsonsgfx.github.io/data/works.json): Structured JSON database containing all portfolio items, metadata, categories, tags, and asset preview URLs.
+- [Categories Metadata (JSON)](https://dimsonsgfx.github.io/data/categories.json): Category metadata, slugs, and collection descriptions.
+- [XML Sitemap](https://dimsonsgfx.github.io/sitemap.xml): Search engine and crawler index with image-sitemap extensions.
+
+## Optional
+
+- [Full Catalog & Item Descriptions](https://dimsonsgfx.github.io/llms-full.txt): Comprehensive plain-text catalog containing full descriptions and technical specifications for every published work.

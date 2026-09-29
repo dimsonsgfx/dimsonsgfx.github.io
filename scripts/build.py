@@ -1080,10 +1080,87 @@ Allow: /
 Disallow: /search/
 
 Sitemap: {SITE_URL}/sitemap.xml
+
+# LLMs & AI Agents Documentation (https://llmstxt.org)
+# {SITE_URL}/llms.txt
+# {SITE_URL}/llms-full.txt
 """
 with open(os.path.join(BASE, "robots.txt"), "w", encoding="utf-8") as f:
     f.write(robots)
 print("Generated: robots.txt")
+
+# ══════════════════════════════════════════════
+# LLMS.TXT (AI Documentation Standard https://llmstxt.org)
+# ══════════════════════════════════════════════
+llms_lines = [
+    f"# {SITE_NAME}",
+    "",
+    f"> {SITE_NAME} is an independent digital design portfolio and creative asset studio showcasing high-precision 3D print models (STL/OBJ), presentation templates (PowerPoint), editorial layouts (Adobe InDesign), photorealistic PSD mockups, and modern Figma UI design systems.",
+    "",
+    f"Website: {SITE_URL}",
+    f"Author: {SITE_AUTHOR}",
+    "Type: Static Portfolio & Creative Asset Repository",
+    "License: Creative digital design assets for personal and commercial usage",
+    "",
+    "## Collections",
+    "",
+]
+
+for cat in categories:
+    llms_lines.append(f"- [{cat['label']}]({SITE_URL}/category/{cat['slug']}/): {cat['description']}")
+
+llms_lines.extend([
+    "",
+    "## Machine-Readable Data",
+    "",
+    f"- [Complete Works Catalog (JSON)]({SITE_URL}/data/works.json): Structured JSON database containing all portfolio items, metadata, categories, tags, and asset preview URLs.",
+    f"- [Categories Metadata (JSON)]({SITE_URL}/data/categories.json): Category metadata, slugs, and collection descriptions.",
+    f"- [XML Sitemap]({SITE_URL}/sitemap.xml): Search engine and crawler index with image-sitemap extensions.",
+    "",
+    "## Optional",
+    "",
+    f"- [Full Catalog & Item Descriptions]({SITE_URL}/llms-full.txt): Comprehensive plain-text catalog containing full descriptions and technical specifications for every published work.",
+    ""
+])
+
+with open(os.path.join(BASE, "llms.txt"), "w", encoding="utf-8") as f:
+    f.write("\n".join(llms_lines))
+print("Generated: llms.txt")
+
+# ══════════════════════════════════════════════
+# LLMS-FULL.TXT (Comprehensive Full Works Catalog)
+# ══════════════════════════════════════════════
+llms_full_lines = [
+    f"# {SITE_NAME} — Full Works Catalog",
+    "",
+    f"> Comprehensive manifest of all digital creative assets, 3D print models, and design templates published on {SITE_NAME}.",
+    "",
+    f"Website: {SITE_URL}",
+    f"Total Works: {len(works)}",
+    f"Last Updated: {TODAY}",
+    "",
+    "## Works Directory",
+    ""
+]
+
+for w in sorted_works:
+    cat = cat_map.get(w.get("category",""), {})
+    cat_label = cat.get("label", w.get("category",""))
+    tags_str = ", ".join(w.get("tags", []))
+    llms_full_lines.extend([
+        f"### {w['title']}",
+        f"- URL: {SITE_URL}/works/{w['slug']}/",
+        f"- Category: {cat_label} ({w['category']})",
+        f"- Published: {w.get('date', TODAY)}",
+        f"- Tags: {tags_str}",
+        f"- Description: {w.get('description', '')}",
+        f"- Image: {SITE_URL}{w.get('image', '')}",
+        ""
+    ])
+
+with open(os.path.join(BASE, "llms-full.txt"), "w", encoding="utf-8") as f:
+    f.write("\n".join(llms_full_lines))
+print("Generated: llms-full.txt")
 
 # ── .nojekyll ────────────────────────────────
 with open(os.path.join(BASE, ".nojekyll"), "w") as f:
