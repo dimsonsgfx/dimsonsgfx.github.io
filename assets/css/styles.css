@@ -20,7 +20,7 @@ img {max-width: 100%;}
 body {font: 14px 'Rubik', sans-serif; line-height: normal; padding: 0; margin: 0;        
 color: #010101; background: #d5deeb url(../images/bg.png); min-height: 100%; width: 100%; font-weight: 400;}
 a {color: #010101; text-decoration: none;}
-a:hover, a:focus {color: #36c537; text-decoration: none;}
+a:hover, a:focus {color: #0080ff; text-decoration: none;}
 h1, h2, h3, h4, h5 {font-weight: 800; font-size: 20px;}
 
 button, textarea, select, input[type="text"], input[type="password"], input[type="button"], input[type="submit"] 
@@ -29,12 +29,12 @@ button, textarea, select, input[type="text"], input[type="password"], input[type
 .button, .btn, .pagi-load a, .up-second li a, .usp-edit a, .qq-upload-button, button:not(.color-btn):not([class*=fr]), 
 html input[type="button"], input[type="reset"], input[type="submit"], .meta-fav a, .usp-btn a {
 display: inline-block; text-align: center; padding: 0 20px; height: 40px; line-height: 40px;
-border-radius: 4px; cursor: pointer; color: #fff; background-color: #36c537; font-size: 14px;}
+border-radius: 4px; cursor: pointer; color: #fff; background-color: #0080ff; font-size: 14px;}
 .button:hover, .btn:hover, .up-second li a:hover, .usp-edit a:hover, .qq-upload-button:hover, 
 .pagi-load a:hover, .usp-btn a:hover,
 button:not(.color-btn):hover, html input[type="button"]:hover, input[type="reset"]:hover, 
 input[type="submit"]:hover, .meta-fav a:hover 
-{background-color: #3eb63b; color: #fff; box-shadow: 0 10px 20px 0 rgba(0,0,0,0);}
+{background-color: #0066cc; color: #fff; box-shadow: 0 10px 20px 0 rgba(0,0,0,0);}
 button:active, input[type="button"]:active, input[type="submit"]:active {box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.1);}
 
 input[type="text"], input[type="password"] {height: 40px; line-height: 40px;
@@ -100,7 +100,7 @@ border-radius:4px; text-align:center; box-shadow: 0 0 15px 0 rgba(0,0,0,0.05);}
 /* HEADER
 ----------------------------------------------- */
 .logo {display: block; width: 280px; height: 60px;}
-.header-btn:hover, .header-menu > li > a:hover, .header-menu > li:hover > a {color: #36c537;}
+.header-btn:hover, .header-menu > li > a:hover, .header-menu > li:hover > a {color: #0080ff;}
 .search-btn {margin-right: 30px; font-size: 18px; cursor: pointer;}
 .search-wrap {width: 100%; max-width: 800px; padding: 30px; color: #fff; position: fixed; z-index: 999; 
 	top: 0; left: 50%; transform: translateX(-50%);}
@@ -139,7 +139,7 @@ position: absolute; left: -10%; top: 100%; width: 240px; pointer-events: none; o
 .side-menu .submenu > a:after {position: absolute; right: 0; top: 0;}
 .side-menu > li.submenu:hover > a:after {transform: rotate(-90deg) !important}
 .side-menu .hidden-menu {top: 0; left: 90%;}
-.side-menu > li > a:before {content:"\f111"; font-family:"Font Awesome 5 Pro";  color: #36c537; 
+.side-menu > li > a:before {content:"\f111"; font-family:"Font Awesome 5 Pro";  color: #0080ff; 
 position: absolute; left: 0; top: 0; font-size: 10px;}
 
 .top-item {margin-bottom: 30px;}
@@ -206,7 +206,7 @@ height:26px; line-height:26px; font-size: 12px;}
 .navigation a, .navigation span, .pnext a, .pprev a, .pprev > span, .pnext > span {display:inline-block; padding:0 15px; 
 margin:10px 4px 0 4px; line-height: 40px; min-width: 40px; border-radius: 4px;
 background-color: #fff; box-shadow: 0 0 15px rgba(0,0,0,0.05);}
-.navigation span:not(.nav_ext), .pagi-nav a:hover {background-color:#36c537; color: #fff;}
+.navigation span:not(.nav_ext), .pagi-nav a:hover {background-color:#0080ff; color: #fff;}
 
 
 /* FULL
@@ -231,10 +231,10 @@ text-align: center; border-radius: 50%; border: 1px solid #e3e3e3;}
 .ftags .far {margin-top: 10px; margin-right: 10px;}
 .ftags a {display: inline-block; border-radius: 13px; padding: 0 15px; 
 background-color: #f0f1f5; font-size: 12px; color: #888;}
-.ftags a:hover {background-color: #36c537; color: #fff;}
-.btn-dl {background: linear-gradient(to bottom, #36c537 0%,#2ecc71 100%); color: #fff; 
+.ftags a:hover {background-color: #0080ff; color: #fff;}
+.btn-dl {background: linear-gradient(to bottom, #0080ff 0%,#2ecc71 100%); color: #fff; 
 border-radius: 4px; overflow: hidden;}
-.btn-dl:hover {background: linear-gradient(to top, #36c537 0%,#2ecc71 100%); color: #fff;}
+.btn-dl:hover {background: linear-gradient(to top, #0080ff 0%,#2ecc71 100%); color: #fff;}
 .btn-dl-title {padding: 15px; font-size: 16px;}
 .btn-dl-icon, .btn-dl-size {padding: 15px; font-size: 24px; background-color: rgba(0,0,0,0.1);}
 .btn-dl-title > div {font-size: 12px; opacity: 0.8; margin-top: 5px;}
@@ -296,7 +296,7 @@ background-color: #000; color: #fff; font-size: 18px; text-transform: uppercase;
 .overlay-box {position: fixed; z-index: 998; left: 0; top: 0; width: 100%; height: 100%; 
 opacity: 0.8; background-color: #000; cursor: pointer;}
 .login-box {position: fixed; z-index: 999; left: 50%; top: 50%; transform: translate(-50%,-50%); 
-background-color: #fff; padding: 30px 60px 40px 60px; border-top: 5px solid #36c537; width: 400px; 
+background-color: #fff; padding: 30px 60px 40px 60px; border-top: 5px solid #0080ff; width: 400px; 
 box-shadow: 0 20px 60px rgba(0,0,0,0.5);}
 .login-close {width: 26px; height: 26px; line-height: 26px; text-align: center; font-size: 24px; 
 	cursor: pointer; position: absolute; top: -30px; right: -30px; color: #fff;}
@@ -356,7 +356,7 @@ pointer-events: auto; opacity: 1; transform: translateY(0); margin: 15px -15px;}
 .header .header-menu, .col-left, .col-right, #gotop {display: none !important;}
 .logo {-ms-flex-preferred-size: 0; flex-basis: 0; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; 
 	max-width: 100%; min-width: 50px; margin: 0 30px 0 0; position: relative;}
-.btn-menu {display: block; font-size: 18px; background-color: #36c537; color: #fff; margin-left: 30px;
+.btn-menu {display: block; font-size: 18px; background-color: #0080ff; color: #fff; margin-left: 30px;
 height: 40px; width: 40px; text-align: center; line-height: 40px; border-radius: 4px; cursor: pointer;}
 .btn-login {background-color: transparent !important; color: #010101 !important; 
 	padding: 0; font-size: 0; margin-left: -15px;}

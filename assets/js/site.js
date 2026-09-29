@@ -18,7 +18,9 @@ function applyTheme(theme) {
   document.body.setAttribute('data-theme', theme);
   document.documentElement.setAttribute('data-theme', theme);
   const btn = document.getElementById('themeToggle');
-  if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+  if (btn) {
+    btn.innerHTML = theme === 'dark' ? '<span class="far fa-sun" aria-hidden="true"></span>' : '<span class="far fa-moon" aria-hidden="true"></span>';
+  }
   localStorage.setItem(THEME_KEY, theme);
 }
 
@@ -183,7 +185,7 @@ async function loadCategories() {
   }
 }
 
-// ── Render short card (no views icon, in English) ──
+// ── Render short card (Centered Download button) ──
 function renderShortItem(work) {
   const dateStr = formatDate(work.date);
   const imgHtml = work.thumb
@@ -203,9 +205,8 @@ function renderShortItem(work) {
     <div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="${esc(work.date||'')}">${dateStr}</time></div>
   </div>
   <div class="short-text" itemprop="description">${esc((work.description||'').substring(0,140))}${work.description&&work.description.length>140?'…':''}</div>
-  <div class="short-bottom fx-row fx-middle">
-    <div class="fx-1"></div>
-    <a class="short-btn btn" href="/works/${esc(work.slug)}/">View Details</a>
+  <div class="short-bottom">
+    <a class="short-btn btn" href="/works/${esc(work.slug)}/"><span class="far fa-download" aria-hidden="true"></span> Download</a>
   </div>
 </article>`;
 }

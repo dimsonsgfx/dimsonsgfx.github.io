@@ -1,15 +1,15 @@
 /* ================================================
-   DIMSONSGFX — patch.css  v2
-   Изменения:
-   1. Исправлены пути к шрифтам
-   2. Убрана правая колонка (col-right)
-   3. Карточки в 3 столбца
-   4. Логотип-заглушка DIMSONSGFX
-   5. Тёмная тема
-   6. Прочие SEO/UX правки
+   DIMSONSGFX — patch.css v4 (Electric Blue Edition)
+   Updates:
+   1. All green (#36c537) replaced with vibrant Electric Blue (#0080ff)
+   2. Full-width layout (zero side margins/gaps)
+   3. Centered "Download" button on cards
+   4. High-tech glowing theme toggle icon
+   5. Fluid animations on category switch & card hover
+   6. Seamless dark & light themes
    ================================================ */
 
-/* ── Font Awesome webfonts fix ── */
+/* ── Webfonts (Font Awesome 5 Pro) ── */
 @font-face {
   font-family: 'Font Awesome 5 Pro';
   font-style: normal; font-weight: 300;
@@ -38,7 +38,7 @@
 .fas { font-family: 'Font Awesome 5 Pro'; font-weight: 900; font-style: normal; display: inline-block; }
 .fab { font-family: 'Font Awesome 5 Brands'; font-weight: 400; font-style: normal; display: inline-block; }
 
-/* ── LOGO with user emblem ── */
+/* ── BRAND LOGO with custom emblem ── */
 .logo {
   display: flex;
   align-items: center;
@@ -49,11 +49,16 @@
 }
 .logo img.logo-icon {
   display: inline-block !important;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 12px rgba(54, 197, 55, 0.4);
+  box-shadow: 0 0 16px rgba(0, 128, 255, 0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logo:hover img.logo-icon {
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 0 0 22px rgba(0, 128, 255, 0.8);
 }
 .logo-text {
   display: block !important;
@@ -64,10 +69,10 @@
   letter-spacing: -0.5px;
   white-space: nowrap;
 }
-.logo-text .accent { color: #36c537; }
+.logo-text .accent { color: #0080ff; }
 [data-theme="dark"] .logo-text { color: #f0f0f0; }
 
-/* ── FULL-WIDTH LAYOUT: No side background gaps ── */
+/* ── FULL-WIDTH LAYOUT (No side background gaps) ── */
 html, body {
   width: 100%;
   margin: 0;
@@ -106,13 +111,14 @@ html, body {
   width: calc(100% - 280px) !important;
   width: -webkit-calc(100% - 280px) !important;
 }
+
+/* ── 3-COLUMN RESPONSIVE GRID ── */
 .short-item {
   width: 31.8% !important;
   margin-bottom: 25px !important;
   padding-bottom: 80px !important;
 }
 
-/* Responsive grid */
 @media screen and (max-width: 1220px) {
   .header, .footer, .content { padding-left: 20px !important; padding-right: 20px !important; }
 }
@@ -124,44 +130,195 @@ html, body {
   .col-main { padding: 0 !important; width: 100% !important; }
 }
 
-/* ── Rich External SEO (.site-desc) ── */
-.site-desc {
-  line-height: 1.6;
-  padding: 30px 35px;
-  background-color: #fff;
-  border-radius: 6px;
-  margin: 35px 0 20px 0;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-  border: 1px solid #e3e8ef;
+/* ── FLUID ANIMATIONS ON CATEGORY NAVIGATION ── */
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
-.site-desc h2 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 12px;
-  color: #010101;
-}
-.site-desc h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 18px 0 8px 0;
-  color: #36c537;
-}
-.site-desc p {
-  color: #555;
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-.site-desc ul {
-  list-style: disc;
-  margin-left: 20px;
-  margin-bottom: 15px;
-  color: #555;
-  font-size: 14px;
-  line-height: 1.7;
+@keyframes sectionFadeIn {
+  0% {
+    opacity: 0.6;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* ── Pagination ── */
+.col-main {
+  animation: sectionFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.short-item {
+  animation: cardEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+.short-item:nth-child(1) { animation-delay: 0.03s; }
+.short-item:nth-child(2) { animation-delay: 0.06s; }
+.short-item:nth-child(3) { animation-delay: 0.09s; }
+.short-item:nth-child(4) { animation-delay: 0.12s; }
+.short-item:nth-child(5) { animation-delay: 0.15s; }
+.short-item:nth-child(6) { animation-delay: 0.18s; }
+.short-item:nth-child(7) { animation-delay: 0.21s; }
+.short-item:nth-child(8) { animation-delay: 0.24s; }
+.short-item:nth-child(9) { animation-delay: 0.27s; }
+
+/* Interactive card hover */
+.short-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 128, 255, 0.18) !important;
+  border-color: rgba(0, 128, 255, 0.35) !important;
+}
+[data-theme="dark"] .short-item {
+  border: 1px solid rgba(255,255,255,0.04);
+}
+[data-theme="dark"] .short-item:hover {
+  box-shadow: 0 16px 36px rgba(0, 128, 255, 0.28) !important;
+  border-color: rgba(0, 140, 255, 0.45) !important;
+}
+.short-img img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.short-item:hover .short-img img {
+  transform: scale(1.06);
+}
+
+/* ── CATEGORY BADGE ON IMAGE ── */
+.short-category {
+  background: rgba(0, 128, 255, 0.92) !important;
+  padding: 3px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  box-shadow: 0 2px 8px rgba(0, 128, 255, 0.35);
+  text-transform: uppercase;
+}
+
+/* ── CENTERED "DOWNLOAD" BUTTON ── */
+.short-bottom {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 16px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.button, .btn, .short-btn.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px;
+  padding: 0 28px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  border-radius: 6px !important;
+  background: linear-gradient(135deg, #0080ff 0%, #0060df 100%) !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 15px rgba(0, 128, 255, 0.35) !important;
+  border: none !important;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.button:hover, .btn:hover, .short-btn.btn:hover {
+  background: linear-gradient(135deg, #1a8cff 0%, #0070f3 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 22px rgba(0, 128, 255, 0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── STYLISH GLOWING THEME TOGGLE ICON ── */
+.theme-toggle-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  padding: 0 !important;
+  margin-left: 20px !important;
+  border-radius: 50% !important;
+  background: rgba(0, 128, 255, 0.12) !important;
+  border: 1px solid rgba(0, 128, 255, 0.35) !important;
+  color: #0080ff !important;
+  font-size: 18px !important;
+  cursor: pointer !important;
+  box-shadow: 0 0 12px rgba(0, 128, 255, 0.25) !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  outline: none !important;
+}
+
+.theme-toggle-btn:hover {
+  background: #0080ff !important;
+  color: #ffffff !important;
+  border-color: #0080ff !important;
+  box-shadow: 0 0 22px rgba(0, 128, 255, 0.65) !important;
+  transform: rotate(20deg) scale(1.08) !important;
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  background: rgba(0, 140, 255, 0.18) !important;
+  border-color: rgba(0, 140, 255, 0.45) !important;
+  color: #38bdf8 !important;
+  box-shadow: 0 0 16px rgba(0, 140, 255, 0.3) !important;
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: #0080ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 25px rgba(0, 140, 255, 0.8) !important;
+}
+
+/* ── SIDEBAR CATEGORIES ANIMATION ── */
+.side-menu > li > a {
+  transition: transform 0.25s ease, color 0.25s ease !important;
+  display: flex !important;
+  align-items: center;
+  position: relative;
+}
+.side-menu > li > a:hover {
+  transform: translateX(6px);
+  color: #0080ff !important;
+}
+.side-menu > li.active > a {
+  color: #0080ff !important;
+  font-weight: 700;
+}
+.side-menu > li > a:before {
+  color: #0080ff !important;
+  transition: transform 0.25s ease;
+}
+.side-menu > li:hover > a:before {
+  transform: scale(1.4);
+}
+
+/* ── HEADER NAVIGATION & HOVER ── */
+.header-menu > li.active > a,
+.header-menu > li > a:hover {
+  color: #0080ff !important;
+}
+a:hover, a:focus {
+  color: #0080ff !important;
+}
+
+/* ── PAGINATION (BLUE ACCENT) ── */
 .pagination {
   display: flex;
   justify-content: center;
@@ -185,54 +342,66 @@ html, body {
   text-align: center;
 }
 .pagination li span,
-.pagination li a:hover { background-color: #36c537; color: #fff; }
-
-/* ── Short item image & category badge ── */
-.short-category {
-  background: rgba(54,197,55,0.9);
-  padding: 2px 10px;
-  border-radius: 3px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
+.pagination li a:hover {
+  background-color: #0080ff !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(0, 128, 255, 0.35);
 }
 
-/* ── Thumbnail and related items ── */
-.thumb-item {
-  display: block;
-  width: 31%;
-  margin-bottom: 30px;
+/* ── BACK TO TOP (BLUE ACCENT) ── */
+#gotop {
+  position: fixed; width: 42px; height: 42px; line-height: 42px;
+  right: 18px; bottom: 18px; z-index: 990; display: none;
+  background-color: #fff; color: #444; cursor: pointer;
+  font-size: 18px; border-radius: 50%; text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12); border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#gotop:hover {
+  background-color: #0080ff !important;
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(0, 128, 255, 0.5) !important;
+  transform: translateY(-3px);
+}
+
+/* ── RICH EXTERNAL SEO (.site-desc) ── */
+.site-desc {
+  line-height: 1.6;
+  padding: 30px 35px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 35px 0 20px 0;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.03);
+  border: 1px solid #e3e8ef;
+}
+.site-desc h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
   color: #010101;
-  text-decoration: none;
 }
-.thumb-item:hover .thumb-item-title { color: #36c537; }
-.thumb-item-img {
-  margin-bottom: 10px;
-  overflow: hidden;
-  border-radius: 3px;
+.site-desc h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 18px 0 8px 0;
+  color: #0080ff !important;
 }
-.thumb-item-img img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s;
+.site-desc p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 12px;
 }
-.thumb-item:hover .thumb-item-img img { transform: scale(1.05); }
-.thumb-item-title { font-size: 13px; line-height: 1.4; font-weight: 500; transition: color 0.2s; }
-.thumb-item-cat { font-size: 11px; color: #36c537; margin-bottom: 4px; }
+.site-desc ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.7;
+}
 
-.top-item { margin-bottom: 20px; }
-.top-item a {
-  display: flex; gap: 12px; align-items: flex-start;
-  color: #010101; text-decoration: none;
-}
-.top-item a:hover .top-item-text { color: #36c537; }
-.top-item-img { flex-shrink: 0; width: 60px; height: 60px; overflow: hidden; border-radius: 3px; }
-.top-item-img img { width: 100%; height: 100%; object-fit: cover; }
-.top-item-text { font-size: 13px; line-height: 1.4; }
-
-/* ── Search overlay ── */
+/* ── SEARCH OVERLAY ── */
 .search-wrap {
   display: none;
   width: 100%;
@@ -244,38 +413,17 @@ html, body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(44,62,80,0.97);
+  background: rgba(28, 32, 40, 0.98);
   border-radius: 0 0 8px 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 .search-wrap.visible { display: block; }
+.search-btn:hover { color: #0080ff !important; }
 
-/* ── Go-top button ── */
-#gotop {
-  position: fixed; width: 40px; height: 40px; line-height: 40px;
-  right: 15px; bottom: 15px; z-index: 990; display: none;
-  background-color: #fff; color: #444; cursor: pointer;
-  font-size: 18px; border-radius: 4px; text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1); border: none;
-  transition: all 0.3s;
-}
-#gotop:hover { background-color: #36c537; color: #fff; }
-
-/* ── Active nav ── */
-.header-menu > li.active > a,
-.header-menu > li > a.active { color: #36c537; }
-
-/* ── Theme toggle ── */
-.theme-toggle-btn {
-  cursor: pointer; font-size: 18px; margin-left: 15px;
-  line-height: 60px; opacity: 0.7; transition: opacity 0.2s;
-  background: none; border: none; padding: 0; color: inherit;
-}
-.theme-toggle-btn:hover { opacity: 1; }
-
-/* ── Mobile panel ── */
+/* ── MOBILE DRAWER ── */
 .side-panel {
   width: 280px; height: 100%; overflow-x: hidden; overflow-y: auto;
-  background-color: #fff; padding: 15px; z-index: 9999;
+  background-color: #fff; padding: 20px; z-index: 9999;
   position: fixed; left: -320px; top: 0; transition: left 0.4s;
 }
 .side-panel.active { left: 0; }
@@ -286,66 +434,34 @@ html, body {
 }
 .close-overlay.active { display: block; }
 
-/* ── No-image placeholder ── */
-.no-image-placeholder {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, #e8eaed 0%, #d5deeb 100%);
-  font-size: 3rem;
-}
-
-/* ── Lazy load ── */
-img[loading="lazy"] { opacity: 0; transition: opacity 0.4s; }
-img[loading="lazy"].loaded { opacity: 1; }
-
-/* ── Full text ── */
-.full-text p + p { margin-top: 10px; }
-
 /* ════════════════════════════════
-   DARK THEME
+   DARK THEME (SEAMLESS ELECTRIC BLUE)
    ════════════════════════════════ */
-[data-theme="dark"] body         { background-color: #1c2028 !important; background-image: none !important; color: #e0e0e0; }
+[data-theme="dark"] body         { background-color: #161a22 !important; background-image: none !important; color: #e0e0e0; }
 [data-theme="dark"] .wrap-center { background-color: transparent !important; }
-[data-theme="dark"] .header      { background-color: #1c2028; box-shadow: 0 0 15px rgba(0,0,0,0.3); }
-[data-theme="dark"] .side-box    { background-color: #252b33; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
-[data-theme="dark"] .short-item  { background-color: #252b33; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
-[data-theme="dark"] .site-desc   { background-color: #252b33; border-color: #313845; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+[data-theme="dark"] .header      { background-color: #1b2029; box-shadow: 0 0 18px rgba(0,0,0,0.35); }
+[data-theme="dark"] .side-box    { background-color: #1f2530; box-shadow: 0 2px 14px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.04); }
+[data-theme="dark"] .short-item  { background-color: #1f2530; box-shadow: 0 2px 14px rgba(0,0,0,0.25); }
+[data-theme="dark"] .site-desc   { background-color: #1f2530; border-color: rgba(255,255,255,0.06); box-shadow: 0 2px 14px rgba(0,0,0,0.25); }
 [data-theme="dark"] .site-desc h2 { color: #f0f0f0; }
-[data-theme="dark"] .site-desc h3 { color: #36c537; }
-[data-theme="dark"] .site-desc p, [data-theme="dark"] .site-desc li { color: #b0b8c4; }
+[data-theme="dark"] .site-desc h3 { color: #38bdf8 !important; }
+[data-theme="dark"] .site-desc p, [data-theme="dark"] .site-desc li { color: #a4b1c2; }
 [data-theme="dark"] a            { color: #e0e0e0; }
-[data-theme="dark"] a:hover, [data-theme="dark"] a:focus { color: #36c537; }
+[data-theme="dark"] a:hover, [data-theme="dark"] a:focus { color: #38bdf8 !important; }
 [data-theme="dark"] .header-menu > li > a { color: #e0e0e0; }
 [data-theme="dark"] .short-title  { color: #f0f0f0; }
-[data-theme="dark"] .short-meta   { color: #8a8a8a; }
-[data-theme="dark"] .short-text   { color: #aaa; }
-[data-theme="dark"] .footer       { background-color: #161b22; color: #aaa; }
-[data-theme="dark"] .hidden-menu  { background-color: #1c2028; }
+[data-theme="dark"] .short-meta   { color: #8a94a6; }
+[data-theme="dark"] .short-text   { color: #a4b1c2; }
+[data-theme="dark"] .footer       { background-color: #12151c; color: #8a94a6; }
 [data-theme="dark"] .side-bt      { color: #f0f0f0; }
-[data-theme="dark"] .side-menu > li > a { color: #ccc; }
-[data-theme="dark"] .ltext        { color: #999; }
-[data-theme="dark"] .top-item a   { color: #e0e0e0; }
-[data-theme="dark"] .thumb-item-title { color: #e0e0e0; }
-[data-theme="dark"] .top-item-text { color: #ccc; }
-[data-theme="dark"] .pagination li a { background-color: #252b33; color: #e0e0e0; }
-[data-theme="dark"] #gotop        { background-color: #252b33; color: #e0e0e0; }
-[data-theme="dark"] .no-image-placeholder { background: linear-gradient(135deg, #2a3040 0%, #1a1e24 100%); }
+[data-theme="dark"] .side-menu > li > a { color: #b8c4d4; }
+[data-theme="dark"] .side-menu > li > a:before { color: #0080ff !important; }
+[data-theme="dark"] .side-menu > li.active > a { color: #38bdf8 !important; }
+[data-theme="dark"] .pagination li a { background-color: #1f2530; color: #e0e0e0; }
+[data-theme="dark"] #gotop        { background-color: #1f2530; color: #e0e0e0; }
 [data-theme="dark"] .fmain        { color: #e0e0e0; }
-[data-theme="dark"] .full-text    { color: #bbb; }
-[data-theme="dark"] .ftags a      { background-color: #1c2028; color: #999; }
-[data-theme="dark"] .fbtm-one     { border-color: #333; }
-[data-theme="dark"] .ferror       { color: #777; }
+[data-theme="dark"] .full-text    { color: #b8c4d4; }
+[data-theme="dark"] .ftags a      { background-color: #161a22; color: #8a94a6; }
+[data-theme="dark"] .fbtm-one     { border-color: rgba(255,255,255,0.06); }
 [data-theme="dark"] .sect-title   { color: #f0f0f0; }
-[data-theme="dark"] .side-panel   { background-color: #1c2028; }
-[data-theme="dark"] .side-menu > li > a:before { color: #36c537; }
-
-/* ── @media adjustments ── */
-@media screen and (max-width: 1220px) {
-  .col-main { padding: 0 !important; width: 100% !important; }
-}
-@media screen and (max-width: 760px) {
-  .short-item { width: 48% !important; }
-}
-@media screen and (max-width: 470px) {
-  .header, .footer, .content, .col-main .side-box { padding-left: 15px; padding-right: 15px; }
-}
+[data-theme="dark"] .side-panel   { background-color: #1b2029; }

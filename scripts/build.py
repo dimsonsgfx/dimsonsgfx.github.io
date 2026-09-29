@@ -125,7 +125,7 @@ def head_html(title, desc, og_img, canonical, schema_ld="", page_type="website",
 \t<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
 \t<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 \t<link rel="apple-touch-icon" href="/assets/images/logo-icon.png">
-\t<meta name="theme-color" content="#36c537">
+\t<meta name="theme-color" content="#0080ff">
 
 \t<!-- Fonts & CSS -->
 \t{FONTS}
@@ -417,7 +417,7 @@ def header_html(active_cat=None):
 \t\t\t\t{nav_items(active_cat)}
 \t\t\t</ul>
 \t\t\t<div class="search-btn js-search anim" aria-label="Search" title="Search"><span class="far fa-search"></span></div>
-\t\t\t<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">☀️</button>
+\t\t\t<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme"><span class="far fa-moon" aria-hidden="true"></span></button>
 \t\t\t<div class="btn-menu" aria-label="Menu"><span class="far fa-bars"></span></div>
 \t\t</header>
 \t\t<!-- END HEADER -->"""
@@ -464,7 +464,7 @@ def mobile_panel(active_cat=None):
 \t<div class="close-overlay" aria-hidden="true"></div>
 \t<div class="btn-close" aria-label="Close menu"><span class="far fa-times"></span></div>
 \t<div class="side-panel" role="navigation" aria-label="Mobile Navigation">
-\t\t<div style="font-weight:700;font-size:16px;margin-bottom:15px;color:#36c537">Menu</div>
+\t\t<div style="font-weight:700;font-size:16px;margin-bottom:15px;color:#0080ff">Menu</div>
 \t\t<ul class="header-menu side-menu">
 \t\t\t{nav_items(active_cat)}
 \t\t</ul>
@@ -505,9 +505,8 @@ def short_item(w):
 \t\t<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="{esc(w.get('date',''))}" itemprop="datePublished">{date_str}</time></div>
 \t</div>
 \t<div class="short-text" itemprop="description">{esc(desc)}</div>
-\t<div class="short-bottom fx-row fx-middle">
-\t\t<div class="fx-1"></div>
-\t\t<a class="short-btn btn" href="/works/{esc(w['slug'])}/">View Details</a>
+\t<div class="short-bottom">
+\t\t<a class="short-btn btn" href="/works/{esc(w['slug'])}/"><span class="far fa-download" aria-hidden="true"></span> Download</a>
 \t</div>
 </article>"""
 
@@ -598,12 +597,12 @@ for slug, c1, c2, ac, emoji, title, cat in PLACEHOLDERS_DATA:
 og_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <rect width="1200" height="630" fill="#1c2028"/>
   <defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M40 0L0 0L0 40" fill="none" stroke="#36c537" stroke-width="0.4" opacity="0.08"/>
+    <path d="M40 0L0 0L0 40" fill="none" stroke="#0080ff" stroke-width="0.4" opacity="0.08"/>
   </pattern></defs>
   <rect width="1200" height="630" fill="url(#g)"/>
-  <circle cx="600" cy="315" r="210" fill="none" stroke="#36c537" stroke-width="1.5" opacity="0.15"/>
+  <circle cx="600" cy="315" r="210" fill="none" stroke="#0080ff" stroke-width="1.5" opacity="0.2"/>
   <text x="600" y="275" font-size="56" font-weight="800" text-anchor="middle"
-        fill="#f0f0f0" font-family="Montserrat,system-ui,sans-serif">DIMSONS<tspan fill="#36c537">GFX</tspan></text>
+        fill="#f0f0f0" font-family="Montserrat,system-ui,sans-serif">DIMSONS<tspan fill="#0080ff">GFX</tspan></text>
   <text x="600" y="340" font-size="21" text-anchor="middle"
         fill="#ccc" font-family="Rubik,system-ui,sans-serif">3D Print Models · Presentation Templates · UI Kits · Mockups</text>
   <text x="600" y="395" font-size="15" text-anchor="middle"
@@ -892,9 +891,9 @@ for w in works:
 \t\t\t\t\t\t<p>{esc(desc)}</p>
 \t\t\t\t\t</div>
 \t\t\t\t\t{tags_html}
-\t\t\t\t\t<div class="fbtm fx-row fx-middle fbtm-one" style="margin-top:20px">
-\t\t\t\t\t\t<div class="fx-1"></div>
-\t\t\t\t\t\t<a href="/category/{esc(cat_slug)}/" class="btn">← Back to {esc(cat_label)}</a>
+\t\t\t\t\t<div class="fbtm fx-row fx-middle fbtm-one" style="margin-top:30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px">
+\t\t\t\t\t\t<a href="/category/{esc(cat_slug)}/" class="btn" style="background:#374151 !important">← Back to {esc(cat_label)}</a>
+\t\t\t\t\t\t<a href="{esc(w.get('image',''))}" download class="btn" style="padding:0 35px"><span class="far fa-download" aria-hidden="true"></span> Download</a>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 {related_html}
@@ -940,7 +939,7 @@ search_page = head_html(
 \t\t\t\t\t\t\t\taria-label="Search keywords"
 \t\t\t\t\t\t\t\tstyle="width:100%;height:44px;padding:0 50px 0 15px;border:1px solid #e3e3e3;border-radius:4px;font-size:15px">
 \t\t\t\t\t\t\t<button type="submit" aria-label="Submit search"
-\t\t\t\t\t\t\t\tstyle="position:absolute;right:5px;top:2px;background:transparent;border:none;font-size:18px;cursor:pointer;color:#36c537;height:40px;width:40px">
+\t\t\t\t\t\t\t\tstyle="position:absolute;right:5px;top:2px;background:transparent;border:none;font-size:18px;cursor:pointer;color:#0080ff;height:40px;width:40px">
 \t\t\t\t\t\t\t\t<span class="far fa-search" aria-hidden="true"></span></button>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</form>
@@ -1016,7 +1015,7 @@ page_404 = head_html(
 \t\t<div class="content fx-row fx-start">
 \t\t\t<main class="col-main" id="main-content">
 \t\t\t\t<div class="side-box" style="text-align:center;padding:60px 30px">
-\t\t\t\t\t<div style="font-size:7rem;font-weight:800;color:#36c537;line-height:1">404</div>
+\t\t\t\t\t<div style="font-size:7rem;font-weight:800;color:#0080ff;line-height:1">404</div>
 \t\t\t\t\t<h1 style="font-size:22px;margin:20px 0 10px">Page Not Found</h1>
 \t\t\t\t\t<p style="color:#888;margin-bottom:30px">The page you are looking for might have been removed or is temporarily unavailable.</p>
 \t\t\t\t\t<a href="/" class="btn">← Back to Home</a>
