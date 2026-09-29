@@ -1,0 +1,301 @@
+[
+  {
+    "slug": "urban-dreams",
+    "title": "Urban Dreams",
+    "description": "Городской пейзаж в стиле ретро-футуризм, неоновые огни и дождливые улицы",
+    "category": "arts",
+    "categoryLabel": "Арты",
+    "date": "2026-09-20",
+    "image": "/assets/images/placeholder-arts-1.svg",
+    "thumb": "/assets/images/placeholder-arts-1.svg",
+    "emoji": "🌆",
+    "tags": [
+      "иллюстрация",
+      "город",
+      "ретро"
+    ],
+    "views": 142,
+    "source": "manual"
+  },
+  {
+    "slug": "neon-forest",
+    "title": "Neon Forest",
+    "description": "Фантастический лес с биолюминесцентными растениями и туманом",
+    "category": "arts",
+    "categoryLabel": "Арты",
+    "date": "2026-09-15",
+    "image": "/assets/images/placeholder-arts-2.svg",
+    "thumb": "/assets/images/placeholder-arts-2.svg",
+    "emoji": "🌿",
+    "tags": [
+      "природа",
+      "фэнтези",
+      "свет"
+    ],
+    "views": 98,
+    "source": "manual"
+  },
+  {
+    "slug": "cosmic-voyage",
+    "title": "Cosmic Voyage",
+    "description": "Путешествие сквозь галактику — абстрактная цифровая живопись",
+    "category": "arts",
+    "categoryLabel": "Арты",
+    "date": "2026-09-10",
+    "image": "/assets/images/placeholder-arts-3.svg",
+    "thumb": "/assets/images/placeholder-arts-3.svg",
+    "emoji": "🚀",
+    "tags": [
+      "космос",
+      "абстракция",
+      "цифровое"
+    ],
+    "views": 201,
+    "source": "manual"
+  },
+  {
+    "slug": "deep-sea",
+    "title": "Deep Sea",
+    "description": "Загадочные глубины океана, светящиеся медузы и морские существа",
+    "category": "arts",
+    "categoryLabel": "Арты",
+    "date": "2026-09-05",
+    "image": "/assets/images/placeholder-arts-4.svg",
+    "thumb": "/assets/images/placeholder-arts-4.svg",
+    "emoji": "🌊",
+    "tags": [
+      "море",
+      "фэнтези"
+    ],
+    "views": 77,
+    "source": "manual"
+  },
+  {
+    "slug": "logo-minimalist",
+    "title": "Minimalist Mark",
+    "description": "Логотип для студии дизайна — чистые линии, золотое сечение",
+    "category": "logos",
+    "categoryLabel": "Логотипы",
+    "date": "2026-09-18",
+    "image": "/assets/images/placeholder-logos-1.svg",
+    "thumb": "/assets/images/placeholder-logos-1.svg",
+    "emoji": "◎",
+    "tags": [
+      "минимализм",
+      "геометрия",
+      "брендинг"
+    ],
+    "views": 315,
+    "source": "manual"
+  },
+  {
+    "slug": "logo-beast",
+    "title": "The Beast Co.",
+    "description": "Агрессивный логотип для спортивного бренда — медведь в геометрическом стиле",
+    "category": "logos",
+    "categoryLabel": "Логотипы",
+    "date": "2026-09-12",
+    "image": "/assets/images/placeholder-logos-2.svg",
+    "thumb": "/assets/images/placeholder-logos-2.svg",
+    "emoji": "🐻",
+    "tags": [
+      "спорт",
+      "животное",
+      "геометрия"
+    ],
+    "views": 189,
+    "source": "manual"
+  },
+  {
+    "slug": "logo-coffee",
+    "title": "Brew & Soul",
+    "description": "Уютный логотип для кофейни с ручной типографикой и паром",
+    "category": "logos",
+    "categoryLabel": "Логотипы",
+    "date": "2026-09-08",
+    "image": "/assets/images/placeholder-logos-3.svg",
+    "thumb": "/assets/images/placeholder-logos-3.svg",
+    "emoji": "☕",
+    "tags": [
+      "кофе",
+      "типографика",
+      "уют"
+    ],
+    "views": 94,
+    "source": "manual"
+  },
+  {
+    "slug": "logo-tech",
+    "title": "Nexus Labs",
+    "description": "Современный логотип для IT-стартапа — сети, узлы, соединения",
+    "category": "logos",
+    "categoryLabel": "Логотипы",
+    "date": "2026-09-02",
+    "image": "/assets/images/placeholder-logos-4.svg",
+    "thumb": "/assets/images/placeholder-logos-4.svg",
+    "emoji": "⬡",
+    "tags": [
+      "технологии",
+      "минимализм"
+    ],
+    "views": 122,
+    "source": "manual"
+  },
+  {
+    "slug": "banner-sale",
+    "title": "Summer Sale 2026",
+    "description": "Анимированный баннер для интернет-магазина, летняя акция",
+    "category": "banners",
+    "categoryLabel": "Баннеры",
+    "date": "2026-09-22",
+    "image": "/assets/images/placeholder-banners-1.svg",
+    "thumb": "/assets/images/placeholder-banners-1.svg",
+    "emoji": "☀️",
+    "tags": [
+      "реклама",
+      "акция",
+      "анимация"
+    ],
+    "views": 267,
+    "source": "manual"
+  },
+  {
+    "slug": "banner-event",
+    "title": "Night Conference",
+    "description": "Баннер для онлайн-конференции, тёмная тема с частицами",
+    "category": "banners",
+    "categoryLabel": "Баннеры",
+    "date": "2026-09-16",
+    "image": "/assets/images/placeholder-banners-2.svg",
+    "thumb": "/assets/images/placeholder-banners-2.svg",
+    "emoji": "🎤",
+    "tags": [
+      "конференция",
+      "тёмная тема"
+    ],
+    "views": 88,
+    "source": "manual"
+  },
+  {
+    "slug": "banner-app",
+    "title": "App Launch",
+    "description": "Промо-баннер для запуска мобильного приложения",
+    "category": "banners",
+    "categoryLabel": "Баннеры",
+    "date": "2026-09-11",
+    "image": "/assets/images/placeholder-banners-3.svg",
+    "thumb": "/assets/images/placeholder-banners-3.svg",
+    "emoji": "📱",
+    "tags": [
+      "мобайл",
+      "запуск",
+      "промо"
+    ],
+    "views": 156,
+    "source": "manual"
+  },
+  {
+    "slug": "children-book",
+    "title": "Лесные истории",
+    "description": "Иллюстрации для детской книги — добрые персонажи и сказочный лес",
+    "category": "illustrations",
+    "categoryLabel": "Иллюстрации",
+    "date": "2026-09-19",
+    "image": "/assets/images/placeholder-illustrations-1.svg",
+    "thumb": "/assets/images/placeholder-illustrations-1.svg",
+    "emoji": "🦊",
+    "tags": [
+      "детская",
+      "книга",
+      "персонажи"
+    ],
+    "views": 203,
+    "source": "manual"
+  },
+  {
+    "slug": "editorial-tech",
+    "title": "Digital Minds",
+    "description": "Редакционная иллюстрация о влиянии технологий на человека",
+    "category": "illustrations",
+    "categoryLabel": "Иллюстрации",
+    "date": "2026-09-14",
+    "image": "/assets/images/placeholder-illustrations-2.svg",
+    "thumb": "/assets/images/placeholder-illustrations-2.svg",
+    "emoji": "🧠",
+    "tags": [
+      "редакционная",
+      "технологии"
+    ],
+    "views": 67,
+    "source": "manual"
+  },
+  {
+    "slug": "portrait-abstract",
+    "title": "Faceless",
+    "description": "Абстрактный портрет — разложение образа на геометрические формы",
+    "category": "illustrations",
+    "categoryLabel": "Иллюстрации",
+    "date": "2026-09-09",
+    "image": "/assets/images/placeholder-illustrations-3.svg",
+    "thumb": "/assets/images/placeholder-illustrations-3.svg",
+    "emoji": "🎭",
+    "tags": [
+      "портрет",
+      "геометрия",
+      "абстракция"
+    ],
+    "views": 144,
+    "source": "manual"
+  },
+  {
+    "slug": "map-treasure",
+    "title": "Treasure Map",
+    "description": "Стилизованная карта сокровищ — пиратская тематика и старинный пергамент",
+    "category": "other",
+    "categoryLabel": "Прочее",
+    "date": "2026-09-17",
+    "image": "/assets/images/placeholder-other-1.svg",
+    "thumb": "/assets/images/placeholder-other-1.svg",
+    "emoji": "🗺️",
+    "tags": [
+      "карта",
+      "пираты"
+    ],
+    "views": 55,
+    "source": "manual"
+  },
+  {
+    "slug": "pattern-aztec",
+    "title": "Aztec Pattern",
+    "description": "Орнаментальный паттерн в ацтекском стиле для текстиля",
+    "category": "other",
+    "categoryLabel": "Прочее",
+    "date": "2026-09-13",
+    "image": "/assets/images/placeholder-other-2.svg",
+    "thumb": "/assets/images/placeholder-other-2.svg",
+    "emoji": "🔷",
+    "tags": [
+      "паттерн",
+      "орнамент"
+    ],
+    "views": 81,
+    "source": "manual"
+  },
+  {
+    "slug": "ui-dashboard",
+    "title": "Analytics Dashboard",
+    "description": "UI-дизайн дашборда аналитики — тёмная тема, графики, карточки",
+    "category": "other",
+    "categoryLabel": "Прочее",
+    "date": "2026-09-07",
+    "image": "/assets/images/placeholder-other-3.svg",
+    "thumb": "/assets/images/placeholder-other-3.svg",
+    "emoji": "📊",
+    "tags": [
+      "UI",
+      "дашборд"
+    ],
+    "views": 119,
+    "source": "manual"
+  }
+]

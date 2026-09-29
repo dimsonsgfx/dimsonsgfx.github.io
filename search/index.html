@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<script>
+(function(){
+  var t=localStorage.getItem('dimsonsgfx-theme')||
+    (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  document.documentElement.setAttribute('data-theme',t);
+  document.addEventListener('DOMContentLoaded',function(){document.body.setAttribute('data-theme',t);});
+})();
+</script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Поиск — DIMSONSGFX</title>
+	<meta name="description" content="Поиск по портфолио DIMSONSGFX">
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="Поиск — DIMSONSGFX">
+	<meta property="og:description" content="Поиск по портфолио DIMSONSGFX">
+	<meta property="og:image" content="https://dimsonsgfx.github.io/assets/images/og-default.svg">
+	<meta property="og:url" content="https://dimsonsgfx.github.io/search/">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="ru_RU">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Поиск — DIMSONSGFX">
+	<meta name="twitter:image" content="https://dimsonsgfx.github.io/assets/images/og-default.svg">
+
+	<link rel="canonical" href="https://dimsonsgfx.github.io/search/">
+	<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
+	<meta name="theme-color" content="#f5f6f8">
+
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap&subset=cyrillic" rel="stylesheet">
+	<link href="/assets/css/styles.css" type="text/css" rel="stylesheet">
+	<link href="/assets/css/patch.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrap">
+
+	<div class="wrap-main wrap-center">
+
+		<header class="header fx-row fx-middle">
+			<a href="/" class="logo"><img src="/assets/images/logo.png" alt="DIMSONSGFX"></a>
+			<ul class="header-menu fx-row fx-start fx-1 to-mob">
+				<li><a href="/">Главная</a></li>
+				<li><a href="/category/arts/">Арты</a></li>
+				<li><a href="/category/logos/">Логотипы</a></li>
+				<li><a href="/category/banners/">Баннеры</a></li>
+				<li><a href="/category/illustrations/">Иллюстрации</a></li>
+				<li><a href="/category/other/">Прочее</a></li>
+			</ul>
+			<div class="search-btn js-search anim"><span class="far fa-search"></span></div>
+			<button class="theme-toggle-btn" id="themeToggle" aria-label="Переключить тему" title="Переключить тему">☀️</button>
+			<div class="btn-menu"><span class="far fa-bars"></span></div>
+		</header>
+
+		<!-- END HEADER -->
+
+		<div class="content fx-row fx-start">
+
+			<main class="col-main">
+				<div class="side-box">
+					<h1 class="mtitle">Поиск</h1>
+					<form id="searchForm" style="margin-bottom:30px">
+						<div class="search-box" style="position:relative">
+							<input type="text" id="searchInput" name="q" placeholder="Введите запрос..." style="width:100%;height:44px;padding:0 50px 0 15px;border:1px solid #e3e3e3;border-radius:4px;font-size:16px">
+							<button type="submit" style="position:absolute;right:5px;top:2px;background:transparent;border:none;font-size:18px;cursor:pointer;color:#36c537;height:40px;width:40px"><span class="far fa-search"></span></button>
+						</div>
+					</form>
+					<div id="searchResults" class="fx-row" id="dle-content"></div>
+				</div>
+			</main>
+
+			<!-- END COL-MAIN -->
+
+
+			<aside class="col-left fx-first">
+				<div class="side-box to-mob">
+					<div class="side-bt title">Навигация</div>
+					<ul class="header-menu side-menu">
+						<li><a href="/">Главная</a></li>
+						<li class=""><a href="/category/arts/">🎨 Арты</a></li>
+						<li class=""><a href="/category/logos/">✦ Логотипы</a></li>
+						<li class=""><a href="/category/banners/">🖼 Баннеры</a></li>
+						<li class=""><a href="/category/illustrations/">✏️ Иллюстрации</a></li>
+						<li class=""><a href="/category/other/">💎 Прочее</a></li>
+					</ul>
+				</div>
+				<div class="side-box">
+					<div class="side-bt title">Выбор редакции</div>
+					<div class="side-bc mb-remove-30" id="sidebar-editor-pick">
+						<!-- Загружается через JS из works.json -->
+					</div>
+				</div>
+				<div class="side-box">
+					<div class="side-bt title">Топ работ</div>
+					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="9">
+						<!-- Загружается через JS -->
+					</div>
+				</div>
+			</aside>
+
+			<!-- END COL-LEFT -->
+
+			<aside class="col-right">
+				<div class="side-box">
+					<div class="side-bt title">Популярное</div>
+					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="6">
+						<!-- Загружается через JS -->
+					</div>
+				</div>
+				<div class="side-box">
+					<div class="side-bt title">Рекомендуем</div>
+					<div class="side-bc mb-remove-30" id="sidebar-recommend">
+						<!-- Загружается через JS -->
+					</div>
+				</div>
+				<div class="side-box">
+					<div class="side-bt title">Категории</div>
+					<div class="side-bc">
+						<ul class="side-menu header-menu">
+							<li><a href="/category/arts/">🎨 Арты <small style="color:#888">(4)</small></a></li><li><a href="/category/logos/">✦ Логотипы <small style="color:#888">(4)</small></a></li><li><a href="/category/banners/">🖼 Баннеры <small style="color:#888">(3)</small></a></li><li><a href="/category/illustrations/">✏️ Иллюстрации <small style="color:#888">(3)</small></a></li><li><a href="/category/other/">💎 Прочее <small style="color:#888">(3)</small></a></li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+
+			<!-- END COL-RIGHT -->
+
+		</div>
+
+
+		<footer class="footer fx-row fx-middle">
+			<div class="footer-copyright fx-1">© 2026 DIMSONSGFX. Все права защищены.</div>
+		</footer>
+
+		<!-- END FOOTER -->
+
+		</div>
+
+		<!-- END WRAP-MAIN -->
+
+	</div>
+
+	<!-- END WRAP -->
+
+
+	<div class="search-wrap hidden" id="searchWrap">
+		<div class="search-header fx-row fx-middle">
+			<div class="search-title title">Поиск</div>
+			<div class="search-close"><span class="far fa-times"></span></div>
+		</div>
+		<form id="quicksearch" method="get" action="/search/">
+			<div class="search-box">
+				<input id="story" name="q" placeholder="Поиск по сайту..." type="text" autocomplete="off">
+				<button type="submit"><span class="far fa-search"></span></button>
+			</div>
+		</form>
+	</div>
+
+	<button id="gotop" aria-label="Наверх"><span class="far fa-arrow-up"></span></button>
+
+	<script src="/assets/js/libs.js"></script>
+	<script src="/assets/js/site.js"></script>
+
+		<!-- Mobile side panel -->
+		<div class="close-overlay"></div>
+		<div class="btn-close"><span class="far fa-times"></span></div>
+		<div class="side-panel">
+			<ul class="header-menu side-menu">
+				<li><a href="/">Главная</a></li>
+				<li><a href="/category/arts/">Арты</a></li>
+				<li><a href="/category/logos/">Логотипы</a></li>
+				<li><a href="/category/banners/">Баннеры</a></li>
+				<li><a href="/category/illustrations/">Иллюстрации</a></li>
+				<li><a href="/category/other/">Прочее</a></li>
+			</ul>
+		</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q') || '';
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+  if (input) input.value = q;
+  
+  if (!q) return;
+  
+  const works = await loadWorks();
+  const ql = q.toLowerCase();
+  const found = works.filter(w =>
+    w.title.toLowerCase().includes(ql) ||
+    (w.description||'').toLowerCase().includes(ql) ||
+    (w.tags||[]).some(t => t.toLowerCase().includes(ql)) ||
+    (w.categoryLabel||'').toLowerCase().includes(ql)
+  );
+  
+  if (!found.length) {
+    results.innerHTML = '<p style="color:#888;padding:20px 0">По запросу <strong>' + esc(q) + '</strong> ничего не найдено</p>';
+    return;
+  }
+  
+  results.innerHTML = found.map(w => renderShortItem(w)).join('');
+  initLazyLoad();
+  
+  document.getElementById('searchForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const nq = input.value.trim();
+    if (nq) window.location.href = '/search/?q=' + encodeURIComponent(nq);
+  });
+});
+</script>
+</body>
+</html>

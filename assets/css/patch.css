@@ -1,0 +1,324 @@
+/* ================================================
+   DIMSONSGFX — patch.css
+   Поверх оригинального styles.css шаблона avaxgfxgreen:
+   1. Исправляем пути к шрифтам и картинкам
+   2. Добавляем тёмную тему
+   3. Адаптируем под статический сайт (убираем DLE-специфику)
+   ================================================ */
+
+/* ── Font Awesome webfonts fix ── */
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../webfonts/fa-light-300.woff2') format('woff2'),
+       url('../webfonts/fa-light-300.woff') format('woff');
+}
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../webfonts/fa-regular-400.woff2') format('woff2'),
+       url('../webfonts/fa-regular-400.woff') format('woff');
+}
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../webfonts/fa-solid-900.woff2') format('woff2'),
+       url('../webfonts/fa-solid-900.woff') format('woff');
+}
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../webfonts/fa-brands-400.woff2') format('woff2'),
+       url('../webfonts/fa-brands-400.woff') format('woff');
+}
+.far  { font-family: 'Font Awesome 5 Pro'; font-weight: 400; font-style: normal; }
+.fas  { font-family: 'Font Awesome 5 Pro'; font-weight: 900; font-style: normal; }
+.fab  { font-family: 'Font Awesome 5 Brands'; font-weight: 400; font-style: normal; }
+[class*="fa-"]::before { display: inline-block; font-style: normal; }
+
+/* ── Body background fix (use CSS var instead of bg.png) ── */
+body {
+  background: #d5deeb url('../images/bg.png') repeat;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ── Static site specific ── */
+.search-wrap {
+  background-color: rgba(44,62,80,0.97);
+  border-radius: 0 0 8px 8px;
+}
+
+/* Pagefind search results */
+#pagefind-search {
+  margin-top: 20px;
+}
+
+/* ── Category badge on image ── */
+.short-category {
+  background: rgba(54,197,55,0.85);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ── Pagination static ── */
+.navigation {
+  text-align: center;
+  font-size: 16px;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pagination li a,
+.pagination li span {
+  display: inline-block;
+  padding: 0 15px;
+  line-height: 40px;
+  min-width: 40px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  transition: all .3s;
+  color: #010101;
+  text-align: center;
+}
+.pagination li span,
+.pagination li a:hover {
+  background-color: #36c537;
+  color: #fff;
+}
+
+/* ── Sidebar top items (static) ── */
+.top-item a {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  color: #010101;
+}
+.top-item a:hover .top-item-text {
+  color: #36c537;
+}
+.top-item-img {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.top-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.top-item-text {
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* ── Related news in fullstory ── */
+.thumb-item {
+  display: block;
+  width: 31%;
+  margin-bottom: 30px;
+  color: #010101;
+}
+.thumb-item:hover .thumb-item-title {
+  color: #36c537;
+}
+.thumb-item-img {
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.thumb-item-img img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.thumb-item:hover .thumb-item-img img {
+  transform: scale(1.05);
+}
+.thumb-item-title {
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.thumb-item-cat {
+  font-size: 11px;
+  color: #36c537;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 590px) {
+  .thumb-item { width: 48%; }
+}
+@media (max-width: 400px) {
+  .thumb-item { width: 100%; }
+}
+
+/* ── Side box scroll fix ── */
+.side-bc {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+/* ── Active nav item ── */
+.header-menu > li.active > a,
+.header-menu > li > a.active {
+  color: #36c537;
+}
+
+/* ── Search overlay ── */
+.search-wrap {
+  display: none;
+}
+.search-wrap.visible {
+  display: block;
+}
+
+/* ── Gotop button ── */
+#gotop {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 990;
+  display: none;
+  background-color: #fff;
+  color: #444;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+#gotop:hover {
+  background-color: #36c537;
+  color: #fff;
+}
+
+/* ── Dark theme ── */
+[data-theme="dark"] body,
+body[data-theme="dark"] {
+  background-color: #1a1e24;
+  background-image: none;
+  color: #e0e0e0;
+}
+[data-theme="dark"] .wrap-center  { background-color: #22272e; }
+[data-theme="dark"] .header       { background-color: #1c2028; box-shadow: 0 0 15px rgba(0,0,0,0.3); }
+[data-theme="dark"] .side-box     { background-color: #252b33; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+[data-theme="dark"] .short-item   { background-color: #252b33; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+[data-theme="dark"] a             { color: #e0e0e0; }
+[data-theme="dark"] a:hover, [data-theme="dark"] a:focus { color: #36c537; }
+[data-theme="dark"] .header-menu > li > a { color: #e0e0e0; }
+[data-theme="dark"] .short-title  { color: #f0f0f0; }
+[data-theme="dark"] .short-meta   { color: #8a8a8a; }
+[data-theme="dark"] .short-text   { color: #aaa; }
+[data-theme="dark"] .footer       { background-color: #161b22; }
+[data-theme="dark"] .hidden-menu  { background-color: #1c2028; }
+[data-theme="dark"] .side-bt      { color: #f0f0f0; }
+[data-theme="dark"] .side-menu > li > a { color: #ccc; }
+[data-theme="dark"] .ltext        { color: #999; }
+[data-theme="dark"] .top-item a   { color: #e0e0e0; }
+[data-theme="dark"] .pagination li a { background-color: #252b33; color: #e0e0e0; }
+[data-theme="dark"] #gotop        { background-color: #252b33; color: #e0e0e0; }
+[data-theme="dark"] .search-wrap  { background-color: rgba(22,27,34,0.97); color: #fff; }
+[data-theme="dark"] .search-box input { background-color: #1c2028; color: #f0f0f0; }
+[data-theme="dark"] .fmain        { color: #e0e0e0; }
+[data-theme="dark"] .full-text    { color: #bbb; }
+[data-theme="dark"] .ftags a      { background-color: #1c2028; color: #999; }
+[data-theme="dark"] .thumb-item-title { color: #e0e0e0; }
+[data-theme="dark"] .top-item-text { color: #ccc; }
+[data-theme="dark"] .fbtm-one     { border-color: #333; }
+[data-theme="dark"] .ferror       { color: #777; }
+[data-theme="dark"] .sect-title   { color: #f0f0f0; }
+
+/* ── Theme toggle button ── */
+.theme-toggle-btn {
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 15px;
+  line-height: 60px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+.theme-toggle-btn:hover { opacity: 1; }
+
+/* ── Mobile side panel fix ── */
+.side-panel {
+  width: 280px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 15px;
+  z-index: 9999;
+  position: fixed;
+  left: -320px;
+  top: 0;
+  transition: left 0.4s;
+}
+[data-theme="dark"] .side-panel { background-color: #1c2028; }
+.side-panel.active { left: 0; }
+.close-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+  display: none;
+}
+.close-overlay.active { display: block; }
+
+/* ── No image placeholder ── */
+.no-image-placeholder {
+  width: 100%;
+  padding-top: 70%;
+  background: linear-gradient(135deg, #e8eaed 0%, #d5deeb 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[data-theme="dark"] .no-image-placeholder {
+  background: linear-gradient(135deg, #2a3040 0%, #1a1e24 100%);
+}
+.no-image-placeholder .emoji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+}
+
+/* ── Lazy loading fade in ── */
+img[loading="lazy"] { opacity: 0; transition: opacity 0.4s; }
+img[loading="lazy"].loaded { opacity: 1; }
