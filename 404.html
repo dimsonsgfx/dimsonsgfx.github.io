@@ -5,69 +5,86 @@
   var t=localStorage.getItem('dimsonsgfx-theme')||
     (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
   document.documentElement.setAttribute('data-theme',t);
-  document.addEventListener('DOMContentLoaded',function(){document.body.setAttribute('data-theme',t);});
+  document.addEventListener('DOMContentLoaded',function(){
+    document.body.setAttribute('data-theme',t);
+  });
 })();
 </script>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- SEO -->
 	<title>404 — Страница не найдена · DIMSONSGFX</title>
-	<meta name="description" content="Страница не найдена">
+	<meta name="description" content="Запрашиваемая страница не найдена.">
+	<link rel="canonical" href="https://dimsonsgfx.github.io/404.html">
+	<meta name="robots" content="noindex, follow">
 
 	<!-- Open Graph -->
 	<meta property="og:title" content="404 — Страница не найдена · DIMSONSGFX">
-	<meta property="og:description" content="Страница не найдена">
+	<meta property="og:description" content="Запрашиваемая страница не найдена.">
 	<meta property="og:image" content="https://dimsonsgfx.github.io/assets/images/og-default.svg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
 	<meta property="og:url" content="https://dimsonsgfx.github.io/404.html">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="ru_RU">
+	<meta property="og:site_name" content="DIMSONSGFX">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="404 — Страница не найдена · DIMSONSGFX">
+	<meta name="twitter:description" content="Запрашиваемая страница не найдена.">
 	<meta name="twitter:image" content="https://dimsonsgfx.github.io/assets/images/og-default.svg">
 
-	<link rel="canonical" href="https://dimsonsgfx.github.io/404.html">
-	<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
-	<meta name="theme-color" content="#f5f6f8">
+	<!-- Webmaster -->
+	<!-- GOOGLE SEARCH CONSOLE: вставь свой код ниже (или в переменную GOOGLE_VERIFICATION в build.py) -->
+	<!-- <meta name="google-site-verification" content="ТВОЙ_КОД"> -->
+	<!-- ЯНДЕКС ВЕБМАСТЕР: вставь свой код ниже -->
+	<!-- <meta name="yandex-verification" content="ТВОЙ_КОД"> -->
 
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap&subset=cyrillic" rel="stylesheet">
+	<!-- Icons -->
+	<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
+	<meta name="theme-color" content="#36c537">
+
+	<!-- Fonts & CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap&subset=cyrillic" rel="stylesheet">
 	<link href="/assets/css/styles.css" type="text/css" rel="stylesheet">
 	<link href="/assets/css/patch.css" type="text/css" rel="stylesheet">
+
+	<!-- JSON-LD -->
 
 </head>
 <body>
 <div class="wrap">
 
 	<div class="wrap-main wrap-center">
-
 		<header class="header fx-row fx-middle">
-			<a href="/" class="logo"><img src="/assets/images/logo.png" alt="DIMSONSGFX"></a>
+			<a href="/" class="logo" aria-label="DIMSONSGFX — на главную"><span class="logo-text">DIMSONS<span class="accent">GFX</span></span></a>
 			<ul class="header-menu fx-row fx-start fx-1 to-mob">
-				<li><a href="/">Главная</a></li>
+				<li class="active"><a href="/">Главная</a></li>
 				<li><a href="/category/arts/">Арты</a></li>
 				<li><a href="/category/logos/">Логотипы</a></li>
 				<li><a href="/category/banners/">Баннеры</a></li>
 				<li><a href="/category/illustrations/">Иллюстрации</a></li>
 				<li><a href="/category/other/">Прочее</a></li>
 			</ul>
-			<div class="search-btn js-search anim"><span class="far fa-search"></span></div>
-			<button class="theme-toggle-btn" id="themeToggle" aria-label="Переключить тему" title="Переключить тему">☀️</button>
+			<div class="search-btn js-search anim" aria-label="Поиск"><span class="far fa-search"></span></div>
+			<button class="theme-toggle-btn" id="themeToggle" aria-label="Переключить тему" title="Сменить тему">☀️</button>
 			<div class="btn-menu"><span class="far fa-bars"></span></div>
 		</header>
-
 		<!-- END HEADER -->
-
 		<div class="content fx-row fx-start">
-			<main class="col-main">
+			<main class="col-main" id="main-content">
 				<div class="side-box" style="text-align:center;padding:60px 30px">
-					<div style="font-size:8rem;font-weight:800;color:#36c537;line-height:1">404</div>
-					<p style="color:#888;margin:20px 0 30px;font-size:18px">Страница не найдена</p>
+					<div style="font-size:7rem;font-weight:800;color:#36c537;line-height:1">404</div>
+					<h1 style="font-size:22px;margin:20px 0 10px">Страница не найдена</h1>
+					<p style="color:#888;margin-bottom:30px">Возможно, она была удалена или вы перешли по устаревшей ссылке.</p>
 					<a href="/" class="btn">← На главную</a>
 				</div>
 			</main>
 
-			<aside class="col-left fx-first">
+			<aside class="col-left fx-first" aria-label="Боковая панель">
 				<div class="side-box to-mob">
 					<div class="side-bt title">Навигация</div>
 					<ul class="header-menu side-menu">
@@ -82,91 +99,53 @@
 				<div class="side-box">
 					<div class="side-bt title">Выбор редакции</div>
 					<div class="side-bc mb-remove-30" id="sidebar-editor-pick">
-						<!-- Загружается через JS из works.json -->
 					</div>
 				</div>
 				<div class="side-box">
 					<div class="side-bt title">Топ работ</div>
-					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="9">
-						<!-- Загружается через JS -->
+					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="8">
 					</div>
 				</div>
 			</aside>
-
 			<!-- END COL-LEFT -->
-
-			<aside class="col-right">
-				<div class="side-box">
-					<div class="side-bt title">Популярное</div>
-					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="6">
-						<!-- Загружается через JS -->
-					</div>
-				</div>
-				<div class="side-box">
-					<div class="side-bt title">Рекомендуем</div>
-					<div class="side-bc mb-remove-30" id="sidebar-recommend">
-						<!-- Загружается через JS -->
-					</div>
-				</div>
-				<div class="side-box">
-					<div class="side-bt title">Категории</div>
-					<div class="side-bc">
-						<ul class="side-menu header-menu">
-							<li><a href="/category/arts/">🎨 Арты <small style="color:#888">(4)</small></a></li><li><a href="/category/logos/">✦ Логотипы <small style="color:#888">(4)</small></a></li><li><a href="/category/banners/">🖼 Баннеры <small style="color:#888">(3)</small></a></li><li><a href="/category/illustrations/">✏️ Иллюстрации <small style="color:#888">(3)</small></a></li><li><a href="/category/other/">💎 Прочее <small style="color:#888">(3)</small></a></li>
-						</ul>
-					</div>
-				</div>
-			</aside>
-
-			<!-- END COL-RIGHT -->
 		</div>
 
 		<footer class="footer fx-row fx-middle">
 			<div class="footer-copyright fx-1">© 2026 DIMSONSGFX. Все права защищены.</div>
 		</footer>
-
 		<!-- END FOOTER -->
+		</div><!-- END WRAP-MAIN -->
+	</div><!-- END WRAP -->
 
-		</div>
-
-		<!-- END WRAP-MAIN -->
-
-	</div>
-
-	<!-- END WRAP -->
-
-
-	<div class="search-wrap hidden" id="searchWrap">
+	<div class="search-wrap" id="searchWrap" role="search">
 		<div class="search-header fx-row fx-middle">
 			<div class="search-title title">Поиск</div>
-			<div class="search-close"><span class="far fa-times"></span></div>
+			<div class="search-close" aria-label="Закрыть"><span class="far fa-times"></span></div>
 		</div>
 		<form id="quicksearch" method="get" action="/search/">
 			<div class="search-box">
-				<input id="story" name="q" placeholder="Поиск по сайту..." type="text" autocomplete="off">
-				<button type="submit"><span class="far fa-search"></span></button>
+				<input id="story" name="q" placeholder="Поиск по сайту..." type="search" autocomplete="off" aria-label="Поисковый запрос">
+				<button type="submit" aria-label="Найти"><span class="far fa-search"></span></button>
 			</div>
 		</form>
 	</div>
 
-	<button id="gotop" aria-label="Наверх"><span class="far fa-arrow-up"></span></button>
-
-	<script src="/assets/js/libs.js"></script>
-	<script src="/assets/js/site.js"></script>
-
-		<!-- Mobile side panel -->
-		<div class="close-overlay"></div>
-		<div class="btn-close"><span class="far fa-times"></span></div>
-		<div class="side-panel">
-			<ul class="header-menu side-menu">
-				<li><a href="/">Главная</a></li>
+	<div class="close-overlay" aria-hidden="true"></div>
+	<div class="btn-close" aria-label="Закрыть меню"><span class="far fa-times"></span></div>
+	<div class="side-panel" role="navigation" aria-label="Мобильное меню">
+		<ul class="header-menu side-menu">
+			<li class="active"><a href="/">Главная</a></li>
 				<li><a href="/category/arts/">Арты</a></li>
 				<li><a href="/category/logos/">Логотипы</a></li>
 				<li><a href="/category/banners/">Баннеры</a></li>
 				<li><a href="/category/illustrations/">Иллюстрации</a></li>
 				<li><a href="/category/other/">Прочее</a></li>
-			</ul>
-		</div>
+		</ul>
+	</div>
+
+	<button id="gotop" aria-label="Наверх"><span class="far fa-arrow-up"></span></button>
+	<script src="/assets/js/libs.js"></script>
+	<script src="/assets/js/site.js"></script>
 </div>
 </body>
 </html>

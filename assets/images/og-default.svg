@@ -4,8 +4,11 @@
     <path d="M40 0L0 0L0 40" fill="none" stroke="#36c537" stroke-width="0.4" opacity="0.08"/>
   </pattern></defs>
   <rect width="1200" height="630" fill="url(#g)"/>
-  <circle cx="600" cy="315" r="200" fill="none" stroke="#36c537" stroke-width="1" opacity="0.12"/>
-  <text x="600" y="280" font-size="52" font-weight="800" text-anchor="middle" fill="#f0f0f0" font-family="system-ui,sans-serif">DIMSONSGFX</text>
-  <text x="600" y="345" font-size="22" text-anchor="middle" fill="#36c537" font-family="system-ui,sans-serif">Портфолио · Арты · Логотипы · Иллюстрации</text>
-  <text x="600" y="400" font-size="16" text-anchor="middle" fill="#666" font-family="system-ui,sans-serif">dimsonsgfx.github.io</text>
+  <circle cx="600" cy="315" r="200" fill="none" stroke="#36c537" stroke-width="1" opacity="0.1"/>
+  <text x="600" y="278" font-size="54" font-weight="800" text-anchor="middle"
+        fill="#f0f0f0" font-family="system-ui,sans-serif">DIMSONSGFX</text>
+  <text x="600" y="345" font-size="22" text-anchor="middle"
+        fill="#36c537" font-family="system-ui,sans-serif">Арты · Логотипы · Баннеры · Иллюстрации</text>
+  <text x="600" y="400" font-size="15" text-anchor="middle"
+        fill="#666" font-family="system-ui,sans-serif">dimsonsgfx.github.io</text>
 </svg>

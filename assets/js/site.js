@@ -307,6 +307,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initLazyLoad();
   markActiveNav();
 
+  populateSidebars();
+
   const themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {

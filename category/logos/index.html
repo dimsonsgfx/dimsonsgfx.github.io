@@ -5,46 +5,82 @@
   var t=localStorage.getItem('dimsonsgfx-theme')||
     (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
   document.documentElement.setAttribute('data-theme',t);
-  document.addEventListener('DOMContentLoaded',function(){document.body.setAttribute('data-theme',t);});
+  document.addEventListener('DOMContentLoaded',function(){
+    document.body.setAttribute('data-theme',t);
+  });
 })();
 </script>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- SEO -->
 	<title>Логотипы — DIMSONSGFX</title>
-	<meta name="description" content="Разработка логотипов и визуальной идентичности для брендов. 4 работы в портфолио.">
+	<meta name="description" content="Разработка логотипов и визуальной идентичности для брендов и компаний. 4 работы в портфолио.">
+	<link rel="canonical" href="https://dimsonsgfx.github.io/category/logos/">
+	<meta name="robots" content="index, follow">
 
 	<!-- Open Graph -->
 	<meta property="og:title" content="Логотипы — DIMSONSGFX">
-	<meta property="og:description" content="Разработка логотипов и визуальной идентичности для брендов. 4 работы в портфолио.">
+	<meta property="og:description" content="Разработка логотипов и визуальной идентичности для брендов и компаний. 4 работы в портфолио.">
 	<meta property="og:image" content="https://dimsonsgfx.github.io/assets/images/placeholder-logos-1.svg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
 	<meta property="og:url" content="https://dimsonsgfx.github.io/category/logos/">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="ru_RU">
+	<meta property="og:site_name" content="DIMSONSGFX">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Логотипы — DIMSONSGFX">
+	<meta name="twitter:description" content="Разработка логотипов и визуальной идентичности для брендов и компаний. 4 работы в портфолио.">
 	<meta name="twitter:image" content="https://dimsonsgfx.github.io/assets/images/placeholder-logos-1.svg">
 
-	<link rel="canonical" href="https://dimsonsgfx.github.io/category/logos/">
-	<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
-	<meta name="theme-color" content="#f5f6f8">
+	<!-- Webmaster -->
+	<!-- GOOGLE SEARCH CONSOLE: вставь свой код ниже (или в переменную GOOGLE_VERIFICATION в build.py) -->
+	<!-- <meta name="google-site-verification" content="ТВОЙ_КОД"> -->
+	<!-- ЯНДЕКС ВЕБМАСТЕР: вставь свой код ниже -->
+	<!-- <meta name="yandex-verification" content="ТВОЙ_КОД"> -->
 
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap&subset=cyrillic" rel="stylesheet">
+	<!-- Icons -->
+	<link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
+	<meta name="theme-color" content="#36c537">
+
+	<!-- Fonts & CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Rubik:wght@300;400;500&display=swap&subset=cyrillic" rel="stylesheet">
 	<link href="/assets/css/styles.css" type="text/css" rel="stylesheet">
 	<link href="/assets/css/patch.css" type="text/css" rel="stylesheet">
+
+	<!-- JSON-LD -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Логотипы — DIMSONSGFX","url":"https://dimsonsgfx.github.io/category/logos/","description":"Разработка логотипов и визуальной идентичности для брендов. 4 работы в портфолио."}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Главная","item":"https://dimsonsgfx.github.io/"},
+        {"@type":"ListItem","position":2,"name":"Логотипы","item":"https://dimsonsgfx.github.io/category/logos/"}
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "Логотипы — DIMSONSGFX",
+      "url": "https://dimsonsgfx.github.io/category/logos/",
+      "description": "Разработка логотипов и визуальной идентичности для брендов и компаний",
+      "numberOfItems": 4
+    }
+  ]
+}
 </script>
 </head>
 <body>
 <div class="wrap">
 
 	<div class="wrap-main wrap-center">
-
 		<header class="header fx-row fx-middle">
-			<a href="/" class="logo"><img src="/assets/images/logo.png" alt="DIMSONSGFX"></a>
+			<a href="/" class="logo" aria-label="DIMSONSGFX — на главную"><span class="logo-text">DIMSONS<span class="accent">GFX</span></span></a>
 			<ul class="header-menu fx-row fx-start fx-1 to-mob">
 				<li><a href="/">Главная</a></li>
 				<li><a href="/category/arts/">Арты</a></li>
@@ -53,112 +89,107 @@
 				<li><a href="/category/illustrations/">Иллюстрации</a></li>
 				<li><a href="/category/other/">Прочее</a></li>
 			</ul>
-			<div class="search-btn js-search anim"><span class="far fa-search"></span></div>
-			<button class="theme-toggle-btn" id="themeToggle" aria-label="Переключить тему" title="Переключить тему">☀️</button>
+			<div class="search-btn js-search anim" aria-label="Поиск"><span class="far fa-search"></span></div>
+			<button class="theme-toggle-btn" id="themeToggle" aria-label="Переключить тему" title="Сменить тему">☀️</button>
 			<div class="btn-menu"><span class="far fa-bars"></span></div>
 		</header>
-
 		<!-- END HEADER -->
-
 		<div class="content fx-row fx-start">
-
-			<main class="col-main">
+			<main class="col-main" id="main-content">
 				<div class="sect">
 					<div class="sect-header">
-						<div class="sect-title title fx-1">✦ Логотипы</div>
+						<h1 class="sect-title title fx-1">✦ Логотипы</h1>
 					</div>
+					<p style="color:#888;margin-bottom:20px;font-size:13px">Разработка логотипов и визуальной идентичности для брендов и компаний · 4 работы</p>
 					<div class="sect-content" id="dle-content">
-						
-<div class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
-	<a class="short-link" href="/works/logo-minimalist/">
+
+<article class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
+	<a class="short-link" href="/works/logo-minimalist/" title="Minimalist Mark — Логотипы">
 		<div class="short-img img-resp img-fit">
-			<img src="/assets/images/placeholder-logos-1.svg" alt="Minimalist Mark" loading="lazy" width="400" height="280">
+			<img src="/assets/images/placeholder-logos-1.svg" alt="Minimalist Mark — Логотипы" loading="lazy" width="400" height="280">
 			<div class="short-category">Логотипы</div>
 		</div>
 		<div class="short-title title anim" itemprop="name">Minimalist Mark</div>
 	</a>
 	<div class="short-meta fx-row fx-middle icon-left">
-		<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt"></span><time datetime="2026-09-18">18 сентября 2026</time></div>
-		<div class="short-meta-item"><span class="far fa-eye"></span>315</div>
+		<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="2026-09-18" itemprop="datePublished">18 сентября 2026</time></div>
+		<div class="short-meta-item"><span class="far fa-eye" aria-hidden="true"></span>315</div>
 	</div>
-	<div class="short-text" itemprop="description">Логотип для студии дизайна — чистые линии, золотое сечение</div>
-	<div class="short-bottom fx-row fx-middle icon-left">
+	<div class="short-text" itemprop="description">Логотип для студии дизайна — чистые линии и принцип золотого сечения. Знак построен на сетке из 8 единиц, акцент на геометрическую точность.…</div>
+	<div class="short-bottom fx-row fx-middle">
 		<div class="fx-1"></div>
 		<a class="short-btn btn" href="/works/logo-minimalist/">Подробнее</a>
 	</div>
-</div>
+</article>
 
-<div class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
-	<a class="short-link" href="/works/logo-beast/">
+<article class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
+	<a class="short-link" href="/works/logo-beast/" title="The Beast Co. — Логотипы">
 		<div class="short-img img-resp img-fit">
-			<img src="/assets/images/placeholder-logos-2.svg" alt="The Beast Co." loading="lazy" width="400" height="280">
+			<img src="/assets/images/placeholder-logos-2.svg" alt="The Beast Co. — Логотипы" loading="lazy" width="400" height="280">
 			<div class="short-category">Логотипы</div>
 		</div>
 		<div class="short-title title anim" itemprop="name">The Beast Co.</div>
 	</a>
 	<div class="short-meta fx-row fx-middle icon-left">
-		<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt"></span><time datetime="2026-09-12">12 сентября 2026</time></div>
-		<div class="short-meta-item"><span class="far fa-eye"></span>189</div>
+		<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="2026-09-12" itemprop="datePublished">12 сентября 2026</time></div>
+		<div class="short-meta-item"><span class="far fa-eye" aria-hidden="true"></span>189</div>
 	</div>
-	<div class="short-text" itemprop="description">Агрессивный логотип для спортивного бренда — медведь в геометрическом стиле</div>
-	<div class="short-bottom fx-row fx-middle icon-left">
+	<div class="short-text" itemprop="description">Агрессивный логотип для спортивного бренда — медведь в геометрическом стиле low-poly. Форма зверя скрыта в треугольной сетке. Брендинг для ф…</div>
+	<div class="short-bottom fx-row fx-middle">
 		<div class="fx-1"></div>
 		<a class="short-btn btn" href="/works/logo-beast/">Подробнее</a>
 	</div>
-</div>
+</article>
 
-<div class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
-	<a class="short-link" href="/works/logo-coffee/">
+<article class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
+	<a class="short-link" href="/works/logo-coffee/" title="Brew &amp; Soul — Логотипы">
 		<div class="short-img img-resp img-fit">
-			<img src="/assets/images/placeholder-logos-3.svg" alt="Brew &amp; Soul" loading="lazy" width="400" height="280">
+			<img src="/assets/images/placeholder-logos-3.svg" alt="Brew &amp; Soul — Логотипы" loading="lazy" width="400" height="280">
 			<div class="short-category">Логотипы</div>
 		</div>
 		<div class="short-title title anim" itemprop="name">Brew &amp; Soul</div>
 	</a>
 	<div class="short-meta fx-row fx-middle icon-left">
-		<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt"></span><time datetime="2026-09-08">8 сентября 2026</time></div>
-		<div class="short-meta-item"><span class="far fa-eye"></span>94</div>
+		<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="2026-09-08" itemprop="datePublished">8 сентября 2026</time></div>
+		<div class="short-meta-item"><span class="far fa-eye" aria-hidden="true"></span>94</div>
 	</div>
-	<div class="short-text" itemprop="description">Уютный логотип для кофейни с ручной типографикой и паром</div>
-	<div class="short-bottom fx-row fx-middle icon-left">
+	<div class="short-text" itemprop="description">Уютный логотип для кофейни с ручной типографикой и стилизованным паром. Тёплая атмосфера и домашний уют передаются через округлые формы. Han…</div>
+	<div class="short-bottom fx-row fx-middle">
 		<div class="fx-1"></div>
 		<a class="short-btn btn" href="/works/logo-coffee/">Подробнее</a>
 	</div>
-</div>
+</article>
 
-<div class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
-	<a class="short-link" href="/works/logo-tech/">
+<article class="short-item" itemscope itemtype="https://schema.org/CreativeWork">
+	<a class="short-link" href="/works/logo-tech/" title="Nexus Labs — Логотипы">
 		<div class="short-img img-resp img-fit">
-			<img src="/assets/images/placeholder-logos-4.svg" alt="Nexus Labs" loading="lazy" width="400" height="280">
+			<img src="/assets/images/placeholder-logos-4.svg" alt="Nexus Labs — Логотипы" loading="lazy" width="400" height="280">
 			<div class="short-category">Логотипы</div>
 		</div>
 		<div class="short-title title anim" itemprop="name">Nexus Labs</div>
 	</a>
 	<div class="short-meta fx-row fx-middle icon-left">
-		<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt"></span><time datetime="2026-09-02">2 сентября 2026</time></div>
-		<div class="short-meta-item"><span class="far fa-eye"></span>122</div>
+		<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="2026-09-02" itemprop="datePublished">2 сентября 2026</time></div>
+		<div class="short-meta-item"><span class="far fa-eye" aria-hidden="true"></span>122</div>
 	</div>
-	<div class="short-text" itemprop="description">Современный логотип для IT-стартапа — сети, узлы, соединения</div>
-	<div class="short-bottom fx-row fx-middle icon-left">
+	<div class="short-text" itemprop="description">Современный логотип для IT-стартапа — узлы сети, соединения и данные. Гексагональная форма символизирует масштабируемость и связанность. Мин…</div>
+	<div class="short-bottom fx-row fx-middle">
 		<div class="fx-1"></div>
 		<a class="short-btn btn" href="/works/logo-tech/">Подробнее</a>
 	</div>
-</div>
+</article>
 					</div>
 				</div>
-				
+
 			</main>
 
-			<!-- END COL-MAIN -->
-
-
-			<aside class="col-left fx-first">
+			<aside class="col-left fx-first" aria-label="Боковая панель">
 				<div class="side-box to-mob">
 					<div class="side-bt title">Навигация</div>
 					<ul class="header-menu side-menu">
 						<li><a href="/">Главная</a></li>
 						<li class=""><a href="/category/arts/">🎨 Арты</a></li>
-						<li class=" active"><a href="/category/logos/">✦ Логотипы</a></li>
+						<li class="active"><a href="/category/logos/">✦ Логотипы</a></li>
 						<li class=""><a href="/category/banners/">🖼 Баннеры</a></li>
 						<li class=""><a href="/category/illustrations/">✏️ Иллюстрации</a></li>
 						<li class=""><a href="/category/other/">💎 Прочее</a></li>
@@ -167,95 +198,53 @@
 				<div class="side-box">
 					<div class="side-bt title">Выбор редакции</div>
 					<div class="side-bc mb-remove-30" id="sidebar-editor-pick">
-						<!-- Загружается через JS из works.json -->
 					</div>
 				</div>
 				<div class="side-box">
 					<div class="side-bt title">Топ работ</div>
-					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="9">
-						<!-- Загружается через JS -->
+					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="8">
 					</div>
 				</div>
 			</aside>
-
 			<!-- END COL-LEFT -->
-
-			<aside class="col-right">
-				<div class="side-box">
-					<div class="side-bt title">Популярное</div>
-					<div class="side-bc mb-remove-30" data-sidebar="top" data-limit="6">
-						<!-- Загружается через JS -->
-					</div>
-				</div>
-				<div class="side-box">
-					<div class="side-bt title">Рекомендуем</div>
-					<div class="side-bc mb-remove-30" id="sidebar-recommend">
-						<!-- Загружается через JS -->
-					</div>
-				</div>
-				<div class="side-box">
-					<div class="side-bt title">Категории</div>
-					<div class="side-bc">
-						<ul class="side-menu header-menu">
-							<li><a href="/category/arts/">🎨 Арты <small style="color:#888">(4)</small></a></li><li><a href="/category/logos/">✦ Логотипы <small style="color:#888">(4)</small></a></li><li><a href="/category/banners/">🖼 Баннеры <small style="color:#888">(3)</small></a></li><li><a href="/category/illustrations/">✏️ Иллюстрации <small style="color:#888">(3)</small></a></li><li><a href="/category/other/">💎 Прочее <small style="color:#888">(3)</small></a></li>
-						</ul>
-					</div>
-				</div>
-			</aside>
-
-			<!-- END COL-RIGHT -->
-
 		</div>
-
-		<!-- END CONTENT -->
-
 
 		<footer class="footer fx-row fx-middle">
 			<div class="footer-copyright fx-1">© 2026 DIMSONSGFX. Все права защищены.</div>
 		</footer>
-
 		<!-- END FOOTER -->
+		</div><!-- END WRAP-MAIN -->
+	</div><!-- END WRAP -->
 
-		</div>
-
-		<!-- END WRAP-MAIN -->
-
-	</div>
-
-	<!-- END WRAP -->
-
-
-	<div class="search-wrap hidden" id="searchWrap">
+	<div class="search-wrap" id="searchWrap" role="search">
 		<div class="search-header fx-row fx-middle">
 			<div class="search-title title">Поиск</div>
-			<div class="search-close"><span class="far fa-times"></span></div>
+			<div class="search-close" aria-label="Закрыть"><span class="far fa-times"></span></div>
 		</div>
 		<form id="quicksearch" method="get" action="/search/">
 			<div class="search-box">
-				<input id="story" name="q" placeholder="Поиск по сайту..." type="text" autocomplete="off">
-				<button type="submit"><span class="far fa-search"></span></button>
+				<input id="story" name="q" placeholder="Поиск по сайту..." type="search" autocomplete="off" aria-label="Поисковый запрос">
+				<button type="submit" aria-label="Найти"><span class="far fa-search"></span></button>
 			</div>
 		</form>
 	</div>
 
-	<button id="gotop" aria-label="Наверх"><span class="far fa-arrow-up"></span></button>
-
-	<script src="/assets/js/libs.js"></script>
-	<script src="/assets/js/site.js"></script>
-
-		<!-- Mobile side panel -->
-		<div class="close-overlay"></div>
-		<div class="btn-close"><span class="far fa-times"></span></div>
-		<div class="side-panel">
-			<ul class="header-menu side-menu">
-				<li><a href="/">Главная</a></li>
+	<div class="close-overlay" aria-hidden="true"></div>
+	<div class="btn-close" aria-label="Закрыть меню"><span class="far fa-times"></span></div>
+	<div class="side-panel" role="navigation" aria-label="Мобильное меню">
+		<ul class="header-menu side-menu">
+			<li><a href="/">Главная</a></li>
 				<li><a href="/category/arts/">Арты</a></li>
 				<li class="active"><a href="/category/logos/">Логотипы</a></li>
 				<li><a href="/category/banners/">Баннеры</a></li>
 				<li><a href="/category/illustrations/">Иллюстрации</a></li>
 				<li><a href="/category/other/">Прочее</a></li>
-			</ul>
-		</div>
+		</ul>
+	</div>
+
+	<button id="gotop" aria-label="Наверх"><span class="far fa-arrow-up"></span></button>
+	<script src="/assets/js/libs.js"></script>
+	<script src="/assets/js/site.js"></script>
 </div>
 </body>
 </html>
