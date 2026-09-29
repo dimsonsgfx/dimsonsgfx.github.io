@@ -1060,6 +1060,61 @@ with open(os.path.join(BASE, "sitemap.xml"), "w", encoding="utf-8") as f:
 print("Generated: sitemap.xml")
 
 # ══════════════════════════════════════════════
+# RSS 2.0 & PINTEREST AUTO-PUBLISH FEED
+# ══════════════════════════════════════════════
+def format_rfc822(date_str):
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        return dt.strftime("%a, %d %b %Y 10:00:00 +0000")
+    except:
+        return datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+rss_items = []
+for w in sorted_works:
+    w_slug = w["slug"]
+    w_url = f"{SITE_URL}/works/{w_slug}/"
+    w_title = esc(w.get("title", ""))
+    w_desc = esc(w.get("desc", "") or f"High-quality digital creative asset bundle: {w.get('title')}. Available on DIMSONSGFX.")
+    w_date = format_rfc822(w.get("date", TODAY))
+    img_url = og_image_url(w)
+    
+    # Try to get local file size for enclosure
+    cover_size = 150000
+    local_cover = os.path.join(BASE, "works", w_slug, "cover.jpg")
+    if os.path.isfile(local_cover):
+        cover_size = os.path.getsize(local_cover)
+
+    item_xml = f'''    <item>
+      <title>{w_title}</title>
+      <link>{w_url}</link>
+      <guid isPermaLink="true">{w_url}</guid>
+      <pubDate>{w_date}</pubDate>
+      <description>{w_desc}</description>
+      <enclosure url="{esc(img_url)}" length="{cover_size}" type="image/jpeg" />
+      <media:content url="{esc(img_url)}" medium="image" type="image/jpeg" />
+    </item>'''
+    rss_items.append(item_xml)
+
+rss_content = f'''<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{esc(SITE_NAME)} — Digital Creative Assets &amp; 3D Models</title>
+    <link>{SITE_URL}/</link>
+    <description>Curated digital design assets, 3D print models, pitch decks, InDesign layouts and UI kits by {esc(SITE_AUTHOR)}.</description>
+    <language>en-US</language>
+    <atom:link href="{SITE_URL}/pinterest-feed.xml" rel="self" type="application/rss+xml" />
+{chr(10).join(rss_items)}
+  </channel>
+</rss>'''
+
+with open(os.path.join(BASE, "pinterest-feed.xml"), "w", encoding="utf-8") as f:
+    f.write(rss_content)
+with open(os.path.join(BASE, "feed.xml"), "w", encoding="utf-8") as f:
+    f.write(rss_content)
+print("Generated: pinterest-feed.xml and feed.xml")
+
+
+# ══════════════════════════════════════════════
 # ROBOTS.TXT
 # ══════════════════════════════════════════════
 robots = f"""User-agent: *
