@@ -10,8 +10,7 @@
 const THEME_KEY = 'dimsonsgfx-theme';
 
 function getTheme() {
-  return localStorage.getItem(THEME_KEY) ||
-    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  return localStorage.getItem(THEME_KEY) || 'dark';
 }
 
 function applyTheme(theme) {
@@ -26,8 +25,7 @@ function applyTheme(theme) {
 
 // Apply before render to prevent flash
 (function() {
-  var t = localStorage.getItem('dimsonsgfx-theme') ||
-    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  var t = localStorage.getItem('dimsonsgfx-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', t);
 })();
 
@@ -249,8 +247,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    themeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const current = document.documentElement.getAttribute('data-theme') || getTheme();
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
     });
   }
 });
