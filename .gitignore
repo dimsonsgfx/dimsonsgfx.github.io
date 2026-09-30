@@ -2,3 +2,15 @@ scripts/__pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+envato_batches/
+posts_to_publish/
+shorts_output/
+assets_video/
+data/pw_dlgfx_profile/
+pinterest_bulk_pins.csv
+scripts/publish_dlgfx.py
+scripts/envato_batch.py
+scripts/make_short_video.py
+run_publish_dlgfx.bat
+run_envato_batch.bat
+run_make_short.bat
