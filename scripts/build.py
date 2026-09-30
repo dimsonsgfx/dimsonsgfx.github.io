@@ -166,11 +166,36 @@ def schema_website():
 }}
 </script>"""
 
+import urllib.request
+import urllib.parse
+
+_CLOUD_RATINGS_CACHE = {}
+
 def get_work_rating(w):
-    if isinstance(w, dict):
-        rc = int(w.get("rating_count") or 0)
-        rv = str(w.get("rating_value") or "5.0")
-        return (rv, rc) if rc > 0 else ("0", 0)
+    slug = w.get("slug", "") if isinstance(w, dict) else str(w or "")
+    rc = int(w.get("rating_count") or 0) if isinstance(w, dict) else 0
+    rv = str(w.get("rating_value") or "5.0") if isinstance(w, dict) else "5.0"
+
+    if slug:
+        if slug not in _CLOUD_RATINGS_CACHE:
+            cloud_cnt = 0
+            try:
+                url = "https://abacus.jasoncameron.dev/get/dimsonsgfx_votes/" + urllib.parse.quote(slug)
+                req = urllib.request.Request(url, headers={"User-Agent": "dimsonsgfx-builder/1.0"})
+                with urllib.request.urlopen(req, timeout=3) as resp:
+                    if resp.status == 200:
+                        data = json.loads(resp.read().decode("utf-8"))
+                        cloud_cnt = int(data.get("value") or 0)
+            except Exception:
+                cloud_cnt = 0
+            _CLOUD_RATINGS_CACHE[slug] = cloud_cnt
+        rc = max(rc, _CLOUD_RATINGS_CACHE[slug])
+
+    if rc > 0:
+        if isinstance(w, dict):
+            w["rating_count"] = rc
+            w["rating_value"] = rv
+        return (rv, rc)
     return ("0", 0)
 
 def schema_work(w, canonical):
@@ -527,12 +552,18 @@ def scripts():
 
 \t\t// Sync global vote count from cloud counter (works for users + Googlebot rendering)
 \t\tfetch('https://abacus.jasoncameron.dev/get/dimsonsgfx_votes/' + encodeURIComponent(slug))
-\t\t\t.then(function(r){ return r.ok ? r.json() : null; })
+\t\t\t.then(function(r){
+\t\t\t\tif(r.status === 404 && savedVote){
+\t\t\t\t\treturn fetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_votes/' + encodeURIComponent(slug))
+\t\t\t\t\t\t.then(function(r2){ return r2.ok ? r2.json() : null; });
+\t\t\t\t}
+\t\t\t\treturn r.ok ? r.json() : null;
+\t\t\t})
 \t\t\t.then(function(d){
 \t\t\t\tif(d && typeof d.value === 'number' && d.value > 0){
 \t\t\t\t\tcurrentCnt = Math.max(currentCnt, d.value);
 \t\t\t\t\ttry { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
-\t\t\t\t\tvar avg = savedVote ? ((4.9 * (currentCnt - 1) + parseFloat(savedVote)) / currentCnt) : 4.9;
+\t\t\t\t\tvar avg = savedVote ? ((5.0 * (currentCnt - 1) + parseFloat(savedVote)) / currentCnt) : 5.0;
 \t\t\t\t\tif(currentCnt === 1 && savedVote) avg = parseFloat(savedVote);
 \t\t\t\t\tcurrentVal = avg;
 \t\t\t\t\trenderState(currentVal, currentCnt, false);
@@ -1015,22 +1046,22 @@ for w in works:
 {header_html(cat_slug)}
 \t\t<div class="content fx-row fx-start">
 \t\t\t<main class="col-main" id="main-content">
-\t\t\t\t<article class="article" itemscope itemtype="https://schema.org/SoftwareApplication">
+\t\t\t\t<article class="article">
 \t\t\t\t<div class="fmain side-box">
 \t\t\t\t\t<!-- Breadcrumb -->
 \t\t\t\t\t<nav aria-label="Breadcrumb" style="font-size:13px;color:#888;margin-bottom:15px">
-\t\t\t\t\t\t<a href="/">Home</a> › <a href="/category/{esc(cat_slug)}/">{esc(cat_label)}</a> › <span itemprop="name">{esc(w['title'])}</span>
+\t\t\t\t\t\t<a href="/">Home</a> › <a href="/category/{esc(cat_slug)}/">{esc(cat_label)}</a> › <span>{esc(w['title'])}</span>
 \t\t\t\t\t</nav>
 \t\t\t\t\t<h1 class="sect-title">{esc(w['title'])}</h1>
 \t\t\t\t\t<div class="short-meta fx-row fx-middle icon-left" style="margin-bottom:25px;gap:15px;flex-wrap:wrap">
-\t\t\t\t\t\t<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="{esc(w.get('date',''))}" itemprop="datePublished">{date_str}</time></div>
+\t\t\t\t\t\t<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="{esc(w.get('date',''))}">{date_str}</time></div>
 \t\t\t\t\t\t<div class="short-meta-item star-rating-widget" data-slug="{esc(slug)}" data-rating="{rating_val}" data-count="{rating_count}" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this post"><span class="star-btn" data-v="1" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-legend" style="color:#888;font-size:13px;font-weight:500;margin-left:6px">{star_init_legend}</span></div>
-\t\t\t\t\t\t<div class="short-meta-item"><a href="/category/{esc(cat_slug)}/" itemprop="applicationCategory">{esc(cat_label)}</a></div>
+\t\t\t\t\t\t<div class="short-meta-item"><a href="/category/{esc(cat_slug)}/">{esc(cat_label)}</a></div>
 \t\t\t\t\t</div>
 \t\t\t\t\t{img_html}
 \t\t\t\t\t{tg_box_html}
 \t\t\t\t\t{specs_html}
-\t\t\t\t\t<div class="ftext full-text clearfix" itemprop="description" style="margin:20px 0;font-size:15px;line-height:1.75;color:var(--text-color)">
+\t\t\t\t\t<div class="ftext full-text clearfix" style="margin:20px 0;font-size:15px;line-height:1.75;color:var(--text-color)">
 \t\t\t\t\t\t<p>{esc(desc)}</p>
 \t\t\t\t\t</div>
 \t\t\t\t\t{tags_html}

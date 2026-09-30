@@ -89,6 +89,13 @@
         "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1"
       }
     }]
 }
@@ -118,17 +125,17 @@
 		<!-- END HEADER -->
 		<div class="content fx-row fx-start">
 			<main class="col-main" id="main-content">
-				<article class="article" itemscope itemtype="https://schema.org/SoftwareApplication">
+				<article class="article">
 				<div class="fmain side-box">
 					<!-- Breadcrumb -->
 					<nav aria-label="Breadcrumb" style="font-size:13px;color:#888;margin-bottom:15px">
-						<a href="/">Home</a> › <a href="/category/ui-design-kits/">UI Design Kits</a> › <span itemprop="name">24 Christmas and Happy New Year Design Elements Bundle</span>
+						<a href="/">Home</a> › <a href="/category/ui-design-kits/">UI Design Kits</a> › <span>24 Christmas and Happy New Year Design Elements Bundle</span>
 					</nav>
 					<h1 class="sect-title">24 Christmas and Happy New Year Design Elements Bundle</h1>
 					<div class="short-meta fx-row fx-middle icon-left" style="margin-bottom:25px;gap:15px;flex-wrap:wrap">
-						<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="2026-09-29" itemprop="datePublished">September 29, 2026</time></div>
-						<div class="short-meta-item star-rating-widget" data-slug="24-christmas-and-happy-new-year-design-elements-bundle" data-rating="0" data-count="0" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this post"><span class="star-btn" data-v="1" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-legend" style="color:#888;font-size:13px;font-weight:500;margin-left:6px">Rate this post</span></div>
-						<div class="short-meta-item"><a href="/category/ui-design-kits/" itemprop="applicationCategory">UI Design Kits</a></div>
+						<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="2026-09-29">September 29, 2026</time></div>
+						<div class="short-meta-item star-rating-widget" data-slug="24-christmas-and-happy-new-year-design-elements-bundle" data-rating="5.0" data-count="1" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this post"><span class="star-btn" data-v="1" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-legend" style="color:#888;font-size:13px;font-weight:500;margin-left:6px">5.0/5 - (1 vote)</span></div>
+						<div class="short-meta-item"><a href="/category/ui-design-kits/">UI Design Kits</a></div>
 					</div>
 					<img src="/works/24-christmas-and-happy-new-year-design-elements-bundle/cover.jpg" alt="24 Christmas and Happy New Year Design Elements Bundle - UI Design Kits" width="800" height="560" loading="eager" style="width:100%;height:auto;border-radius:4px;margin-bottom:30px;">
 					<div style="margin:20px 0;padding:14px 18px;border-radius:10px;background:rgba(0,136,204,0.08);border:1px solid rgba(0,136,204,0.25);display:flex;align-items:center;gap:12px">
@@ -148,7 +155,7 @@
 							<span style="color:#0080ff;font-weight:600">⚡ Status:</span> <b>Available in Telegram</b>
 						</div>
 					</div>
-					<div class="ftext full-text clearfix" itemprop="description" style="margin:20px 0;font-size:15px;line-height:1.75;color:var(--text-color)">
+					<div class="ftext full-text clearfix" style="margin:20px 0;font-size:15px;line-height:1.75;color:var(--text-color)">
 						<p>High-quality creative digital asset collection.</p>
 					</div>
 					<div class="ftags"><span class="far fa-tags" aria-hidden="true"></span> <a href="/search/?q=UI">UI</a> <a href="/search/?q=Digital Assets">Digital Assets</a> <a href="/search/?q=Graphic Design">Graphic Design</a> <a href="/search/?q=AI">AI</a> <a href="/search/?q=EPS">EPS</a></div>
@@ -340,12 +347,18 @@
 
 		// Sync global vote count from cloud counter (works for users + Googlebot rendering)
 		fetch('https://abacus.jasoncameron.dev/get/dimsonsgfx_votes/' + encodeURIComponent(slug))
-			.then(function(r){ return r.ok ? r.json() : null; })
+			.then(function(r){
+				if(r.status === 404 && savedVote){
+					return fetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_votes/' + encodeURIComponent(slug))
+						.then(function(r2){ return r2.ok ? r2.json() : null; });
+				}
+				return r.ok ? r.json() : null;
+			})
 			.then(function(d){
 				if(d && typeof d.value === 'number' && d.value > 0){
 					currentCnt = Math.max(currentCnt, d.value);
 					try { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
-					var avg = savedVote ? ((4.9 * (currentCnt - 1) + parseFloat(savedVote)) / currentCnt) : 4.9;
+					var avg = savedVote ? ((5.0 * (currentCnt - 1) + parseFloat(savedVote)) / currentCnt) : 5.0;
 					if(currentCnt === 1 && savedVote) avg = parseFloat(savedVote);
 					currentVal = avg;
 					renderState(currentVal, currentCnt, false);
