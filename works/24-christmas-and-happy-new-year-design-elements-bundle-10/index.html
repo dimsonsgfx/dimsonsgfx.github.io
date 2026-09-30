@@ -89,6 +89,13 @@
         "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1"
       }
     }]
 }
@@ -127,7 +134,7 @@
 					<h1 class="sect-title">24 Christmas and Happy New Year Design Elements Bundle 10</h1>
 					<div class="short-meta fx-row fx-middle icon-left" style="margin-bottom:25px;gap:15px;flex-wrap:wrap">
 						<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="2026-09-29">September 29, 2026</time></div>
-						<div class="short-meta-item star-rating-widget" data-slug="24-christmas-and-happy-new-year-design-elements-bundle-10" data-rating="0" data-count="0" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this post"><span class="star-btn" data-v="1" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-legend" style="color:#888;font-size:13px;font-weight:500;margin-left:6px">Rate this post</span></div>
+						<div class="short-meta-item star-rating-widget" data-slug="24-christmas-and-happy-new-year-design-elements-bundle-10" data-rating="5.0" data-count="1" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this post"><span class="star-btn" data-v="1" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-legend" style="color:#888;font-size:13px;font-weight:500;margin-left:6px">5.0/5 - (1 vote)</span></div>
 						<div class="short-meta-item"><a href="/category/ui-design-kits/">UI Design Kits</a></div>
 					</div>
 					<img src="/works/24-christmas-and-happy-new-year-design-elements-bundle-10/cover.jpg" alt="24 Christmas and Happy New Year Design Elements Bundle 10 - UI Design Kits" width="800" height="560" loading="eager" style="width:100%;height:auto;border-radius:4px;margin-bottom:30px;">
@@ -338,10 +345,20 @@
 
 		renderState(currentVal, currentCnt, false);
 
-		// Sync global vote count from cloud counter (works for users + Googlebot rendering)
+		function pushStarSum(starsVal){
+			var n = Math.max(1, Math.min(5, parseInt(starsVal, 10) || 5));
+			var p = [];
+			for(var i=0; i<n; i++){
+				p.push(fetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_sum/' + encodeURIComponent(slug)).catch(function(){}));
+			}
+			return Promise.all(p);
+		}
+
+		// Sync global vote count and score sum from cloud counter (works for users + Googlebot rendering)
 		fetch('https://abacus.jasoncameron.dev/get/dimsonsgfx_votes/' + encodeURIComponent(slug))
 			.then(function(r){
 				if(r.status === 404 && savedVote){
+					pushStarSum(savedVote);
 					return fetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_votes/' + encodeURIComponent(slug))
 						.then(function(r2){ return r2.ok ? r2.json() : null; });
 				}
@@ -351,10 +368,16 @@
 				if(d && typeof d.value === 'number' && d.value > 0){
 					currentCnt = Math.max(currentCnt, d.value);
 					try { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
-					var avg = savedVote ? ((5.0 * (currentCnt - 1) + parseFloat(savedVote)) / currentCnt) : 5.0;
-					if(currentCnt === 1 && savedVote) avg = parseFloat(savedVote);
-					currentVal = avg;
-					renderState(currentVal, currentCnt, false);
+					return fetch('https://abacus.jasoncameron.dev/get/dimsonsgfx_sum/' + encodeURIComponent(slug))
+						.then(function(rs){ return rs.ok ? rs.json() : null; })
+						.then(function(ds){
+							if(ds && typeof ds.value === 'number' && ds.value > 0){
+								currentVal = Math.max(1.0, Math.min(5.0, ds.value / currentCnt));
+							} else if(savedVote){
+								currentVal = parseFloat(savedVote);
+							}
+							renderState(currentVal, currentCnt, false);
+						});
 				}
 			}).catch(function(){});
 
@@ -379,7 +402,7 @@
 				if(!alreadyVoted){
 					currentCnt = currentCnt + 1;
 				}
-				currentVal = (currentCnt <= 1) ? v : ((4.9 * (currentCnt - 1) + v) / currentCnt);
+				currentVal = (currentCnt <= 1) ? v : ((currentVal * (currentCnt - 1) + v) / currentCnt);
 				try {
 					localStorage.setItem(key, savedVote);
 					localStorage.setItem(cntKey, String(currentCnt));
@@ -387,13 +410,13 @@
 				renderState(currentVal, currentCnt, true);
 
 				if(!alreadyVoted){
+					pushStarSum(v);
 					fetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_votes/' + encodeURIComponent(slug))
 						.then(function(r){ return r.ok ? r.json() : null; })
 						.then(function(d){
 							if(d && typeof d.value === 'number' && d.value > 0){
 								currentCnt = Math.max(currentCnt, d.value);
 								try { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
-								currentVal = (currentCnt <= 1) ? v : ((4.9 * (currentCnt - 1) + v) / currentCnt);
 								renderState(currentVal, currentCnt, true);
 							}
 						}).catch(function(){});

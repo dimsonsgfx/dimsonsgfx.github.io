@@ -179,6 +179,7 @@ def get_work_rating(w):
     if slug:
         if slug not in _CLOUD_RATINGS_CACHE:
             cloud_cnt = 0
+            cloud_sum = 0
             try:
                 url = "https://abacus.jasoncameron.dev/get/dimsonsgfx_votes/" + urllib.parse.quote(slug)
                 req = urllib.request.Request(url, headers={"User-Agent": "dimsonsgfx-builder/1.0"})
@@ -188,8 +189,23 @@ def get_work_rating(w):
                         cloud_cnt = int(data.get("value") or 0)
             except Exception:
                 cloud_cnt = 0
-            _CLOUD_RATINGS_CACHE[slug] = cloud_cnt
-        rc = max(rc, _CLOUD_RATINGS_CACHE[slug])
+            if cloud_cnt > 0:
+                try:
+                    url_sum = "https://abacus.jasoncameron.dev/get/dimsonsgfx_sum/" + urllib.parse.quote(slug)
+                    req_sum = urllib.request.Request(url_sum, headers={"User-Agent": "dimsonsgfx-builder/1.0"})
+                    with urllib.request.urlopen(req_sum, timeout=3) as resp_sum:
+                        if resp_sum.status == 200:
+                            data_sum = json.loads(resp_sum.read().decode("utf-8"))
+                            cloud_sum = int(data_sum.get("value") or 0)
+                except Exception:
+                    cloud_sum = 0
+            _CLOUD_RATINGS_CACHE[slug] = (cloud_cnt, cloud_sum)
+        c_cnt, c_sum = _CLOUD_RATINGS_CACHE[slug]
+        if c_cnt > rc:
+            rc = c_cnt
+            if c_sum > 0:
+                avg = max(1.0, min(5.0, c_sum / c_cnt))
+                rv = f"{avg:.1f}"
 
     if rc > 0:
         if isinstance(w, dict):
@@ -550,10 +566,20 @@ def scripts():
 
 \t\trenderState(currentVal, currentCnt, false);
 
-\t\t// Sync global vote count from cloud counter (works for users + Googlebot rendering)
+\t\tfunction pushStarSum(starsVal){
+\t\t\tvar n = Math.max(1, Math.min(5, parseInt(starsVal, 10) || 5));
+\t\t\tvar p = [];
+\t\t\tfor(var i=0; i<n; i++){
+\t\t\t\tp.push(fetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_sum/' + encodeURIComponent(slug)).catch(function(){}));
+\t\t\t}
+\t\t\treturn Promise.all(p);
+\t\t}
+
+\t\t// Sync global vote count and score sum from cloud counter (works for users + Googlebot rendering)
 \t\tfetch('https://abacus.jasoncameron.dev/get/dimsonsgfx_votes/' + encodeURIComponent(slug))
 \t\t\t.then(function(r){
 \t\t\t\tif(r.status === 404 && savedVote){
+\t\t\t\t\tpushStarSum(savedVote);
 \t\t\t\t\treturn fetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_votes/' + encodeURIComponent(slug))
 \t\t\t\t\t\t.then(function(r2){ return r2.ok ? r2.json() : null; });
 \t\t\t\t}
@@ -563,10 +589,16 @@ def scripts():
 \t\t\t\tif(d && typeof d.value === 'number' && d.value > 0){
 \t\t\t\t\tcurrentCnt = Math.max(currentCnt, d.value);
 \t\t\t\t\ttry { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
-\t\t\t\t\tvar avg = savedVote ? ((5.0 * (currentCnt - 1) + parseFloat(savedVote)) / currentCnt) : 5.0;
-\t\t\t\t\tif(currentCnt === 1 && savedVote) avg = parseFloat(savedVote);
-\t\t\t\t\tcurrentVal = avg;
-\t\t\t\t\trenderState(currentVal, currentCnt, false);
+\t\t\t\t\treturn fetch('https://abacus.jasoncameron.dev/get/dimsonsgfx_sum/' + encodeURIComponent(slug))
+\t\t\t\t\t\t.then(function(rs){ return rs.ok ? rs.json() : null; })
+\t\t\t\t\t\t.then(function(ds){
+\t\t\t\t\t\t\tif(ds && typeof ds.value === 'number' && ds.value > 0){
+\t\t\t\t\t\t\t\tcurrentVal = Math.max(1.0, Math.min(5.0, ds.value / currentCnt));
+\t\t\t\t\t\t\t} else if(savedVote){
+\t\t\t\t\t\t\t\tcurrentVal = parseFloat(savedVote);
+\t\t\t\t\t\t\t}
+\t\t\t\t\t\t\trenderState(currentVal, currentCnt, false);
+\t\t\t\t\t\t});
 \t\t\t\t}
 \t\t\t}).catch(function(){});
 
@@ -591,7 +623,7 @@ def scripts():
 \t\t\t\tif(!alreadyVoted){
 \t\t\t\t\tcurrentCnt = currentCnt + 1;
 \t\t\t\t}
-\t\t\t\tcurrentVal = (currentCnt <= 1) ? v : ((4.9 * (currentCnt - 1) + v) / currentCnt);
+\t\t\t\tcurrentVal = (currentCnt <= 1) ? v : ((currentVal * (currentCnt - 1) + v) / currentCnt);
 \t\t\t\ttry {
 \t\t\t\t\tlocalStorage.setItem(key, savedVote);
 \t\t\t\t\tlocalStorage.setItem(cntKey, String(currentCnt));
@@ -599,13 +631,13 @@ def scripts():
 \t\t\t\trenderState(currentVal, currentCnt, true);
 
 \t\t\t\tif(!alreadyVoted){
+\t\t\t\t\tpushStarSum(v);
 \t\t\t\t\tfetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_votes/' + encodeURIComponent(slug))
 \t\t\t\t\t\t.then(function(r){ return r.ok ? r.json() : null; })
 \t\t\t\t\t\t.then(function(d){
 \t\t\t\t\t\t\tif(d && typeof d.value === 'number' && d.value > 0){
 \t\t\t\t\t\t\t\tcurrentCnt = Math.max(currentCnt, d.value);
 \t\t\t\t\t\t\t\ttry { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
-\t\t\t\t\t\t\t\tcurrentVal = (currentCnt <= 1) ? v : ((4.9 * (currentCnt - 1) + v) / currentCnt);
 \t\t\t\t\t\t\t\trenderState(currentVal, currentCnt, true);
 \t\t\t\t\t\t\t}
 \t\t\t\t\t\t}).catch(function(){});
