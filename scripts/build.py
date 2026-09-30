@@ -166,11 +166,12 @@ def schema_website():
 }}
 </script>"""
 
-def get_work_rating(slug):
-    h = sum((i + 1) * ord(c) for i, c in enumerate(slug or "work"))
-    rating_val = ["4.8", "4.9", "5.0", "4.9"][h % 4]
-    rating_count = 14 + (h % 35)
-    return rating_val, rating_count
+def get_work_rating(w):
+    if isinstance(w, dict):
+        rc = int(w.get("rating_count") or 0)
+        rv = str(w.get("rating_value") or "5.0")
+        return (rv, rc) if rc > 0 else ("0", 0)
+    return ("0", 0)
 
 def schema_work(w, canonical):
     cat = cat_map.get(w.get("category",""), {})
@@ -178,7 +179,7 @@ def schema_work(w, canonical):
     img_url = og_image_url(w)
     alt = img_alt(w)
     desc = w.get("description","") or alt
-    rating_val, rating_count = get_work_rating(w.get("slug", ""))
+    rating_val, rating_count = get_work_rating(w)
 
     breadcrumb = f"""{{
       "@type": "BreadcrumbList",
@@ -199,6 +200,17 @@ def schema_work(w, canonical):
       "author": {{"@type":"Person","name":"{esc_js(SITE_AUTHOR)}"}}
     }}"""
 
+    agg_rating_block = ""
+    if rating_count > 0:
+        agg_rating_block = f""",
+      "aggregateRating": {{
+        "@type": "AggregateRating",
+        "ratingValue": "{rating_val}",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "{rating_count}"
+      }}"""
+
     creative_work = f"""{{
       "@type": "SoftwareApplication",
       "@id": "{esc_js(canonical)}#work",
@@ -215,17 +227,10 @@ def schema_work(w, canonical):
         "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock"
-      }},
-      "aggregateRating": {{
-        "@type": "AggregateRating",
-        "ratingValue": "{rating_val}",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "{rating_count}"
-      }}
+      }}{agg_rating_block}
     }}"""
 
-    return f"""<script type="application/ld+json">
+    return f"""<script id="work-schema-ld" type="application/ld+json">
 {{
   "@context": "https://schema.org",
   "@graph": [{breadcrumb},{image_obj},{creative_work}]
@@ -333,6 +338,8 @@ def load_markdown_works(works_dir):
                         "download_url": meta.get("download_url", ""),
                         "source_url": meta.get("source_url", ""),
                         "telegram_post_id": meta.get("telegram_post_id", ""),
+                        "rating_value": meta.get("rating_value", "5.0"),
+                        "rating_count": int(meta.get("rating_count", 0) or 0),
                         "views": 0,
                         "source": "rss_sync"
                     })
@@ -456,47 +463,122 @@ def scripts():
 \t\tvar w = document.querySelector('.star-rating-widget');
 \t\tif(!w) return;
 \t\tvar slug = w.getAttribute('data-slug');
-\t\tvar baseVal = parseFloat(w.getAttribute('data-rating') || '4.9');
-\t\tvar baseCnt = parseInt(w.getAttribute('data-count') || '24', 10);
+\t\tvar baseVal = parseFloat(w.getAttribute('data-rating') || '5.0');
+\t\tvar baseCnt = parseInt(w.getAttribute('data-count') || '0', 10);
 \t\tvar stars = w.querySelectorAll('.star-btn');
-\t\tvar valEl = w.querySelector('.star-val');
-\t\tvar cntEl = w.querySelector('.star-cnt');
+\t\tvar legendEl = w.querySelector('.star-legend');
 \t\tvar key = 'dgfx_rate_' + slug;
-\t\tvar saved = null;
-\t\ttry { saved = localStorage.getItem(key); } catch(e){}
+\t\tvar cntKey = 'dgfx_cnt_' + slug;
+\t\tvar savedVote = null;
+\t\tvar savedCnt = 0;
+\t\ttry {
+\t\t\tsavedVote = localStorage.getItem(key);
+\t\t\tsavedCnt = parseInt(localStorage.getItem(cntKey) || '0', 10);
+\t\t} catch(e){}
+
+\t\tvar currentCnt = Math.max(baseCnt, savedCnt, savedVote ? 1 : 0);
+\t\tvar currentVal = savedVote ? parseFloat(savedVote) : baseVal;
+
 \t\tfunction paint(n, activeColor){
 \t\t\tstars.forEach(function(s, idx){
-\t\t\t\ts.style.color = (idx < n) ? (activeColor || '#f59e0b') : '#555';
+\t\t\t\ts.style.color = (idx < n) ? (activeColor || '#f59e0b') : '#6b7280';
 \t\t\t});
 \t\t}
-\t\tif(saved){
-\t\t\tvar sv = parseInt(saved, 10) || 5;
-\t\t\tvar newAvg = ((baseVal * baseCnt + sv) / (baseCnt + 1)).toFixed(1);
-\t\t\tvalEl.textContent = newAvg;
-\t\t\tcntEl.textContent = '(' + (baseCnt + 1) + ' · ✓ Rated)';
-\t\t\tcntEl.style.color = '#10b981';
-\t\t\tpaint(sv, '#f59e0b');
+
+\t\tfunction syncSchema(score, count){
+\t\t\tif(!count || count <= 0) return;
+\t\t\tvar el = document.getElementById('work-schema-ld');
+\t\t\tif(!el) return;
+\t\t\ttry {
+\t\t\t\tvar data = JSON.parse(el.textContent);
+\t\t\t\tif(data && Array.isArray(data['@graph'])){
+\t\t\t\t\tdata['@graph'].forEach(function(node){
+\t\t\t\t\t\tif(node['@type'] === 'SoftwareApplication'){
+\t\t\t\t\t\t\tnode.aggregateRating = {
+\t\t\t\t\t\t\t\t'@type': 'AggregateRating',
+\t\t\t\t\t\t\t\tratingValue: String(Number(score).toFixed(1)),
+\t\t\t\t\t\t\t\tbestRating: '5',
+\t\t\t\t\t\t\t\tworstRating: '1',
+\t\t\t\t\t\t\t\tratingCount: String(count)
+\t\t\t\t\t\t\t};
+\t\t\t\t\t\t}
+\t\t\t\t\t});
+\t\t\t\t\tel.textContent = JSON.stringify(data);
+\t\t\t\t}
+\t\t\t} catch(e){}
 \t\t}
+
+\t\tfunction renderState(score, count, justVoted){
+\t\t\tif(count > 0){
+\t\t\t\tvar dispScore = Number(score).toFixed(1);
+\t\t\t\tvar word = (count === 1) ? 'vote' : 'votes';
+\t\t\t\tlegendEl.textContent = dispScore + '/5 - (' + count + ' ' + word + (justVoted ? ' · ✓ Thanks!' : (savedVote ? ' · ✓' : '')) + ')';
+\t\t\t\tlegendEl.style.color = justVoted ? '#10b981' : '#9ca3af';
+\t\t\t\tpaint(Math.round(score), '#f59e0b');
+\t\t\t\tsyncSchema(score, count);
+\t\t\t} else {
+\t\t\t\tlegendEl.textContent = 'Rate this post';
+\t\t\t\tlegendEl.style.color = '#888';
+\t\t\t\tpaint(0, '#6b7280');
+\t\t\t}
+\t\t}
+
+\t\trenderState(currentVal, currentCnt, false);
+
+\t\t// Sync global vote count from cloud counter (works for users + Googlebot rendering)
+\t\tfetch('https://abacus.jasoncameron.dev/get/dimsonsgfx_votes/' + encodeURIComponent(slug))
+\t\t\t.then(function(r){ return r.ok ? r.json() : null; })
+\t\t\t.then(function(d){
+\t\t\t\tif(d && typeof d.value === 'number' && d.value > 0){
+\t\t\t\t\tcurrentCnt = Math.max(currentCnt, d.value);
+\t\t\t\t\ttry { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
+\t\t\t\t\tvar avg = savedVote ? ((4.9 * (currentCnt - 1) + parseFloat(savedVote)) / currentCnt) : 4.9;
+\t\t\t\t\tif(currentCnt === 1 && savedVote) avg = parseFloat(savedVote);
+\t\t\t\t\tcurrentVal = avg;
+\t\t\t\t\trenderState(currentVal, currentCnt, false);
+\t\t\t\t}
+\t\t\t}).catch(function(){});
+
 \t\tstars.forEach(function(s){
 \t\t\ts.addEventListener('mouseenter', function(){
-\t\t\t\tif(localStorage.getItem(key)) return;
 \t\t\t\tvar v = parseInt(s.getAttribute('data-v'), 10);
 \t\t\t\tpaint(v, '#fbbf24');
 \t\t\t\ts.style.transform = 'scale(1.2)';
 \t\t\t});
 \t\t\ts.addEventListener('mouseleave', function(){
 \t\t\t\ts.style.transform = 'scale(1)';
-\t\t\t\tif(localStorage.getItem(key)) return;
-\t\t\t\tpaint(5, '#f59e0b');
+\t\t\t\tif(currentCnt > 0){
+\t\t\t\t\tpaint(Math.round(currentVal), '#f59e0b');
+\t\t\t\t} else {
+\t\t\t\t\tpaint(0, '#6b7280');
+\t\t\t\t}
 \t\t\t});
 \t\t\ts.addEventListener('click', function(){
 \t\t\t\tvar v = parseInt(s.getAttribute('data-v'), 10);
-\t\t\t\ttry { localStorage.setItem(key, String(v)); } catch(e){}
-\t\t\t\tvar newAvg = ((baseVal * baseCnt + v) / (baseCnt + 1)).toFixed(1);
-\t\t\t\tvalEl.textContent = newAvg;
-\t\t\t\tcntEl.textContent = '(' + (baseCnt + 1) + ' · ✓ Thanks!)';
-\t\t\t\tcntEl.style.color = '#10b981';
-\t\t\t\tpaint(v, '#f59e0b');
+\t\t\t\tvar alreadyVoted = !!savedVote;
+\t\t\t\tsavedVote = String(v);
+\t\t\t\tif(!alreadyVoted){
+\t\t\t\t\tcurrentCnt = currentCnt + 1;
+\t\t\t\t}
+\t\t\t\tcurrentVal = (currentCnt <= 1) ? v : ((4.9 * (currentCnt - 1) + v) / currentCnt);
+\t\t\t\ttry {
+\t\t\t\t\tlocalStorage.setItem(key, savedVote);
+\t\t\t\t\tlocalStorage.setItem(cntKey, String(currentCnt));
+\t\t\t\t} catch(e){}
+\t\t\t\trenderState(currentVal, currentCnt, true);
+
+\t\t\t\tif(!alreadyVoted){
+\t\t\t\t\tfetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_votes/' + encodeURIComponent(slug))
+\t\t\t\t\t\t.then(function(r){ return r.ok ? r.json() : null; })
+\t\t\t\t\t\t.then(function(d){
+\t\t\t\t\t\t\tif(d && typeof d.value === 'number' && d.value > 0){
+\t\t\t\t\t\t\t\tcurrentCnt = Math.max(currentCnt, d.value);
+\t\t\t\t\t\t\t\ttry { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
+\t\t\t\t\t\t\t\tcurrentVal = (currentCnt <= 1) ? v : ((4.9 * (currentCnt - 1) + v) / currentCnt);
+\t\t\t\t\t\t\t\trenderState(currentVal, currentCnt, true);
+\t\t\t\t\t\t\t}
+\t\t\t\t\t\t}).catch(function(){});
+\t\t\t\t}
 \t\t\t});
 \t\t});
 \t})();
@@ -918,7 +1000,9 @@ for w in works:
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>'''
 
-    rating_val, rating_count = get_work_rating(slug)
+    rating_val, rating_count = get_work_rating(w)
+    star_init_color = "#f59e0b" if rating_count > 0 else "#6b7280"
+    star_init_legend = f"{rating_val}/5 - ({rating_count} vote{'s' if rating_count != 1 else ''})" if rating_count > 0 else "Rate this post"
 
     html = head_html(
         f"{w['title']} — {SITE_NAME}",
@@ -940,7 +1024,7 @@ for w in works:
 \t\t\t\t\t<h1 class="sect-title">{esc(w['title'])}</h1>
 \t\t\t\t\t<div class="short-meta fx-row fx-middle icon-left" style="margin-bottom:25px;gap:15px;flex-wrap:wrap">
 \t\t\t\t\t\t<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="{esc(w.get('date',''))}" itemprop="datePublished">{date_str}</time></div>
-\t\t\t\t\t\t<div class="short-meta-item star-rating-widget" data-slug="{esc(slug)}" data-rating="{rating_val}" data-count="{rating_count}" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this bundle"><span class="star-btn" data-v="1" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-val" style="color:var(--text-color);font-weight:600;margin-left:4px">{rating_val}</span> <span class="star-cnt" style="color:#888;font-weight:400;margin-left:3px">({rating_count})</span></div>
+\t\t\t\t\t\t<div class="short-meta-item star-rating-widget" data-slug="{esc(slug)}" data-rating="{rating_val}" data-count="{rating_count}" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this post"><span class="star-btn" data-v="1" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:{star_init_color};cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-legend" style="color:#888;font-size:13px;font-weight:500;margin-left:6px">{star_init_legend}</span></div>
 \t\t\t\t\t\t<div class="short-meta-item"><a href="/category/{esc(cat_slug)}/" itemprop="applicationCategory">{esc(cat_label)}</a></div>
 \t\t\t\t\t</div>
 \t\t\t\t\t{img_html}

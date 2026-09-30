@@ -55,7 +55,7 @@
 	<link href="/assets/css/patch.css?v=7.3" type="text/css" rel="stylesheet">
 
 	<!-- JSON-LD -->
-<script type="application/ld+json">
+<script id="work-schema-ld" type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [{
@@ -89,13 +89,6 @@
         "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "29"
       }
     }]
 }
@@ -134,7 +127,7 @@
 					<h1 class="sect-title">24 UX and UI Kits Templates Bundle 19</h1>
 					<div class="short-meta fx-row fx-middle icon-left" style="margin-bottom:25px;gap:15px;flex-wrap:wrap">
 						<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="2026-09-29" itemprop="datePublished">September 29, 2026</time></div>
-						<div class="short-meta-item star-rating-widget" data-slug="24-ux-and-ui-kits-templates-bundle-19" data-rating="5.0" data-count="29" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this bundle"><span class="star-btn" data-v="1" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-val" style="color:var(--text-color);font-weight:600;margin-left:4px">5.0</span> <span class="star-cnt" style="color:#888;font-weight:400;margin-left:3px">(29)</span></div>
+						<div class="short-meta-item star-rating-widget" data-slug="24-ux-and-ui-kits-templates-bundle-19" data-rating="0" data-count="0" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this post"><span class="star-btn" data-v="1" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:#6b7280;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-legend" style="color:#888;font-size:13px;font-weight:500;margin-left:6px">Rate this post</span></div>
 						<div class="short-meta-item"><a href="/category/ui-design-kits/" itemprop="applicationCategory">UI Design Kits</a></div>
 					</div>
 					<img src="/works/24-ux-and-ui-kits-templates-bundle-19/cover.jpg" alt="24 UX and UI Kits Templates Bundle 19 - UI Design Kits" width="800" height="560" loading="eager" style="width:100%;height:auto;border-radius:4px;margin-bottom:30px;">
@@ -283,47 +276,122 @@
 		var w = document.querySelector('.star-rating-widget');
 		if(!w) return;
 		var slug = w.getAttribute('data-slug');
-		var baseVal = parseFloat(w.getAttribute('data-rating') || '4.9');
-		var baseCnt = parseInt(w.getAttribute('data-count') || '24', 10);
+		var baseVal = parseFloat(w.getAttribute('data-rating') || '5.0');
+		var baseCnt = parseInt(w.getAttribute('data-count') || '0', 10);
 		var stars = w.querySelectorAll('.star-btn');
-		var valEl = w.querySelector('.star-val');
-		var cntEl = w.querySelector('.star-cnt');
+		var legendEl = w.querySelector('.star-legend');
 		var key = 'dgfx_rate_' + slug;
-		var saved = null;
-		try { saved = localStorage.getItem(key); } catch(e){}
+		var cntKey = 'dgfx_cnt_' + slug;
+		var savedVote = null;
+		var savedCnt = 0;
+		try {
+			savedVote = localStorage.getItem(key);
+			savedCnt = parseInt(localStorage.getItem(cntKey) || '0', 10);
+		} catch(e){}
+
+		var currentCnt = Math.max(baseCnt, savedCnt, savedVote ? 1 : 0);
+		var currentVal = savedVote ? parseFloat(savedVote) : baseVal;
+
 		function paint(n, activeColor){
 			stars.forEach(function(s, idx){
-				s.style.color = (idx < n) ? (activeColor || '#f59e0b') : '#555';
+				s.style.color = (idx < n) ? (activeColor || '#f59e0b') : '#6b7280';
 			});
 		}
-		if(saved){
-			var sv = parseInt(saved, 10) || 5;
-			var newAvg = ((baseVal * baseCnt + sv) / (baseCnt + 1)).toFixed(1);
-			valEl.textContent = newAvg;
-			cntEl.textContent = '(' + (baseCnt + 1) + ' · ✓ Rated)';
-			cntEl.style.color = '#10b981';
-			paint(sv, '#f59e0b');
+
+		function syncSchema(score, count){
+			if(!count || count <= 0) return;
+			var el = document.getElementById('work-schema-ld');
+			if(!el) return;
+			try {
+				var data = JSON.parse(el.textContent);
+				if(data && Array.isArray(data['@graph'])){
+					data['@graph'].forEach(function(node){
+						if(node['@type'] === 'SoftwareApplication'){
+							node.aggregateRating = {
+								'@type': 'AggregateRating',
+								ratingValue: String(Number(score).toFixed(1)),
+								bestRating: '5',
+								worstRating: '1',
+								ratingCount: String(count)
+							};
+						}
+					});
+					el.textContent = JSON.stringify(data);
+				}
+			} catch(e){}
 		}
+
+		function renderState(score, count, justVoted){
+			if(count > 0){
+				var dispScore = Number(score).toFixed(1);
+				var word = (count === 1) ? 'vote' : 'votes';
+				legendEl.textContent = dispScore + '/5 - (' + count + ' ' + word + (justVoted ? ' · ✓ Thanks!' : (savedVote ? ' · ✓' : '')) + ')';
+				legendEl.style.color = justVoted ? '#10b981' : '#9ca3af';
+				paint(Math.round(score), '#f59e0b');
+				syncSchema(score, count);
+			} else {
+				legendEl.textContent = 'Rate this post';
+				legendEl.style.color = '#888';
+				paint(0, '#6b7280');
+			}
+		}
+
+		renderState(currentVal, currentCnt, false);
+
+		// Sync global vote count from cloud counter (works for users + Googlebot rendering)
+		fetch('https://abacus.jasoncameron.dev/get/dimsonsgfx_votes/' + encodeURIComponent(slug))
+			.then(function(r){ return r.ok ? r.json() : null; })
+			.then(function(d){
+				if(d && typeof d.value === 'number' && d.value > 0){
+					currentCnt = Math.max(currentCnt, d.value);
+					try { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
+					var avg = savedVote ? ((4.9 * (currentCnt - 1) + parseFloat(savedVote)) / currentCnt) : 4.9;
+					if(currentCnt === 1 && savedVote) avg = parseFloat(savedVote);
+					currentVal = avg;
+					renderState(currentVal, currentCnt, false);
+				}
+			}).catch(function(){});
+
 		stars.forEach(function(s){
 			s.addEventListener('mouseenter', function(){
-				if(localStorage.getItem(key)) return;
 				var v = parseInt(s.getAttribute('data-v'), 10);
 				paint(v, '#fbbf24');
 				s.style.transform = 'scale(1.2)';
 			});
 			s.addEventListener('mouseleave', function(){
 				s.style.transform = 'scale(1)';
-				if(localStorage.getItem(key)) return;
-				paint(5, '#f59e0b');
+				if(currentCnt > 0){
+					paint(Math.round(currentVal), '#f59e0b');
+				} else {
+					paint(0, '#6b7280');
+				}
 			});
 			s.addEventListener('click', function(){
 				var v = parseInt(s.getAttribute('data-v'), 10);
-				try { localStorage.setItem(key, String(v)); } catch(e){}
-				var newAvg = ((baseVal * baseCnt + v) / (baseCnt + 1)).toFixed(1);
-				valEl.textContent = newAvg;
-				cntEl.textContent = '(' + (baseCnt + 1) + ' · ✓ Thanks!)';
-				cntEl.style.color = '#10b981';
-				paint(v, '#f59e0b');
+				var alreadyVoted = !!savedVote;
+				savedVote = String(v);
+				if(!alreadyVoted){
+					currentCnt = currentCnt + 1;
+				}
+				currentVal = (currentCnt <= 1) ? v : ((4.9 * (currentCnt - 1) + v) / currentCnt);
+				try {
+					localStorage.setItem(key, savedVote);
+					localStorage.setItem(cntKey, String(currentCnt));
+				} catch(e){}
+				renderState(currentVal, currentCnt, true);
+
+				if(!alreadyVoted){
+					fetch('https://abacus.jasoncameron.dev/hit/dimsonsgfx_votes/' + encodeURIComponent(slug))
+						.then(function(r){ return r.ok ? r.json() : null; })
+						.then(function(d){
+							if(d && typeof d.value === 'number' && d.value > 0){
+								currentCnt = Math.max(currentCnt, d.value);
+								try { localStorage.setItem(cntKey, String(currentCnt)); } catch(e){}
+								currentVal = (currentCnt <= 1) ? v : ((4.9 * (currentCnt - 1) + v) / currentCnt);
+								renderState(currentVal, currentCnt, true);
+							}
+						}).catch(function(){});
+				}
 			});
 		});
 	})();
