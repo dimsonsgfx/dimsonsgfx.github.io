@@ -450,7 +450,57 @@ def scripts():
     return """
 \t<button id="gotop" aria-label="Back to top" title="Back to top"><span class="far fa-arrow-up"></span></button>
 \t<script src="/assets/js/libs.js"></script>
-\t<script src="/assets/js/site.js?v=7.3"></script>"""
+\t<script src="/assets/js/site.js?v=7.3"></script>
+\t<script>
+\t(function(){
+\t\tvar w = document.querySelector('.star-rating-widget');
+\t\tif(!w) return;
+\t\tvar slug = w.getAttribute('data-slug');
+\t\tvar baseVal = parseFloat(w.getAttribute('data-rating') || '4.9');
+\t\tvar baseCnt = parseInt(w.getAttribute('data-count') || '24', 10);
+\t\tvar stars = w.querySelectorAll('.star-btn');
+\t\tvar valEl = w.querySelector('.star-val');
+\t\tvar cntEl = w.querySelector('.star-cnt');
+\t\tvar key = 'dgfx_rate_' + slug;
+\t\tvar saved = null;
+\t\ttry { saved = localStorage.getItem(key); } catch(e){}
+\t\tfunction paint(n, activeColor){
+\t\t\tstars.forEach(function(s, idx){
+\t\t\t\ts.style.color = (idx < n) ? (activeColor || '#f59e0b') : '#555';
+\t\t\t});
+\t\t}
+\t\tif(saved){
+\t\t\tvar sv = parseInt(saved, 10) || 5;
+\t\t\tvar newAvg = ((baseVal * baseCnt + sv) / (baseCnt + 1)).toFixed(1);
+\t\t\tvalEl.textContent = newAvg;
+\t\t\tcntEl.textContent = '(' + (baseCnt + 1) + ' · ✓ Rated)';
+\t\t\tcntEl.style.color = '#10b981';
+\t\t\tpaint(sv, '#f59e0b');
+\t\t}
+\t\tstars.forEach(function(s){
+\t\t\ts.addEventListener('mouseenter', function(){
+\t\t\t\tif(localStorage.getItem(key)) return;
+\t\t\t\tvar v = parseInt(s.getAttribute('data-v'), 10);
+\t\t\t\tpaint(v, '#fbbf24');
+\t\t\t\ts.style.transform = 'scale(1.2)';
+\t\t\t});
+\t\t\ts.addEventListener('mouseleave', function(){
+\t\t\t\ts.style.transform = 'scale(1)';
+\t\t\t\tif(localStorage.getItem(key)) return;
+\t\t\t\tpaint(5, '#f59e0b');
+\t\t\t});
+\t\t\ts.addEventListener('click', function(){
+\t\t\t\tvar v = parseInt(s.getAttribute('data-v'), 10);
+\t\t\t\ttry { localStorage.setItem(key, String(v)); } catch(e){}
+\t\t\t\tvar newAvg = ((baseVal * baseCnt + v) / (baseCnt + 1)).toFixed(1);
+\t\t\t\tvalEl.textContent = newAvg;
+\t\t\t\tcntEl.textContent = '(' + (baseCnt + 1) + ' · ✓ Thanks!)';
+\t\t\t\tcntEl.style.color = '#10b981';
+\t\t\t\tpaint(v, '#f59e0b');
+\t\t\t});
+\t\t});
+\t})();
+\t</script>"""
 
 # ── Short item card (3 col, NO VIEWS ICON) ─────
 def short_item(w):
@@ -890,7 +940,7 @@ for w in works:
 \t\t\t\t\t<h1 class="sect-title">{esc(w['title'])}</h1>
 \t\t\t\t\t<div class="short-meta fx-row fx-middle icon-left" style="margin-bottom:25px;gap:15px;flex-wrap:wrap">
 \t\t\t\t\t\t<div class="short-meta-item fx-1 nowrap"><span class="far fa-calendar-alt" aria-hidden="true"></span><time datetime="{esc(w.get('date',''))}" itemprop="datePublished">{date_str}</time></div>
-\t\t\t\t\t\t<div class="short-meta-item" style="color:#f59e0b;font-weight:700;letter-spacing:1px" title="Rating {rating_val}/5 ({rating_count} votes)">★★★★★ <span style="color:var(--text-color);font-weight:600;letter-spacing:0">{rating_val}</span> <span style="color:#888;font-weight:400;letter-spacing:0">({rating_count})</span></div>
+\t\t\t\t\t\t<div class="short-meta-item star-rating-widget" data-slug="{esc(slug)}" data-rating="{rating_val}" data-count="{rating_count}" style="display:inline-flex;align-items:center;gap:2px;user-select:none" title="Click to rate this bundle"><span class="star-btn" data-v="1" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="2" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="3" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="4" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span><span class="star-btn" data-v="5" style="color:#f59e0b;cursor:pointer;font-size:16px;transition:transform 0.15s">★</span> <span class="star-val" style="color:var(--text-color);font-weight:600;margin-left:4px">{rating_val}</span> <span class="star-cnt" style="color:#888;font-weight:400;margin-left:3px">({rating_count})</span></div>
 \t\t\t\t\t\t<div class="short-meta-item"><a href="/category/{esc(cat_slug)}/" itemprop="applicationCategory">{esc(cat_label)}</a></div>
 \t\t\t\t\t</div>
 \t\t\t\t\t{img_html}

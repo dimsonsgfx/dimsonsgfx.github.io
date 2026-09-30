@@ -237,6 +237,56 @@
 	<button id="gotop" aria-label="Back to top" title="Back to top"><span class="far fa-arrow-up"></span></button>
 	<script src="/assets/js/libs.js"></script>
 	<script src="/assets/js/site.js?v=7.3"></script>
+	<script>
+	(function(){
+		var w = document.querySelector('.star-rating-widget');
+		if(!w) return;
+		var slug = w.getAttribute('data-slug');
+		var baseVal = parseFloat(w.getAttribute('data-rating') || '4.9');
+		var baseCnt = parseInt(w.getAttribute('data-count') || '24', 10);
+		var stars = w.querySelectorAll('.star-btn');
+		var valEl = w.querySelector('.star-val');
+		var cntEl = w.querySelector('.star-cnt');
+		var key = 'dgfx_rate_' + slug;
+		var saved = null;
+		try { saved = localStorage.getItem(key); } catch(e){}
+		function paint(n, activeColor){
+			stars.forEach(function(s, idx){
+				s.style.color = (idx < n) ? (activeColor || '#f59e0b') : '#555';
+			});
+		}
+		if(saved){
+			var sv = parseInt(saved, 10) || 5;
+			var newAvg = ((baseVal * baseCnt + sv) / (baseCnt + 1)).toFixed(1);
+			valEl.textContent = newAvg;
+			cntEl.textContent = '(' + (baseCnt + 1) + ' · ✓ Rated)';
+			cntEl.style.color = '#10b981';
+			paint(sv, '#f59e0b');
+		}
+		stars.forEach(function(s){
+			s.addEventListener('mouseenter', function(){
+				if(localStorage.getItem(key)) return;
+				var v = parseInt(s.getAttribute('data-v'), 10);
+				paint(v, '#fbbf24');
+				s.style.transform = 'scale(1.2)';
+			});
+			s.addEventListener('mouseleave', function(){
+				s.style.transform = 'scale(1)';
+				if(localStorage.getItem(key)) return;
+				paint(5, '#f59e0b');
+			});
+			s.addEventListener('click', function(){
+				var v = parseInt(s.getAttribute('data-v'), 10);
+				try { localStorage.setItem(key, String(v)); } catch(e){}
+				var newAvg = ((baseVal * baseCnt + v) / (baseCnt + 1)).toFixed(1);
+				valEl.textContent = newAvg;
+				cntEl.textContent = '(' + (baseCnt + 1) + ' · ✓ Thanks!)';
+				cntEl.style.color = '#10b981';
+				paint(v, '#f59e0b');
+			});
+		});
+	})();
+	</script>
 </div>
 </body>
 </html>
