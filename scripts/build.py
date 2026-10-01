@@ -411,14 +411,16 @@ PER_PAGE = 12
 
 # ── Navigation helpers ──────────────────────────
 def nav_items(active_cat=None):
-    items = [f'<li{"" if active_cat else " class=\"active\""}><a href="/">Home</a></li>']
+    home_act = "" if active_cat else ' class="active"'
+    items = [f'<li{home_act}><a href="/">Home</a></li>']
     for c in categories:
         act = ' class="active"' if c["slug"] == active_cat else ""
         items.append(f'<li{act}><a href="/category/{c["slug"]}/">{esc(c["label"])}</a></li>')
     return "\n\t\t\t\t".join(items)
 
 def side_nav(active_cat=None):
-    items = [f'<li{"" if active_cat else " class=\"active\""}><a href="/"><span class="cat-name">Home</span></a></li>']
+    home_act = "" if active_cat else ' class="active"'
+    items = [f'<li{home_act}><a href="/"><span class="cat-name">Home</span></a></li>']
     for c in categories:
         act = ' class="active"' if c["slug"] == active_cat else ""
         count = len(works_by_cat.get(c["slug"],[]))

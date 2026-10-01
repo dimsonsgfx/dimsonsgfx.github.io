@@ -228,12 +228,18 @@ def main():
     print(f"New items to sync: {len(new_items)}")
 
     if not new_items:
-        print("No new RSS items. Syncing cloud star ratings to static HTML via build.py...")
-        import subprocess
-        build_script = os.path.join(SITE_ROOT, "scripts", "build.py")
-        subprocess.run([sys.executable, build_script], check=True)
-        subprocess.run(["git", "checkout", "--", "pinterest-feed.xml", "feed.xml"], cwd=SITE_ROOT, check=False)
-        print("Cloud ratings sync complete!")
+        print("Everything is up to date! Checking cloud star ratings...")
+        try:
+            import subprocess
+            build_script = os.path.join(SITE_ROOT, "scripts", "build.py")
+            subprocess.run([sys.executable, build_script], check=True)
+            subprocess.run(
+                ["git", "checkout", "--", "pinterest-feed.xml", "feed.xml", "sitemap.xml", "index.html", "404.html", "dmca/", "search/", "category/"],
+                cwd=SITE_ROOT,
+                check=False
+            )
+        except Exception as e:
+            print(f"Cloud ratings check skipped: {e}")
         return 0
 
     # Process items in chronological order (oldest first so latest ends on top)
