@@ -20,7 +20,13 @@ DATA_DIR = os.path.join(SITE_ROOT, "data")
 WORKS_DIR = os.path.join(SITE_ROOT, "works")
 SYNC_STATE_FILE = os.path.join(DATA_DIR, "synced_rss.json")
 
-DEFAULT_RSS_URL = "https://www.gfxtra31.com/user/dimsons/news/rss.xml"
+import html as html_lib
+from urllib.parse import urlparse
+
+DEFAULT_RSS_URLS = [
+    "https://www.gfxtra31.com/user/dimsons/news/rss.xml",
+    "https://www.desirefx.com/author/herogfx/feed/"
+]
 DEFAULT_TG_CHANNEL = "@dimsonsgfx"
 DEFAULT_TG_TOKEN = "8639708447:AAGXumHk_VfSCF9W9YuYjh2rq7ImceQo_s8"
 
@@ -41,7 +47,7 @@ CATEGORY_MAP = [
         "slug": "mockup-templates",
         "name": "Mockup Templates",
         "tag": "Mockup",
-        "keywords": ["mockup", "psd mockup", "packaging", "branding mockup", "scene generator", "device mockup", "iphone", "t-shirt"]
+        "keywords": ["mockup", "psd mockup", "psdt", "packaging", "branding mockup", "scene generator", "device mockup", "iphone", "t-shirt"]
     },
     {
         "slug": "3d-print-models",
@@ -102,22 +108,34 @@ def clean_html(raw_html):
 
 
 def extract_specs(raw_html):
-    """Extract format/size specs like 'INDD | 974 MB' or 'EPS | AI' from DLE description"""
+    """Extract format/size specs like 'INDD | 974 MB' or 'PSDT | 1.6 GB' from DLE or WordPress description"""
     if not raw_html:
         return ""
-    # Look for format | size patterns
-    match = re.search(r'([A-Za-z0-9\s,\.]+\|[A-Za-z0-9\s,\.]+)', raw_html)
+    unescaped = html_lib.unescape(raw_html)
+    # Look for <p> blocks or text containing format | size
+    for block in re.split(r'</p>|<br\s*/?>|\n', unescaped, flags=re.IGNORECASE):
+        text_line = re.sub(r'<[^>]+>', ' ', block).strip()
+        text_line = re.sub(r'\s+', ' ', text_line)
+        if "|" in text_line and re.search(r'\b(mb|gb|kb|psd|psdt|indd|idml|pptx|ppt|ai|eps|png|otf|ttf|aep|stl|obj)\b', text_line, re.IGNORECASE):
+            # Remove trailing download button text if present in plain description
+            text_line = re.sub(r'\s*DOWNLOAD\s+WITH\s+.*$', '', text_line, flags=re.IGNORECASE).strip()
+            if len(text_line) <= 90:
+                return text_line
+    match = re.search(r'([A-Za-z0-9\s,\.]+\|[A-Za-z0-9\s,\.]+)', unescaped)
     if match:
-        return match.group(1).strip()
+        res = re.sub(r'\s*DOWNLOAD\s+WITH\s+.*$', '', match.group(1), flags=re.IGNORECASE).strip()
+        return res[:90]
     return ""
 
 
 def download_image(img_url):
+    parsed = urlparse(img_url)
+    origin = f"{parsed.scheme}://{parsed.netloc}/" if parsed.scheme and parsed.netloc else "https://www.gfxtra31.com/"
     req = urllib.request.Request(
         img_url,
         headers={
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Referer": "https://www.gfxtra31.com/"
+            "Referer": origin
         }
     )
     with urllib.request.urlopen(req, timeout=30) as resp:
@@ -163,6 +181,8 @@ def send_telegram_photo(token, chat_id, photo_bytes, filename, caption):
 
 
 def parse_rss_feed(feed_url):
+    parsed_feed = urlparse(feed_url)
+    base_origin = f"{parsed_feed.scheme}://{parsed_feed.netloc}"
     req = urllib.request.Request(
         feed_url,
         headers={
@@ -173,21 +193,29 @@ def parse_rss_feed(feed_url):
         content = resp.read()
     root = ET.fromstring(content)
     items = []
+    content_ns_tag = "{http://purl.org/rss/1.0/modules/content/}encoded"
+
     for item in root.findall("channel/item"):
-        title = (item.findtext("title") or "").strip()
+        title = html_lib.unescape((item.findtext("title") or "").strip())
         link = (item.findtext("link") or "").strip()
         guid = (item.findtext("guid") or link).strip()
-        category = (item.findtext("category") or "").strip()
+        cats = [c.text.strip() for c in item.findall("category") if c.text and c.text.strip()]
+        category = " ".join(cats)
         pub_date = (item.findtext("pubDate") or "").strip()
-        desc_html = (item.findtext("description") or "").strip()
+        desc_raw = (item.findtext("description") or "").strip()
+        content_encoded = (item.findtext(content_ns_tag) or "").strip()
+        desc_html = content_encoded if content_encoded else desc_raw
 
-        # Extract image URL
-        img_match = re.search(r'src=["\']([^"\']+)["\']', desc_html)
+        # Extract image URL from content:encoded or description
+        img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', desc_html, re.IGNORECASE)
+        if not img_match and desc_raw:
+            img_match = re.search(r'src=["\']([^"\']+)["\']', desc_raw, re.IGNORECASE)
+
         img_url = ""
         if img_match:
-            img_src = img_match.group(1)
+            img_src = img_match.group(1).strip()
             if img_src.startswith("/"):
-                img_url = "https://www.gfxtra31.com" + img_src
+                img_url = base_origin + img_src
             else:
                 img_url = img_src
 
@@ -206,25 +234,48 @@ def parse_rss_feed(feed_url):
 def main():
     token = os.environ.get("TG_BOT_TOKEN", DEFAULT_TG_TOKEN).strip()
     channel = os.environ.get("TG_CHANNEL", DEFAULT_TG_CHANNEL).strip()
-    rss_url = os.environ.get("RSS_URL", DEFAULT_RSS_URL).strip()
+    env_rss = os.environ.get("RSS_URL", "").strip()
+    if env_rss:
+        rss_urls = [u.strip() for u in env_rss.split(",") if u.strip()]
+        for def_u in DEFAULT_RSS_URLS:
+            if def_u not in rss_urls:
+                rss_urls.append(def_u)
+    else:
+        rss_urls = list(DEFAULT_RSS_URLS)
 
     print(f"=== Starting RSS Sync ===")
-    print(f"RSS Source: {rss_url}")
+    print(f"RSS Sources: {', '.join(rss_urls)}")
     print(f"Target Channel: {channel}")
 
     synced_items = load_synced_state()
     synced_links = {item if isinstance(item, str) else item.get("link", "") for item in synced_items}
+    synced_guids = {item.get("guid", "") for item in synced_items if isinstance(item, dict) and item.get("guid")}
+    synced_slugs = {item.get("slug", "") for item in synced_items if isinstance(item, dict) and item.get("slug")}
     print(f"Previously synced items: {len(synced_links)}")
 
-    try:
-        items = parse_rss_feed(rss_url)
-        print(f"Found {len(items)} items in RSS feed.")
-    except Exception as e:
-        print(f"Error reading RSS feed: {e}")
+    items = []
+    for feed_url in rss_urls:
+        try:
+            feed_items = parse_rss_feed(feed_url)
+            print(f"Found {len(feed_items)} items in RSS feed: {feed_url}")
+            items.extend(feed_items)
+        except Exception as e:
+            print(f"Warning: Error reading RSS feed {feed_url}: {e}")
+
+    if not items:
+        print("Error: Could not read any items from RSS feeds.")
         return 1
 
-    # Filter out already synced items
-    new_items = [i for i in items if i["link"] not in synced_links and i["guid"] not in synced_links]
+    # Filter out already synced items (by link, guid, or slug)
+    new_items = []
+    seen_batch_slugs = set()
+    for i in items:
+        s = generate_slug(i["title"])
+        if i["link"] in synced_links or i["guid"] in synced_links or i["guid"] in synced_guids or s in synced_slugs or s in seen_batch_slugs:
+            continue
+        seen_batch_slugs.add(s)
+        new_items.append(i)
+
     print(f"New items to sync: {len(new_items)}")
 
     if not new_items:

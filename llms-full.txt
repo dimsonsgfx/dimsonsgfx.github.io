@@ -3,10 +3,90 @@
 > Comprehensive manifest of all digital creative assets, 3D print models, and design templates published on DIMSONSGFX.
 
 Website: https://dimsonsgfx.github.io
-Total Works: 20
-Last Updated: 2026-09-30
+Total Works: 30
+Last Updated: 2026-10-02
 
 ## Works Directory
+
+### 10 Mockup Templates Bundle 31
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-31/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 627 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-31/cover.jpg
+
+### 10 Mockup Templates Bundle 32
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-32/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.26 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-32/cover.jpg
+
+### 10 Mockup Templates Bundle 33
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-33/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.74 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-33/cover.jpg
+
+### 10 Mockup Templates Bundle 34
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-34/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 2 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-34/cover.jpg
+
+### 10 Mockup Templates Bundle 35
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-35/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 906 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-35/cover.jpg
+
+### 10 Mockup Templates Bundle 36
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-36/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.6 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-36/cover.jpg
+
+### 24 Indesign Templates Bundle 36 2025
+- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-36-2025/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-02
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 1.32 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-36-2025/cover.jpg
+
+### 24 Indesign Templates Bundle 37 2025
+- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-37-2025/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-02
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 944 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-37-2025/cover.jpg
+
+### 24 Indesign Templates Bundle 38 2025
+- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-38-2025/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-02
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 426 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-38-2025/cover.jpg
+
+### 24 Indesign Templates Bundle 39 2025
+- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-39-2025/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-02
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 564 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-39-2025/cover.jpg
 
 ### 24 Christmas and Happy New Year Design Elements Bundle
 - URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle/
