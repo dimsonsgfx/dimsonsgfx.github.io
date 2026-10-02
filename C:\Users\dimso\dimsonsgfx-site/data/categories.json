@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "3d-print-models",
+    "label": "3D Print Models",
+    "icon": "",
+    "description": "High-detail STL and OBJ 3D printable models, figurines, functional gadgets, and cosplay props."
+  },
+  {
+    "slug": "powerpoint-templates",
+    "label": "PowerPoint Templates",
+    "icon": "",
+    "description": "Modern pitch deck templates, corporate business slides, and animated presentation designs."
+  },
+  {
+    "slug": "indesign-templates",
+    "label": "InDesign Templates",
+    "icon": "",
+    "description": "Editorial layouts, brochures, portfolio lookbooks, magazine spreads, and brand guidelines."
+  },
+  {
+    "slug": "mockup-templates",
+    "label": "Mockup Templates",
+    "icon": "",
+    "description": "Photorealistic PSD device scenes, packaging mockups, stationery branding, and apparel renders."
+  },
+  {
+    "slug": "ui-design-kits",
+    "label": "UI Design Kits",
+    "icon": "",
+    "description": "Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components."
+  }
+]

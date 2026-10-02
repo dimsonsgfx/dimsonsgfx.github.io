@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /search/
+
+Sitemap: https://dimsonsgfx.github.io/sitemap.xml
+
+# LLMs & AI Agents Documentation (https://llmstxt.org)
+# https://dimsonsgfx.github.io/llms.txt
+# https://dimsonsgfx.github.io/llms-full.txt
