@@ -3,42 +3,258 @@
 > Comprehensive manifest of all digital creative assets, 3D print models, and design templates published on DIMSONSGFX.
 
 Website: https://dimsonsgfx.github.io
-Total Works: 30
-Last Updated: 2026-10-02
+Total Works: 60
+Last Updated: 2026-10-05
 
 ## Works Directory
 
-### 10 Mockup Templates Bundle 31
-- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-31/
-- Category: Mockup Templates (mockup-templates)
-- Published: 2026-10-02
-- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 627 MB
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 01
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-01/
+- Category: Video Templates (video-templates)
+- Published: 2026-10-05
+- Tags: Video, Digital Assets, Graphic Design, DRP, 2.27 GB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-31/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-01/cover.jpg
 
-### 10 Mockup Templates Bundle 32
-- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-32/
-- Category: Mockup Templates (mockup-templates)
-- Published: 2026-10-02
-- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.26 GB
+### 24 in 1 – Figma & Web Design UI Kit Pack (Vol. 04)
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-04/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-10-05
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 35 MB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-32/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-04/cover.jpg
 
-### 10 Mockup Templates Bundle 33
-- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-33/
-- Category: Mockup Templates (mockup-templates)
-- Published: 2026-10-02
-- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.74 GB
+### 24 in 1 – Figma & Web Design UI Kit Pack (Vol. 03)
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-03/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-10-05
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 87 MB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-33/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-03/cover.jpg
 
-### 10 Mockup Templates Bundle 34
-- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-34/
+### 24 in 1 – Figma & Web Design UI Kit Pack (Vol. 02)
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-02/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-10-05
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 119 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-02/cover.jpg
+
+### 24 in 1 – Figma & Web Design UI Kit Pack (Vol. 01)
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-01/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-10-05
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 29 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-01/cover.jpg
+
+### 24 in 1 – Ultimate Designer Font Bundle (Vol. 02)
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-02/
+- Category: Fonts (fonts)
+- Published: 2026-10-05
+- Tags: Fonts, Digital Assets, Graphic Design, OTF, TTF, 8.8 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-02/cover.jpg
+
+### 24 in 1 — Ultimate Designer Font Bundle (Vol. 01)
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-01/
+- Category: Fonts (fonts)
+- Published: 2026-10-05
+- Tags: Fonts, Digital Assets, Graphic Design, OTF, TTF, 2.8 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-01/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 4
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-4/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-05
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 1.15 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-4/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 5
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-5/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 40 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-5/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 4
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-4/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 30 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-4/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 3
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-3/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 51 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-3/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 2
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-2/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 106 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-2/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 1
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-1/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 64 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-1/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 3
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-3/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-05
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 282 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-3/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 2
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-2/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-05
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 287 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-2/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 1
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-1/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-05
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 180 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-1/cover.jpg
+
+### 24 Indesign Templates Bundle 40 2025
+- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-40-2025/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-05
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 653 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-40-2025/cover.jpg
+
+### 24 PowerPoint Templates Bundle 51
+- URL: https://dimsonsgfx.github.io/works/24-powerpoint-templates-bundle-51/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 108 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-powerpoint-templates-bundle-51/cover.jpg
+
+### 24 PowerPoint Templates Bundle 52
+- URL: https://dimsonsgfx.github.io/works/24-powerpoint-templates-bundle-52/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 48 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-powerpoint-templates-bundle-52/cover.jpg
+
+### 24 PowerPoint Templates Bundle 53
+- URL: https://dimsonsgfx.github.io/works/24-powerpoint-templates-bundle-53/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 34 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-powerpoint-templates-bundle-53/cover.jpg
+
+### 24 PowerPoint Templates Bundle 54
+- URL: https://dimsonsgfx.github.io/works/24-powerpoint-templates-bundle-54/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-05
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 46 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-powerpoint-templates-bundle-54/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 06
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-06/
+- Category: Video Templates (video-templates)
+- Published: 2026-10-04
+- Tags: InDesign, Digital Assets, Graphic Design, DRP, 4.2 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-06/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 02
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-02/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-10-04
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, GLB, 481 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-02/cover.jpg
+
+### 24 in 1 – Ultimate Designer Font Bundle Vol. 03
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-03/
+- Category: Fonts (fonts)
+- Published: 2026-10-04
+- Tags: InDesign, Digital Assets, Graphic Design, OTF, TTF, 10 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-03/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 01
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-01/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-10-04
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, GLB, 624 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-01/cover.jpg
+
+### 24 in 1 – Ultimate Designer Font Bundle Vol. 04
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-04/
+- Category: Fonts (fonts)
+- Published: 2026-10-04
+- Tags: InDesign, Digital Assets, Graphic Design, OTF, TTF, 8 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-04/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 05
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-05/
+- Category: Video Templates (video-templates)
+- Published: 2026-10-04
+- Tags: InDesign, Digital Assets, Graphic Design, DRP, 968 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-05/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 04
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-04/
+- Category: Video Templates (video-templates)
+- Published: 2026-10-04
+- Tags: InDesign, Digital Assets, Graphic Design, DRP, 944 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-04/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 03
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-03/
+- Category: Video Templates (video-templates)
+- Published: 2026-10-04
+- Tags: InDesign, Digital Assets, Graphic Design, DRP, 2.5 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-03/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 02
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-02/
+- Category: Video Templates (video-templates)
+- Published: 2026-10-04
+- Tags: InDesign, Digital Assets, Graphic Design, DRP, 2.27 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-02/cover.jpg
+
+### 10 Mockup Templates Bundle 36
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-36/
 - Category: Mockup Templates (mockup-templates)
 - Published: 2026-10-02
-- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 2 GB
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.6 GB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-34/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-36/cover.jpg
 
 ### 10 Mockup Templates Bundle 35
 - URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-35/
@@ -48,13 +264,37 @@ Last Updated: 2026-10-02
 - Description: High-quality creative digital asset collection.
 - Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-35/cover.jpg
 
-### 10 Mockup Templates Bundle 36
-- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-36/
+### 10 Mockup Templates Bundle 34
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-34/
 - Category: Mockup Templates (mockup-templates)
 - Published: 2026-10-02
-- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.6 GB
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 2 GB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-36/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-34/cover.jpg
+
+### 10 Mockup Templates Bundle 33
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-33/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.74 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-33/cover.jpg
+
+### 10 Mockup Templates Bundle 32
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-32/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 1.26 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-32/cover.jpg
+
+### 10 Mockup Templates Bundle 31
+- URL: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-31/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-10-02
+- Tags: Mockup, Digital Assets, Graphic Design, PSDT, 627 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/10-mockup-templates-bundle-31/cover.jpg
 
 ### 24 Indesign Templates Bundle 36 2025
 - URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-36-2025/
@@ -88,101 +328,13 @@ Last Updated: 2026-10-02
 - Description: High-quality creative digital asset collection.
 - Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-39-2025/cover.jpg
 
-### 24 Christmas and Happy New Year Design Elements Bundle
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 10
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-10/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-10/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 2
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-2/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-2/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 3
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-3/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-3/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 4
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-4/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-4/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 5
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-5/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-5/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 6
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-6/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-6/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 7
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-7/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-7/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 8
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-8/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-8/cover.jpg
-
-### 24 Christmas and Happy New Year Design Elements Bundle 9
-- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-9/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, AI, EPS
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-9/cover.jpg
-
-### 24 Indesign Templates Bundle 41 2025
-- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-41-2025/
+### 24 Indesign Templates Bundle 44 2025
+- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-44-2025/
 - Category: InDesign Templates (indesign-templates)
 - Published: 2026-09-29
-- Tags: InDesign, Digital Assets, Graphic Design, INDD, 558 MB
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 974 MB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-41-2025/cover.jpg
-
-### 24 Indesign Templates Bundle 42 2025
-- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-42-2025/
-- Category: InDesign Templates (indesign-templates)
-- Published: 2026-09-29
-- Tags: InDesign, Digital Assets, Graphic Design, INDD, 816 MB
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-42-2025/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-44-2025/cover.jpg
 
 ### 24 Indesign Templates Bundle 43 2025
 - URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-43-2025/
@@ -192,45 +344,109 @@ Last Updated: 2026-10-02
 - Description: High-quality creative digital asset collection.
 - Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-43-2025/cover.jpg
 
-### 24 Indesign Templates Bundle 44 2025
-- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-44-2025/
+### 24 Indesign Templates Bundle 42 2025
+- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-42-2025/
 - Category: InDesign Templates (indesign-templates)
 - Published: 2026-09-29
-- Tags: InDesign, Digital Assets, Graphic Design, INDD, 974 MB
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 816 MB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-44-2025/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-42-2025/cover.jpg
 
-### 24 UX and UI Kits Templates Bundle 15
-- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-15/
+### 24 Indesign Templates Bundle 41 2025
+- URL: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-41-2025/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-09-29
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 558 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-indesign-templates-bundle-41-2025/cover.jpg
+
+### 24 Christmas and Happy New Year Design Elements Bundle 10
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-10/
 - Category: UI Design Kits (ui-design-kits)
 - Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, FIGMA, 201 MB
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-15/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-10/cover.jpg
 
-### 24 UX and UI Kits Templates Bundle 16
-- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-16/
+### 24 Christmas and Happy New Year Design Elements Bundle 9
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-9/
 - Category: UI Design Kits (ui-design-kits)
 - Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, FIGMA, 154 MB
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-16/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-9/cover.jpg
 
-### 24 UX and UI Kits Templates Bundle 17
-- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-17/
+### 24 Christmas and Happy New Year Design Elements Bundle 8
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-8/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-8/cover.jpg
+
+### 24 Christmas and Happy New Year Design Elements Bundle 7
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-7/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-7/cover.jpg
+
+### 24 Christmas and Happy New Year Design Elements Bundle 6
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-6/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-6/cover.jpg
+
+### 24 Christmas and Happy New Year Design Elements Bundle 5
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-5/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-5/cover.jpg
+
+### 24 Christmas and Happy New Year Design Elements Bundle 4
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-4/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-4/cover.jpg
+
+### 24 Christmas and Happy New Year Design Elements Bundle 3
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-3/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-3/cover.jpg
+
+### 24 Christmas and Happy New Year Design Elements Bundle 2
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-2/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle-2/cover.jpg
+
+### 24 Christmas and Happy New Year Design Elements Bundle
+- URL: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-christmas-and-happy-new-year-design-elements-bundle/cover.jpg
+
+### 24 UX and UI Kits Templates Bundle 20
+- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-20/
 - Category: UI Design Kits (ui-design-kits)
 - Published: 2026-09-29
 - Tags: UI, Digital Assets, Graphic Design, FIGMA, 211 MB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-17/cover.jpg
-
-### 24 UX and UI Kits Templates Bundle 18
-- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-18/
-- Category: UI Design Kits (ui-design-kits)
-- Published: 2026-09-29
-- Tags: UI, Digital Assets, Graphic Design, FIGMA, 15 MB
-- Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-18/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-20/cover.jpg
 
 ### 24 UX and UI Kits Templates Bundle 19
 - URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-19/
@@ -240,10 +456,34 @@ Last Updated: 2026-10-02
 - Description: High-quality creative digital asset collection.
 - Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-19/cover.jpg
 
-### 24 UX and UI Kits Templates Bundle 20
-- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-20/
+### 24 UX and UI Kits Templates Bundle 18
+- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-18/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 15 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-18/cover.jpg
+
+### 24 UX and UI Kits Templates Bundle 17
+- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-17/
 - Category: UI Design Kits (ui-design-kits)
 - Published: 2026-09-29
 - Tags: UI, Digital Assets, Graphic Design, FIGMA, 211 MB
 - Description: High-quality creative digital asset collection.
-- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-20/cover.jpg
+- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-17/cover.jpg
+
+### 24 UX and UI Kits Templates Bundle 16
+- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-16/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 154 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-16/cover.jpg
+
+### 24 UX and UI Kits Templates Bundle 15
+- URL: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-15/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-09-29
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 201 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-ux-and-ui-kits-templates-bundle-15/cover.jpg

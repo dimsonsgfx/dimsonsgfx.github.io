@@ -16,5 +16,5 @@ High-quality creative digital asset collection.
 
 **Technical Details:** BLEND | GLB | 481 MB
 
-- **Category:** 3D Print Models
+- **Category:** 3D Models
 - **Download:** Available via our official Telegram channel [**@dimsonsgfx**](https://t.me/dimsonsgfx/40)

@@ -17,7 +17,7 @@ from datetime import datetime
 SITE_URL    = "https://dimsonsgfx.github.io"
 SITE_NAME   = "DIMSONSGFX"
 SITE_AUTHOR = "DIMSONSGFX"
-BASE  = r"C:\Users\dimso\dimsonsgfx-site"
+BASE  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA  = os.path.join(BASE, "data")
 TODAY = datetime.now().strftime("%Y-%m-%d")
 
@@ -305,11 +305,13 @@ def schema_category(cat, canonical, count):
 # NEW CATEGORIES AND WORKS DEFINITION (ENGLISH)
 # ══════════════════════════════════════════════
 CATEGORIES = [
-  {"slug":"3d-print-models",    "label":"3D Print Models",     "icon":"", "description":"High-detail STL and OBJ 3D printable models, figurines, functional gadgets, and cosplay props."},
+  {"slug":"3d-print-models",     "label":"3D Models",            "icon":"", "description":"High-detail Blender 3D models, Cinema 4D assets, FBX/OBJ scenes, and STL printable models."},
   {"slug":"powerpoint-templates","label":"PowerPoint Templates", "icon":"", "description":"Modern pitch deck templates, corporate business slides, and animated presentation designs."},
   {"slug":"indesign-templates",  "label":"InDesign Templates",   "icon":"", "description":"Editorial layouts, brochures, portfolio lookbooks, magazine spreads, and brand guidelines."},
   {"slug":"mockup-templates",    "label":"Mockup Templates",     "icon":"", "description":"Photorealistic PSD device scenes, packaging mockups, stationery branding, and apparel renders."},
-  {"slug":"ui-design-kits",      "label":"UI Design Kits",       "icon":"", "description":"Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components."}
+  {"slug":"ui-design-kits",      "label":"UI Design Kits",       "icon":"", "description":"Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components."},
+  {"slug":"video-templates",     "label":"Video Templates",      "icon":"", "description":"Professional DaVinci Resolve, After Effects, and Premiere Pro video templates, openers, and motion graphics."},
+  {"slug":"fonts",               "label":"Fonts",                "icon":"", "description":"Curated display typefaces, modern serif and sans-serif font bundles, OTF/TTF typography packs."}
 ]
 
 WORKS = []
@@ -318,7 +320,7 @@ def load_markdown_works(works_dir):
     extra = []
     if not os.path.exists(works_dir):
         return extra
-    cat_lookup = {c["slug"]: c.get("name", c["slug"]) for c in CATEGORIES}
+    cat_lookup = {c["slug"]: c.get("label", c.get("name", c["slug"])) for c in CATEGORIES}
     for entry in os.scandir(works_dir):
         if entry.is_dir():
             md_path = os.path.join(entry.path, "post.md")
@@ -406,7 +408,11 @@ works_by_cat = {}
 for w in works:
     works_by_cat.setdefault(w["category"], []).append(w)
 
-sorted_works = sorted(works, key=lambda w: w.get("date",""), reverse=True)
+sorted_works = sorted(
+    works,
+    key=lambda w: (w.get("date", ""), int(w.get("telegram_post_id") or 0)),
+    reverse=True
+)
 PER_PAGE = 12
 
 # ── Navigation helpers ──────────────────────────

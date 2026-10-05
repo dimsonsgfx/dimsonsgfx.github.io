@@ -9,11 +9,13 @@ License: Creative digital design assets for personal and commercial usage
 
 ## Collections
 
-- [3D Print Models](https://dimsonsgfx.github.io/category/3d-print-models/): High-detail STL and OBJ 3D printable models, figurines, functional gadgets, and cosplay props.
+- [3D Models](https://dimsonsgfx.github.io/category/3d-print-models/): High-detail Blender 3D models, Cinema 4D assets, FBX/OBJ scenes, and STL printable models.
 - [PowerPoint Templates](https://dimsonsgfx.github.io/category/powerpoint-templates/): Modern pitch deck templates, corporate business slides, and animated presentation designs.
 - [InDesign Templates](https://dimsonsgfx.github.io/category/indesign-templates/): Editorial layouts, brochures, portfolio lookbooks, magazine spreads, and brand guidelines.
 - [Mockup Templates](https://dimsonsgfx.github.io/category/mockup-templates/): Photorealistic PSD device scenes, packaging mockups, stationery branding, and apparel renders.
 - [UI Design Kits](https://dimsonsgfx.github.io/category/ui-design-kits/): Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components.
+- [Video Templates](https://dimsonsgfx.github.io/category/video-templates/): Professional DaVinci Resolve, After Effects, and Premiere Pro video templates, openers, and motion graphics.
+- [Fonts](https://dimsonsgfx.github.io/category/fonts/): Curated display typefaces, modern serif and sans-serif font bundles, OTF/TTF typography packs.
 
 ## Machine-Readable Data
 

@@ -2,7 +2,7 @@
 title: "24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 04"
 slug: "24-in-1-pro-davinci-resolve-video-templates-pack-vol-04"
 date: "2026-10-04"
-category: "indesign-templates"
+category: "video-templates"
 tags: ["InDesign", "Digital Assets", "Graphic Design", "DRP", "944 MB"]
 cover: "cover.jpg"
 download_url: "https://t.me/dimsonsgfx/35"
@@ -16,5 +16,5 @@ High-quality creative digital asset collection.
 
 **Technical Details:** DRP | 944 MB
 
-- **Category:** InDesign Templates
+- **Category:** Video Templates
 - **Download:** Available via our official Telegram channel [**@dimsonsgfx**](https://t.me/dimsonsgfx/35)

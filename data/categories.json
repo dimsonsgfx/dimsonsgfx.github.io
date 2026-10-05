@@ -1,9 +1,9 @@
 [
   {
     "slug": "3d-print-models",
-    "label": "3D Print Models",
+    "label": "3D Models",
     "icon": "",
-    "description": "High-detail STL and OBJ 3D printable models, figurines, functional gadgets, and cosplay props."
+    "description": "High-detail Blender 3D models, Cinema 4D assets, FBX/OBJ scenes, and STL printable models."
   },
   {
     "slug": "powerpoint-templates",
@@ -28,5 +28,17 @@
     "label": "UI Design Kits",
     "icon": "",
     "description": "Modern Figma UI kits, mobile app design systems, dashboard interfaces, and web components."
+  },
+  {
+    "slug": "video-templates",
+    "label": "Video Templates",
+    "icon": "",
+    "description": "Professional DaVinci Resolve, After Effects, and Premiere Pro video templates, openers, and motion graphics."
+  },
+  {
+    "slug": "fonts",
+    "label": "Fonts",
+    "icon": "",
+    "description": "Curated display typefaces, modern serif and sans-serif font bundles, OTF/TTF typography packs."
   }
 ]

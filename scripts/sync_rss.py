@@ -32,10 +32,28 @@ DEFAULT_TG_TOKEN = "8639708447:AAGXumHk_VfSCF9W9YuYjh2rq7ImceQo_s8"
 
 CATEGORY_MAP = [
     {
+        "slug": "video-templates",
+        "name": "Video Templates",
+        "tag": "VideoTemplates",
+        "keywords": ["davinci resolve", "davinci", "after effects", "premiere pro", "premiere", "aep", "mogrt", "drp", "drfx", "video template", "video templates", "motion graphics", "opener"]
+    },
+    {
+        "slug": "fonts",
+        "name": "Fonts",
+        "tag": "Fonts",
+        "keywords": ["font", "fonts", "typeface", "typography", "otf", "ttf", "woff"]
+    },
+    {
+        "slug": "3d-print-models",
+        "name": "3D Models",
+        "tag": "3DModels",
+        "keywords": ["blender", "3d model", "3d models", "cinema 4d", "c4d", "fbx", "obj", "stl", "3d print", "3d assets", "other 3d content", "miniature", "cosplay", "action figure", "print in place"]
+    },
+    {
         "slug": "indesign-templates",
         "name": "InDesign Templates",
         "tag": "InDesign",
-        "keywords": ["indesign", "indd", "magazine", "brochure", "editorial", "flyer", "lookbook", "annual report"]
+        "keywords": ["indesign", "indd", "idml", "magazine", "brochure", "editorial", "flyer", "lookbook", "annual report"]
     },
     {
         "slug": "powerpoint-templates",
@@ -48,12 +66,6 @@ CATEGORY_MAP = [
         "name": "Mockup Templates",
         "tag": "Mockup",
         "keywords": ["mockup", "psd mockup", "psdt", "packaging", "branding mockup", "scene generator", "device mockup", "iphone", "t-shirt"]
-    },
-    {
-        "slug": "3d-print-models",
-        "name": "3D Print Models",
-        "tag": "3DPrint",
-        "keywords": ["3d print", "stl", "obj", "3d model", "miniature", "cosplay", "action figure", "print in place"]
     },
     {
         "slug": "ui-design-kits",
@@ -81,15 +93,19 @@ def save_synced_state(state):
 
 
 def detect_category(title, rss_category):
+    t_low = title.lower()
+    # Priority 1: match title keywords first so title overrides generic RSS category
+    for cat in CATEGORY_MAP:
+        for kw in cat["keywords"]:
+            if kw in t_low:
+                return cat
+    # Priority 2: match combined title + rss_category
     combined = f"{title} {rss_category}".lower()
     for cat in CATEGORY_MAP:
         for kw in cat["keywords"]:
             if kw in combined:
                 return cat
-    # Default fallback
-    if "vector" in combined or "elements" in combined:
-        return CATEGORY_MAP[4]  # ui-design-kits
-    return CATEGORY_MAP[0]  # fallback to indesign-templates
+    return CATEGORY_MAP[-1]  # fallback to ui-design-kits
 
 
 def generate_slug(title):
@@ -180,11 +196,9 @@ def send_telegram_photo(token, chat_id, photo_bytes, filename, caption):
             raise Exception(f"Telegram API returned not ok: {res}")
 
 
-def parse_rss_feed(feed_url):
-    parsed_feed = urlparse(feed_url)
-    base_origin = f"{parsed_feed.scheme}://{parsed_feed.netloc}"
+def parse_single_rss_page(page_url, base_origin):
     req = urllib.request.Request(
-        feed_url,
+        page_url,
         headers={
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
         }
@@ -206,7 +220,6 @@ def parse_rss_feed(feed_url):
         content_encoded = (item.findtext(content_ns_tag) or "").strip()
         desc_html = content_encoded if content_encoded else desc_raw
 
-        # Extract image URL from content:encoded or description
         img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', desc_html, re.IGNORECASE)
         if not img_match and desc_raw:
             img_match = re.search(r'src=["\']([^"\']+)["\']', desc_raw, re.IGNORECASE)
@@ -229,6 +242,35 @@ def parse_rss_feed(feed_url):
             "img_url": img_url
         })
     return items
+
+
+def parse_rss_feed(feed_url, max_pages=5):
+    parsed_feed = urlparse(feed_url)
+    base_origin = f"{parsed_feed.scheme}://{parsed_feed.netloc}"
+    all_items = parse_single_rss_page(feed_url, base_origin)
+
+    # For WordPress feeds (/feed/), paginate ?paged=2..max_pages so batches >10 posts are never missed
+    if "/feed" in parsed_feed.path.lower():
+        seen_links = {it["link"] for it in all_items}
+        for page_num in range(2, max_pages + 1):
+            sep = "&" if "?" in feed_url else "?"
+            paged_url = f"{feed_url}{sep}paged={page_num}"
+            try:
+                page_items = parse_single_rss_page(paged_url, base_origin)
+                if not page_items:
+                    break
+                added = 0
+                for it in page_items:
+                    if it["link"] not in seen_links:
+                        seen_links.add(it["link"])
+                        all_items.append(it)
+                        added += 1
+                if added == 0:
+                    break
+            except Exception:
+                break
+
+    return all_items
 
 
 def main():
