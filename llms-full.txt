@@ -3,10 +3,42 @@
 > Comprehensive manifest of all digital creative assets, 3D print models, and design templates published on DIMSONSGFX.
 
 Website: https://dimsonsgfx.github.io
-Total Works: 60
+Total Works: 64
 Last Updated: 2026-10-11
 
 ## Works Directory
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 10
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-10/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-10-11
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 39 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-10/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 9
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-9/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-10-11
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 60 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-9/cover.jpg
+
+### 24 in 1 – Ultimate Designer Font Bundle Vol. 08
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-08/
+- Category: Fonts (fonts)
+- Published: 2026-10-11
+- Tags: Fonts, Digital Assets, Graphic Design, OTF, TTF, 24 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-08/cover.jpg
+
+### RSS in offline mode
+- URL: https://dimsonsgfx.github.io/works/rss-in-offline-mode/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-10-11
+- Tags: UI, Digital Assets, Graphic Design
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/rss-in-offline-mode/cover.jpg
 
 ### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 01
 - URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-01/
