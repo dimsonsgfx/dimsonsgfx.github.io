@@ -3,10 +3,26 @@
 > Comprehensive manifest of all digital creative assets, 3D print models, and design templates published on DIMSONSGFX.
 
 Website: https://dimsonsgfx.github.io
-Total Works: 64
+Total Works: 66
 Last Updated: 2026-10-13
 
 ## Works Directory
+
+### 24-in-1 Responsive WordPress Themes Collection for Business, SaaS & Agency Vol. 1
+- URL: https://dimsonsgfx.github.io/works/24-in-1-responsive-wordpress-themes-collection-for-business/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-10-13
+- Tags: UI, Digital Assets, Graphic Design, WordPress, PHP, HTML5, CSS3, JS, 358 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-responsive-wordpress-themes-collection-for-business/cover.jpg
+
+### 24-in-1 Modern HTML5, React & Tailwind Website Templates Bundle Vol. 2
+- URL: https://dimsonsgfx.github.io/works/24-in-1-modern-html5-react-tailwind-website-templates-bundle/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-10-13
+- Tags: UI, Digital Assets, Graphic Design, HTML5, CSS3, JS, React, Tailwind, Bootstrap, 738 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-modern-html5-react-tailwind-website-templates-bundle/cover.jpg
 
 ### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 10
 - URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-10/
