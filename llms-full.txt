@@ -3,10 +3,210 @@
 > Comprehensive manifest of all digital creative assets, 3D print models, and design templates published on DIMSONSGFX.
 
 Website: https://dimsonsgfx.github.io
-Total Works: 135
+Total Works: 160
 Last Updated: 2026-11-01
 
 ## Works Directory
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 19
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-19/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-01
+- Tags: Video, Digital Assets, Graphic Design, DRP, 1.99 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-19/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 18
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-18/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-01
+- Tags: Video, Digital Assets, Graphic Design, DRP, 4.07 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-18/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 17
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-17/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-01
+- Tags: Video, Digital Assets, Graphic Design, DRP, 5.14 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-17/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 16
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-16/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-01
+- Tags: Video, Digital Assets, Graphic Design, DRP, 2.44 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-16/cover.jpg
+
+### 24 in 1 Photoshop Flyer Templates Bundle – Vol. 10
+- URL: https://dimsonsgfx.github.io/works/24-in-1-photoshop-flyer-templates-bundle-vol-10/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-01
+- Tags: InDesign, Digital Assets, Graphic Design, PSD, 384 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-photoshop-flyer-templates-bundle-vol-10/cover.jpg
+
+### 24 in 1 Photoshop Flyer Templates Bundle – Vol. 09
+- URL: https://dimsonsgfx.github.io/works/24-in-1-photoshop-flyer-templates-bundle-vol-09/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-01
+- Tags: InDesign, Digital Assets, Graphic Design, PSD, 331 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-photoshop-flyer-templates-bundle-vol-09/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 21
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-21/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-01
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 368 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-21/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 20
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-20/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-01
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 295 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-20/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 19
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-19/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-01
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 330 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-19/cover.jpg
+
+### Figma Website Templates Pack Vol.5 – 24 Premium UI Designs
+- URL: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-5-24-premium-ui-designs/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-01
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 244 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-5-24-premium-ui-designs/cover.jpg
+
+### Figma Website Templates Pack Vol.4 – 24 Premium UI Designs
+- URL: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-4-24-premium-ui-designs/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-01
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 47 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-4-24-premium-ui-designs/cover.jpg
+
+### Figma Website Templates Pack Vol.3 – 24 Premium UI Designs
+- URL: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-3-24-premium-ui-designs/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-01
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 56 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-3-24-premium-ui-designs/cover.jpg
+
+### Figma Website Templates Pack Vol.1 – 24 Premium UI Designs
+- URL: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-1-24-premium-ui-designs/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-01
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 70 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-1-24-premium-ui-designs/cover.jpg
+
+### Figma Website Templates Pack Vol.2 – 24 Premium UI Designs
+- URL: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-2-24-premium-ui-designs/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-01
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 299 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/figma-website-templates-pack-vol-2-24-premium-ui-designs/cover.jpg
+
+### 24 in 1 – Professional PSD Mockups & Branding Bundle Vol. 10
+- URL: https://dimsonsgfx.github.io/works/24-in-1-professional-psd-mockups-branding-bundle-vol-10/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-11-01
+- Tags: Mockup, Digital Assets, Graphic Design, PSD, 12.93 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-professional-psd-mockups-branding-bundle-vol-10/cover.jpg
+
+### 24 in 1 – Professional PSD Mockups & Branding Bundle Vol. 09
+- URL: https://dimsonsgfx.github.io/works/24-in-1-professional-psd-mockups-branding-bundle-vol-09/
+- Category: Mockup Templates (mockup-templates)
+- Published: 2026-11-01
+- Tags: Mockup, Digital Assets, Graphic Design, PSD, 7.24 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-professional-psd-mockups-branding-bundle-vol-09/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 14
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-14/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-01
+- Tags: Video, Digital Assets, Graphic Design, DRP, 3.89 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-14/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 15
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-15/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-01
+- Tags: Video, Digital Assets, Graphic Design, DRP, 6.57 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-15/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 12
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-12/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-01
+- Tags: Video, Digital Assets, Graphic Design, DRP, 2.05 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-12/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 20
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-20/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-01
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 163 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-20/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 13
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-13/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-01
+- Tags: Video, Digital Assets, Graphic Design, DRP, 1.68 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-13/cover.jpg
+
+### 24 in 1 – Ultimate Designer Font Bundle Vol. 15
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-15/
+- Category: Fonts (fonts)
+- Published: 2026-11-01
+- Tags: Fonts, Digital Assets, Graphic Design, OTF, TTF, 10 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-15/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 19
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-19/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-01
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 51 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-19/cover.jpg
+
+### 24 in 1 – Ultimate Designer Font Bundle Vol. 14
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-14/
+- Category: Fonts (fonts)
+- Published: 2026-11-01
+- Tags: Fonts, Digital Assets, Graphic Design, OTF, TTF, 5 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-14/cover.jpg
+
+### 24 in 1 – Ultimate Designer Font Bundle Vol. 13
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-13/
+- Category: Fonts (fonts)
+- Published: 2026-11-01
+- Tags: Fonts, Digital Assets, Graphic Design, OTF, TTF, 7 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-designer-font-bundle-vol-13/cover.jpg
 
 ### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 18
 - URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-18/
