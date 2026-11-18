@@ -3,10 +3,386 @@
 > Comprehensive manifest of all digital creative assets, 3D print models, and design templates published on DIMSONSGFX.
 
 Website: https://dimsonsgfx.github.io
-Total Works: 160
+Total Works: 207
 Last Updated: 2026-11-18
 
 ## Works Directory
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 32
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-32/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 676 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-32/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 31
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-31/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 491 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-31/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 30
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-30/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 488 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-30/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 28
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-28/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 340 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-28/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 29
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-29/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 431 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-29/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 27
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-27/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 377 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-27/cover.jpg
+
+### 24 in 1 – Figma & Web Design UI Kit Pack Vol. 18
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-18/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 175 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-18/cover.jpg
+
+### 24 in 1 – Figma & Web Design UI Kit Pack Vol. 17
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-17/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 40 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-17/cover.jpg
+
+### 24 in 1 – Figma & Web Design UI Kit Pack Vol. 16
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-16/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 155 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-16/cover.jpg
+
+### 24 in 1 – Figma & Web Design UI Kit Pack Vol. 15
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-15/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 23 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-15/cover.jpg
+
+### 24 in 1 – Figma & Web Design UI Kit Pack Vol. 13
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-13/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 70 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-13/cover.jpg
+
+### 24 in 1 – Figma & Web Design UI Kit Pack Vol. 14
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-14/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 83 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-14/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 34
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-34/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-18
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 631 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-34/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 33
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-33/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-18
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 303 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-33/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 31
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-31/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-18
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 146 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-31/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 32
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-32/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-18
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 233 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-32/cover.jpg
+
+### 24-in-1 Ultimate Adobe InDesign Templates Bundle – Vol. 30
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-30/
+- Category: InDesign Templates (indesign-templates)
+- Published: 2026-11-18
+- Tags: InDesign, Digital Assets, Graphic Design, INDD, 3.02 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-indesign-templates-bundle-vol-30/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 23
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-23/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-18
+- Tags: Video, Digital Assets, Graphic Design, DRP, 4.78 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-23/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 26
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-26/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 441 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-26/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 22
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-22/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-18
+- Tags: Video, Digital Assets, Graphic Design, DRP, 6.80 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-22/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 24
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-24/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 309 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-24/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 25
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-25/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 627 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-25/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 23
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-23/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 222 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-23/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 22
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-22/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 1.30 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-22/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 20
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-20/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 341 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-20/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 17
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-17/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 486 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-17/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 18
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-18/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 301 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-18/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 31
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-31/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 16 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-31/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 15
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-15/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, 878 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-15/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 29
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-29/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 40 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-29/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 30
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-30/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 30 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-30/cover.jpg
+
+### 24-in-1 Ultimate PowerPoint Presentation Bundle – Vol. 27
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-27/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, PPTX, 42 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-powerpoint-presentation-bundle-vol-27/cover.jpg
+
+### 24-in-1 Ultimate Seamless Vector Patterns Bundle – Vol. 8
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-seamless-vector-patterns-bundle-vol-8/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS, 451 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-seamless-vector-patterns-bundle-vol-8/cover.jpg
+
+### 24-in-1 Ultimate Seamless Vector Patterns Bundle – Vol. 9
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-seamless-vector-patterns-bundle-vol-9/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS, 154 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-seamless-vector-patterns-bundle-vol-9/cover.jpg
+
+### 24-in-1 Ultimate Seamless Vector Patterns Bundle – Vol. 7
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-seamless-vector-patterns-bundle-vol-7/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, AI, EPS, 221 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-seamless-vector-patterns-bundle-vol-7/cover.jpg
+
+### 24-in-1 Ultimate Keynote Presentation Bundle – Vol. 6
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-6/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, KEY, 71 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-6/cover.jpg
+
+### 24-in-1 Ultimate Keynote Presentation Bundle – Vol. 4
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-4/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, KEY, 70 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-4/cover.jpg
+
+### 24-in-1 Ultimate Keynote Presentation Bundle – Vol. 5
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-5/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, KEY, 63 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-5/cover.jpg
+
+### 24-in-1 Ultimate Keynote Presentation Bundle – Vol. 2
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-2/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, KEY, 64 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-2/cover.jpg
+
+### 24-in-1 Ultimate Keynote Presentation Bundle – Vol. 1
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-1/
+- Category: PowerPoint Templates (powerpoint-templates)
+- Published: 2026-11-18
+- Tags: PowerPoint, Digital Assets, Graphic Design, KEY, 38 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-keynote-presentation-bundle-vol-1/cover.jpg
+
+### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 21
+- URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-21/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-18
+- Tags: Video, Digital Assets, Graphic Design, DRP, 4.86 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-21/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 14
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-14/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, GLB, 351 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-14/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 13
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-13/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, GLB, 428 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-13/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 12
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-12/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, GLB, 580 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-12/cover.jpg
+
+### 24 in 1 – Ultimate Blender 3D Models & Assets Bundle Vol. 11
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-11/
+- Category: 3D Models (3d-print-models)
+- Published: 2026-11-18
+- Tags: 3D, Digital Assets, Graphic Design, BLEND, GLB, 334 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-blender-3d-models-assets-bundle-vol-11/cover.jpg
+
+### 24-in-1 Ultimate Adobe After Effects Templates Bundle – Vol. 11
+- URL: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-after-effects-templates-bundle-vol-11/
+- Category: Video Templates (video-templates)
+- Published: 2026-11-18
+- Tags: Video, Digital Assets, Graphic Design, AEP, 8.85 GB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-ultimate-adobe-after-effects-templates-bundle-vol-11/cover.jpg
+
+### 24 in 1 – Figma & Web Design UI Kit Pack Vol. 12
+- URL: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-12/
+- Category: UI Design Kits (ui-design-kits)
+- Published: 2026-11-18
+- Tags: UI, Digital Assets, Graphic Design, FIGMA, 22 MB
+- Description: High-quality creative digital asset collection.
+- Image: https://dimsonsgfx.github.io/works/24-in-1-figma-web-design-ui-kit-pack-vol-12/cover.jpg
 
 ### 24 in 1 – Pro DaVinci Resolve Video Templates Pack Vol. 19
 - URL: https://dimsonsgfx.github.io/works/24-in-1-pro-davinci-resolve-video-templates-pack-vol-19/
